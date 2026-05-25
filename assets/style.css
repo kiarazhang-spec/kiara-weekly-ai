@@ -145,6 +145,17 @@ ul.compact li::before {
   margin-bottom: 10px;
 }
 .meta-line strong { color: var(--text); }
+/* 来源行的链接：默认完全融入灰字，hover 才显形 */
+.meta-line a {
+  color: inherit;
+  border-bottom: none;
+  text-decoration: none;
+  transition: color 0.15s ease, border-bottom-color 0.15s ease;
+}
+.meta-line a:hover {
+  color: var(--green);
+  border-bottom: 1px solid var(--green);
+}
 
 .body-block { margin-bottom: 10px; line-height: 1.85; }
 .body-block strong { color: var(--text); font-weight: 700; }
