@@ -1,0 +1,287 @@
+/* ========== AI 每周简报 · 全站公用样式 ==========
+   风格：Stratechery 极简学术
+   主题色：仅一抹绿 #2D8B3E
+*/
+:root {
+  --green: #2D8B3E;
+  --green-soft: #E8F3EA;
+  --text: #1F2937;
+  --text-soft: #4B5563;
+  --text-faint: #9CA3AF;
+  --line: #E5E7EB;
+  --line-strong: #1F2937;
+  --bg: #FFFFFF;
+  --bg-soft: #F8F9FA;
+
+  --fs-h1: 30px;
+  --fs-h2: 22px;
+  --fs-h3: 17px;
+  --fs-body: 15.5px;
+  --fs-small: 14px;
+  --fs-tiny: 12.5px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB",
+               "Microsoft YaHei", Georgia, "Helvetica Neue", Arial, sans-serif;
+  color: var(--text);
+  background: #ECEDEF;
+  line-height: 1.85;
+  font-size: var(--fs-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+.page {
+  max-width: 760px;
+  margin: 32px auto;
+  background: var(--bg);
+  padding: 64px 72px 72px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.04);
+}
+
+/* ===== 报头 ===== */
+.masthead { margin-bottom: 32px; }
+.masthead-kicker {
+  color: var(--green);
+  font-size: var(--fs-tiny);
+  letter-spacing: 2.5px;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.masthead-title {
+  font-size: var(--fs-h1);
+  font-weight: 700;
+  line-height: 1.35;
+  margin-bottom: 10px;
+  color: var(--text);
+}
+.masthead-meta {
+  color: var(--text-faint);
+  font-size: var(--fs-small);
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 24px;
+}
+
+/* ===== 一句话总览 ===== */
+.lead {
+  border-left: 3px solid var(--green);
+  background: var(--green-soft);
+  padding: 18px 22px;
+  margin: 32px 0 40px;
+  color: var(--text);
+  font-size: 15.5px;
+  line-height: 1.85;
+}
+.lead strong { color: var(--green); font-weight: 700; }
+
+/* ===== 章节标题 ===== */
+h2.section-title {
+  font-size: var(--fs-h2);
+  font-weight: 700;
+  margin: 48px 0 8px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--green);
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+h2.section-title .icon { font-size: 20px; line-height: 1; }
+h2.section-title .en {
+  font-size: var(--fs-small);
+  color: var(--text-faint);
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  margin-left: auto;
+}
+
+/* ===== 子标题 ===== */
+h3.item-title {
+  font-size: var(--fs-h3);
+  font-weight: 700;
+  margin: 28px 0 10px;
+  color: var(--text);
+  line-height: 1.5;
+}
+h3.item-title .num { color: var(--green); margin-right: 6px; }
+
+h4.subcat-title {
+  font-size: var(--fs-body);
+  font-weight: 700;
+  margin: 28px 0 12px;
+  color: var(--text);
+  padding-left: 10px;
+  border-left: 3px solid var(--green);
+}
+
+/* ===== 段落 / 列表 ===== */
+p { margin-bottom: 12px; line-height: 1.85; text-align: justify; }
+p.body-text { margin-bottom: 10px; }
+
+ul.compact {
+  list-style: none;
+  margin: 8px 0 14px;
+  padding-left: 0;
+}
+ul.compact li {
+  padding: 4px 0 4px 18px;
+  position: relative;
+  line-height: 1.8;
+}
+ul.compact li::before {
+  content: "·";
+  position: absolute;
+  left: 6px;
+  top: 0;
+  color: var(--green);
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.meta-line {
+  font-size: var(--fs-small);
+  color: var(--text-soft);
+  margin-bottom: 10px;
+}
+.meta-line strong { color: var(--text); }
+
+.body-block { margin-bottom: 10px; line-height: 1.85; }
+.body-block strong { color: var(--text); font-weight: 700; }
+
+.perspective {
+  background: var(--bg-soft);
+  border-left: 3px solid var(--green);
+  padding: 12px 18px;
+  margin: 12px 0 8px;
+  font-size: var(--fs-small);
+  line-height: 1.8;
+  color: var(--text-soft);
+}
+.perspective strong { color: var(--text); font-weight: 700; }
+.perspective .label { color: var(--green); font-weight: 700; margin-right: 4px; }
+
+a {
+  color: var(--green);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--green);
+}
+a:hover { border-bottom-style: solid; }
+
+.em-num { color: var(--green); font-weight: 700; }
+
+hr.divider {
+  border: none;
+  border-top: 1px solid var(--line);
+  margin: 40px 0;
+}
+
+.footnote-block {
+  background: var(--bg-soft);
+  padding: 18px 22px;
+  border-radius: 4px;
+  font-size: var(--fs-small);
+  color: var(--text-soft);
+  line-height: 1.8;
+  margin-top: 18px;
+}
+.footnote-block strong { color: var(--text); font-weight: 700; }
+.footnote-block ul { list-style: disc; padding-left: 22px; margin: 8px 0; }
+.footnote-block li { padding: 3px 0; }
+
+.footer {
+  margin-top: 56px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+  color: var(--text-faint);
+  font-size: var(--fs-small);
+  text-align: center;
+  line-height: 1.7;
+}
+
+/* ===== 首页归档列表 ===== */
+.archive-section {
+  margin-top: 48px;
+  padding-top: 32px;
+  border-top: 1px solid var(--line);
+}
+.archive-list {
+  list-style: none;
+  margin: 16px 0 0;
+  padding: 0;
+}
+.archive-list li {
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line);
+}
+.archive-list li:last-child { border-bottom: none; }
+.archive-list .archive-link {
+  display: block;
+  border-bottom: none;
+  color: var(--text);
+}
+.archive-list .archive-link:hover .archive-title { color: var(--green); }
+.archive-week {
+  display: inline-block;
+  color: var(--green);
+  font-weight: 700;
+  font-size: var(--fs-small);
+  letter-spacing: 1px;
+  margin-right: 12px;
+  min-width: 56px;
+}
+.archive-date {
+  color: var(--text-faint);
+  font-size: var(--fs-small);
+  margin-right: 12px;
+}
+.archive-title {
+  color: var(--text);
+  font-weight: 600;
+  transition: color 0.15s;
+}
+.archive-summary {
+  display: block;
+  margin-top: 6px;
+  margin-left: 68px;
+  color: var(--text-soft);
+  font-size: var(--fs-small);
+  line-height: 1.7;
+}
+.archive-empty {
+  color: var(--text-faint);
+  font-size: var(--fs-small);
+  padding: 16px 0;
+  text-align: center;
+}
+
+/* 首页"最新一期"标签 */
+.latest-badge {
+  display: inline-block;
+  background: var(--green);
+  color: white;
+  font-size: var(--fs-tiny);
+  letter-spacing: 1px;
+  padding: 2px 8px;
+  border-radius: 2px;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+
+/* "查看全部 →"按钮 */
+.view-all-link {
+  display: inline-block;
+  margin-top: 8px;
+  color: var(--text-soft);
+  font-size: var(--fs-small);
+  border-bottom: 1px dotted var(--text-faint);
+}
+.view-all-link:hover { color: var(--green); border-bottom-color: var(--green); }
+
+@media (max-width: 720px) {
+  .page { padding: 32px 22px; margin: 0; }
+  .masthead-title { font-size: 22px; }
+  h2.section-title { font-size: 18px; flex-wrap: wrap; }
+  h2.section-title .en { margin-left: 0; width: 100%; }
+  .archive-summary { margin-left: 0; }
+}

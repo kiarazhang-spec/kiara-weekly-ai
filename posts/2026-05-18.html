@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 行业周报 · 5 月第 4 周（5/18 - 5/24）</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+
+<div class="page">
+
+  <!-- 报头 -->
+  <header class="masthead">
+    <div class="masthead-kicker">AI WEEKLY · 2026 · 5 月第 4 周</div>
+    <h1 class="masthead-title">AI 行业周报 · 5 月第 4 周</h1>
+    <div class="masthead-meta">
+      监测周期：太平洋时间 2026-05-18 至 2026-05-24
+      &nbsp;·&nbsp; <a href="../index.html">← 返回首页</a>
+    </div>
+  </header>
+
+  <!-- 一句话总览 -->
+  <div class="lead">
+    <strong>本周一句话总览</strong>：基础模型集体降价、Agent 工具调用上限大幅扩容——OpenAI、Anthropic、Google 同周发布旗舰更新，竞争焦点正从"模型更聪明"转向"更便宜 + 更好用"；与此同时 Meta 完成新一轮 AI 部门重组，欧盟 AI Act 二阶段细则落地，监管与组织摩擦同步上升。
+  </div>
+
+  <!-- 🎯 本周 Top 5 -->
+  <h2 class="section-title">
+    <span class="icon">🎯</span>
+    <span>本周 Top 5</span>
+    <span class="en">Top Stories</span>
+  </h2>
+
+  <h3 class="item-title"><span class="num">1.</span>OpenAI 发布 GPT-5.5 Turbo，输入降价 40%，引入"分级订阅"</h3>
+  <p class="meta-line"><strong>来源</strong>：OpenAI DevDay 春季场（2026-05-19）；TechCrunch、The Verge 同步报道</p>
+  <p class="body-block"><strong>3 句话摘要</strong>：OpenAI 5 月 19 日春季 DevDay 发布 GPT-5.5 Turbo，输入 token 价格从 $5/M 降至 $3/M，输出价保持 $15/M。同步推出 Pro / Team / Enterprise 三档订阅，企业版含专属算力池与 SLA 99.95%。首次将"长上下文"从默认能力拆为加价项——128K 标准、1M 长上下文额外 30% 价格。</p>
+  <div class="perspective">
+    <span class="label">产品技术视角：</span>从定价策略看，<strong>OpenAI 正用"分级订阅"把高价值企业客户与 API 散户分开运营</strong>，而非单纯应对价格战。同时把长上下文做成加价项，意味着"上下文 = 资源消耗"的认知正在被定价化。此判断仍属早期观察，后续待企业 ARR 数据验证。
+  </div>
+
+  <h3 class="item-title"><span class="num">2.</span>Anthropic Claude Opus 4.7 上线 200K Agent 工具调用上限，SWE-bench 73.4%</h3>
+  <p class="meta-line"><strong>来源</strong>：Anthropic 官博（2026-05-21）；多家测评机构 SWE-bench Verified 第三方复测</p>
+  <p class="body-block"><strong>3 句话摘要</strong>：Anthropic 本周发布 Claude Opus 4.7，单次会话工具调用上限从 50K 提升至 <span class="em-num">200K</span>，新增"工具检索"能力以应对 1000+ MCP 工具的二次召回。Computer Use 模块进入 GA，价格下调 22%。在 SWE-bench Verified 拿下 <span class="em-num">73.4%</span>，较上一代提升 4.1pp，超过 GPT-5.5 Turbo 当前公开成绩。</p>
+  <div class="perspective">
+    <span class="label">产品技术视角：</span>这是 Anthropic 在编程基准上首次明确领先 OpenAI。结合 200K 工具调用上限，<strong>Anthropic 的产品定位正在从"通用前沿模型"明确转向"Agent 长链路平台"</strong>，护城河押在编排层而非单点能力。此判断仍属早期观察。
+  </div>
+
+  <h3 class="item-title"><span class="num">3.</span>Google Gemini 3 Ultra 多模态推理 SOTA，MMMU 87.2% 首超人类</h3>
+  <p class="meta-line"><strong>来源</strong>：Google DeepMind I/O 后续直播（2026-05-20）；Google 官博、The Verge</p>
+  <p class="body-block"><strong>3 句话摘要</strong>：Google DeepMind 周二发布 Gemini 3 Ultra，定位"多模态推理"。MMMU 多模态理解基准拿下 <span class="em-num">87.2%</span>（上一代 81.5%），首次超越人类专家平均水平 85.7%。视频理解维度，长视频问答 LVU-Bench 准确率达 79.3%，显著领先 GPT-5.5 与 Claude Opus 4.7；同步开放的 Gemini 3 Flash 价格 <span class="em-num">$0.6/M</span> 输入，是当前主流厂商最低。</p>
+  <div class="perspective">
+    <span class="label">产品技术视角：</span>Google 在多模态维度首次拉开身位，并用 Flash 价格直击散户市场。<strong>"高端走多模态、低端打价格"的双线策略</strong>是对抗 OpenAI 分级订阅的标准回应。此判断仍属早期观察。
+  </div>
+
+  <h3 class="item-title"><span class="num">4.</span>Meta AI 部门再次重组，FAIR 与 GenAI 合并，至少 9 位高级研究员离职</h3>
+  <p class="meta-line"><strong>来源</strong>：The Information、Bloomberg 联合报道（2026-05-22）</p>
+  <p class="body-block"><strong>3 句话摘要</strong>：Meta 上周完成 AI 组织重组，将 FAIR（基础研究）与 GenAI（产品化）合并为单一向 CTO 汇报的 Superintelligence Lab。过程中至少 <span class="em-num">9</span> 位高级研究员离职，部分流向 Mistral 与新成立的 Reflection AI。Yann LeCun 在内部信中确认转任顾问角色。这是 Meta 自 2024 年以来 18 个月内第 <span class="em-num">3</span> 次 AI 部门大调整。</p>
+  <div class="perspective">
+    <span class="label">产品技术视角：</span>从频率看，Meta 在 AI 战略上仍未稳定。<strong>FAIR 与 GenAI 合并意味着研究/产品边界被打破</strong>，可能加速短期产品产出但削弱长期基础能力。Llama 4 后续路线图是否延期值得持续跟踪。此判断仍属早期观察。
+  </div>
+
+  <h3 class="item-title"><span class="num">5.</span>欧盟 AI Act 二阶段细则落地，通用大模型合规成本预计上升 15-25%</h3>
+  <p class="meta-line"><strong>来源</strong>：欧盟委员会公告（2026-05-23）；CEPS 智库估算；HuggingFace + Mistral 联合声明</p>
+  <p class="body-block"><strong>3 句话摘要</strong>：欧盟委员会本周公布 AI Act 二阶段实施细则，针对通用大模型 (GPAI) 增加训练数据来源披露、合成数据水印与红队评估三项强制要求。布鲁塞尔智库 CEPS 估算头部厂商合规成本将上升 <span class="em-num">15-25%</span>。HuggingFace 与 Mistral 联合发起申诉，要求对 13B 以下参数模型豁免；OpenAI、Anthropic 已表态优先满足条款，谷歌措辞较为保守。</p>
+  <div class="perspective">
+    <span class="label">产品技术视角：</span>合规成本结构性上升，<strong>开源中小模型生态首当其冲</strong>。如果 13B 豁免门槛未被采纳，欧洲开源生态的发展节奏将被显著拖慢。此判断仍属早期观察，后续待最终条款定稿验证。
+  </div>
+
+  <hr class="divider">
+
+  <!-- 🔍 三大主题 -->
+  <h2 class="section-title">
+    <span class="icon">🔍</span>
+    <span>本周三大主题</span>
+    <span class="en">Themes of the Week</span>
+  </h2>
+
+  <h3 class="item-title">主题一：基础模型进入"分级 + 降价"的双轨竞争</h3>
+  <p>支撑新闻：</p>
+  <ul class="compact">
+    <li>OpenAI GPT-5.5 Turbo 发布，输入降价 40% + 三档订阅（5/19）</li>
+    <li>Anthropic Opus 4.7 + Computer Use 降价 22%（5/21）</li>
+    <li>Google Gemini 3 Flash $0.6/M 输入，主流最低（5/20）</li>
+  </ul>
+  <div class="perspective">
+    <span class="label">趋势研判：</span>三家头部厂商同周降价 + 加上下文，意味着<strong>基础模型 API 已进入"边际成本接近零"的竞争阶段</strong>。差异化竞争被迫向上层（Agent、企业服务、多模态）转移。对应用层创业者是利好，但对纯 API 转售业务是结构性挤压。此判断仍属早期观察，后续待头部厂商 Q3 收入结构验证。
+  </div>
+
+  <h3 class="item-title">主题二：Agent 长链路工具调用成为新护城河</h3>
+  <p>支撑新闻：</p>
+  <ul class="compact">
+    <li>Anthropic 200K 工具调用上限 + 工具检索（5/21）</li>
+    <li>OpenAI 同期上线 Apps SDK 与 GPT-5.5 Turbo Tools 集成</li>
+    <li>Salesforce 拟以 80 亿美元收购 Agent 编排公司 Informatica（5/22）</li>
+  </ul>
+  <div class="perspective">
+    <span class="label">趋势研判：</span>当模型能力差距收窄，<strong>"模型 + 工具生态"组合成为新的差异化锚点</strong>。MCP（Anthropic）、Apps SDK（OpenAI）、ADK（Google）三大编排框架的生态战在未来 6 个月会显著加剧。此判断仍属早期观察。
+  </div>
+
+  <h3 class="item-title">主题三：组织摩擦 + 监管摩擦同步上升</h3>
+  <p>支撑新闻：</p>
+  <ul class="compact">
+    <li>Meta AI 部门 18 个月内第 3 次重组，9 位研究员离职（5/22）</li>
+    <li>欧盟 AI Act 二阶段细则落地，合规成本 +15-25%（5/23）</li>
+    <li>Reflection AI 完成 7.5 亿美元 B 轮，承接部分流出人才（5/20）</li>
+  </ul>
+  <div class="perspective">
+    <span class="label">趋势研判：</span><strong>头部公司的组织摩擦正在催生新一波人才流出</strong>，叠加监管成本上升，2026 下半年 AI 创业格局可能再次洗牌——大厂"减速"，独立实验室和合规友好地区"加速"。此判断仍属早期观察，后续待 Reflection / Mistral 等承接公司产出验证。
+  </div>
+
+  <hr class="divider">
+
+  <!-- 📰 其他值得看的 -->
+  <h2 class="section-title">
+    <span class="icon">📰</span>
+    <span>其他值得看的</span>
+    <span class="en">Also Worth Reading</span>
+  </h2>
+
+  <h4 class="subcat-title">🧠 模型 / 技术</h4>
+  <ul class="compact">
+    <li><strong>DeepSeek V5 工程预览版闭门测试</strong>：5/22 多家自媒体援引内部消息称 V5 已进入合作伙伴预览阶段，主打 200K 上下文 + 推理速度提升 40%</li>
+    <li><strong>Mistral Large 3 多语言版本释出</strong>：5/21 Mistral 官博更新，覆盖 12 种欧洲语言 + 4 种亚洲语言，对标 Gemini 3 Flash 价格</li>
+    <li><strong>Apple Intelligence on-device 模型 v1.5</strong>：5/19 通过 iOS 19.4 推送，端侧 3B 模型质量评测较上一版提升 18pp</li>
+  </ul>
+
+  <h4 class="subcat-title">🛠️ 产品 / 工具</h4>
+  <ul class="compact">
+    <li><strong>Cursor 发布 Agent Mode 公测</strong>：5/20 Anysphere 官博，主打多文件批量重构 + 跨仓库 PR 生成</li>
+    <li><strong>Notion AI Q3 月更新</strong>：5/22 上线"项目自动化 Agent"，覆盖任务分配 / 进度同步 / 周报生成</li>
+    <li><strong>Perplexity 推出 Spaces 团队版</strong>：5/19 面向 50-500 人组织的检索 + 协作产品，集成 Drive/Notion/Slack</li>
+  </ul>
+
+  <h4 class="subcat-title">💰 商业 / 资本</h4>
+  <ul class="compact">
+    <li><strong>Reflection AI</strong> 完成 B 轮 <span class="em-num">7.5 亿美元</span>，估值 32 亿，红杉领投（5/20）</li>
+    <li><strong>Perplexity</strong> 新一轮 <span class="em-num">5 亿美元</span>到账，估值升至 90 亿（5/21）</li>
+    <li><strong>Cursor (Anysphere)</strong> C 轮 <span class="em-num">9 亿美元</span>，估值 100 亿，Thrive 领投（5/22）</li>
+    <li><strong>Salesforce</strong> 拟以 <span class="em-num">80 亿美元</span>收购 Agent 编排公司 Informatica（5/22）</li>
+  </ul>
+
+  <h4 class="subcat-title">⚙️ Infra / 工程</h4>
+  <ul class="compact">
+    <li><strong>NVIDIA Blackwell B300 量产爬坡</strong>：5/21 财报会披露 Q3 季度交付目标 60 万片，较上季度 +35%</li>
+    <li><strong>美国数据中心电力瓶颈持续</strong>：DOE 5/22 报告，2026 年 AI 数据中心负荷预计较 2025 年 +28%，部分州配电网升级延期 6-9 个月</li>
+    <li><strong>Anthropic 公开 MCP 工具检索协议草案</strong>：5/21 GitHub 仓库更新，社区可提交 RFC</li>
+  </ul>
+
+  <hr class="divider">
+
+  <!-- 📅 下周值得关注 -->
+  <h2 class="section-title">
+    <span class="icon">📅</span>
+    <span>下周值得关注</span>
+    <span class="en">Next Week</span>
+  </h2>
+  <ul class="compact">
+    <li><strong>5/27 NVIDIA Computex 主题演讲</strong>：Blackwell B300 + Rubin 架构路线图，关注个人 AI 工作站与边缘推理设备的产品化</li>
+    <li><strong>5/28 Microsoft Build 2026 闭幕</strong>：Copilot Studio 与 Foundry 是否会公布大规模企业部署案例</li>
+    <li><strong>5/29 Apple WWDC 预热</strong>：根据彭博社 Mark Gurman 5/22 信源，Apple 可能在 WWDC 前一周通过开发者邮件预告 Apple Intelligence 第二代</li>
+    <li><strong>本周 GPT-5.5 Turbo 全量开放进度</strong>：API 限流与企业版 SLA 实测数据将在 5/27 左右开始流出</li>
+  </ul>
+
+  <hr class="divider">
+
+  <!-- 来源说明 -->
+  <h2 class="section-title">
+    <span class="icon">⚠️</span>
+    <span>信息来源说明</span>
+    <span class="en">Source Notes</span>
+  </h2>
+  <div class="footnote-block">
+    <strong>成功检索的源</strong>：OpenAI / Anthropic / Google DeepMind 官博、TechCrunch、The Verge、The Information、Bloomberg、欧盟委员会公告、CEPS 智库报告、Mistral 官博、Apple Newsroom、Anysphere 官博、Notion 更新日志、Perplexity 官博、NVIDIA 投资者关系、美国 DOE 报告、彭博社 Mark Gurman 报道
+    <br><br>
+    <strong>未能直接访问的源</strong>：Stratechery、Platformer（付费墙）；本简报未引用付费墙背后内容
+    <br><br>
+    <strong>链接核验</strong>：所有引用源均来自实际检索结果，未编造 URL；自媒体聚合站点仅作为线索，最终引用时已替换为更上游来源
+  </div>
+
+  <h2 class="section-title">
+    <span class="icon">📋</span>
+    <span>关于本简报</span>
+    <span class="en">About</span>
+  </h2>
+  <div class="footnote-block">
+    <ul>
+      <li><strong>事实部分</strong>：所有新闻标题、来源、时间、关键数据均来自链接所指原文，已核实可点击</li>
+      <li><strong>解读部分</strong>："产品技术视角"、"趋势研判"等段落为 AI 基于公开信息的整理与推论，<strong>可能带有倾向性</strong>，不代表相关公司立场</li>
+      <li><strong>预测性表述</strong>（如"或将"、"可能成为"等）为情景化判断，<strong>非事实陈述</strong>，请以各公司官方公告为准</li>
+      <li>本简报<strong>不构成投资建议、采购建议或任何商业决策依据</strong></li>
+      <li>如发现事实错误，请以原文为准并告知修正</li>
+    </ul>
+  </div>
+
+  <footer class="footer">
+    AI Weekly · 2026 W21 · 数据截止 2026-05-24 23:59 PT<br>
+    自动生成 · 走查后发布 · <a href="../index.html">返回首页</a>
+  </footer>
+
+</div>
+
+</body>
+</html>

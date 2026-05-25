@@ -1,0 +1,145 @@
+name: Auto Update Manifest & Deploy Pages
+
+# 触发条件：
+#   1. push 到 main 分支
+#   2. 手动触发（在 Actions 页面点 Run workflow）
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# 让 Actions 有权限写仓库 + 部署 Pages
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+# 防止并发部署冲突
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # 扫描 posts/ 下所有 *.html，自动生成或更新 manifest.json
+      # 命名规则：YYYY-MM-DD.html（其中 YYYY-MM-DD 是该期监测周期的"周一日期"）
+      # - 从 HTML <title> 抽取标题
+      # - 从 HTML 第一个 .lead 块抽取摘要（前 120 字符）
+      # - 已有 manifest.json 中的人工字段（title、period_label、summary 等）会被保留
+      - name: Auto-build manifest.json
+        run: |
+          node <<'EOF'
+          const fs = require('fs');
+          const path = require('path');
+
+          const POSTS_DIR = 'posts';
+          const MANIFEST_PATH = path.join(POSTS_DIR, 'manifest.json');
+
+          // 读现有 manifest（保留人工编辑过的字段）
+          let existing = { site: {}, posts: [] };
+          if (fs.existsSync(MANIFEST_PATH)) {
+            try { existing = JSON.parse(fs.readFileSync(MANIFEST_PATH, 'utf8')); }
+            catch (e) { console.warn('manifest.json parse failed, will rebuild'); }
+          }
+          const existingMap = new Map((existing.posts || []).map(p => [p.file, p]));
+
+          // 扫描 posts/ 目录，文件名形如 2026-05-18.html
+          const files = fs.readdirSync(POSTS_DIR)
+            .filter(f => /^\d{4}-\d{2}-\d{2}\.html$/.test(f))
+            .sort()
+            .reverse();
+
+          const posts = files.map(filename => {
+            const fileRel = `${POSTS_DIR}/${filename}`;
+            const slug = filename.replace(/\.html$/, '');
+
+            // 已有记录直接用
+            const cached = existingMap.get(fileRel);
+            if (cached) return cached;
+
+            // 新文件：自动抽取信息
+            const html = fs.readFileSync(fileRel, 'utf8');
+            const titleMatch = html.match(/<title>([^<]+)<\/title>/);
+            const leadMatch = html.match(/<div class="lead"[^>]*>([\s\S]+?)<\/div>/);
+
+            const title = titleMatch ? titleMatch[1].split('·')[0].trim() + ' · ' + (titleMatch[1].split('·')[1] || '').trim() : `周报 ${slug}`;
+
+            let summary = '';
+            if (leadMatch) {
+              summary = leadMatch[1]
+                .replace(/<[^>]+>/g, '')
+                .replace(/\s+/g, ' ')
+                .replace(/^本周一句话总览[：:]\s*/, '')
+                .trim()
+                .slice(0, 160);
+            }
+
+            // 周一日期 = slug，周日 = +6 天
+            const start = new Date(slug + 'T00:00:00Z');
+            const end = new Date(start.getTime() + 6 * 24 * 3600 * 1000);
+            const fmt = d => d.toISOString().slice(0, 10);
+
+            return {
+              slug,
+              file: fileRel,
+              title,
+              period_label: '',
+              date_start: fmt(start),
+              date_end: fmt(end),
+              summary,
+            };
+          });
+
+          const out = {
+            site: existing.site || {
+              title: 'AI 行业周报',
+              subtitle: '每周一更新（PT）',
+            },
+            posts,
+          };
+          fs.writeFileSync(MANIFEST_PATH, JSON.stringify(out, null, 2) + '\n');
+          console.log(`✅ manifest.json updated, ${posts.length} posts`);
+          EOF
+
+      - name: Commit manifest if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if ! git diff --quiet posts/manifest.json; then
+            git add posts/manifest.json
+            git commit -m "chore: auto-update manifest.json [skip ci]"
+            git push
+          else
+            echo "No manifest changes"
+          fi
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
