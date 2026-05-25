@@ -4,24 +4,5 @@
     "subtitle": "Kiara 的每周 AI 产品观察 · 自动生成 + 人工走查",
     "author": "Kiara Zhang"
   },
-  "posts": [
-    {
-      "slug": "2026-05-18",
-      "file": "posts/2026-05-18.html",
-      "title": "AI 行业周报 · 5 月第 4 周",
-      "period_label": "5 月第 4 周（5/18 - 5/24）",
-      "date_start": "2026-05-18",
-      "date_end": "2026-05-24",
-      "summary": "基础模型集体降价、Agent 工具调用上限大幅扩容——OpenAI、Anthropic、Google 同周发布旗舰更新，竞争焦点正从\"模型更聪明\"转向\"更便宜 + 更好用\"。"
-    },
-    {
-      "slug": "2026-05-11",
-      "file": "posts/2026-05-11.html",
-      "title": "AI 行业周报 · 5 月第 3 周",
-      "period_label": "5 月第 3 周（5/11 - 5/17）",
-      "date_start": "2026-05-11",
-      "date_end": "2026-05-17",
-      "summary": "AI 安全攻防成主战场——OpenAI Daybreak、Microsoft MDASH、Anthropic Mythos 三家在漏洞发现 benchmark 上正面交锋；同时 OpenAI 成立 40 亿美元咨询公司直接介入企业部署。"
-    }
-  ]
+  "posts": []
 }
