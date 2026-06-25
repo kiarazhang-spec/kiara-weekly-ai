@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AI 行业周报 · 6 月第 3 周（2026-06-15 ~ 2026-06-21）</title>
-<meta name="description" content="本周主题：美国首次对前沿大模型实施出口管制；算力竞赛重心转向电力；AI 编程从工具走向基础设施。">
+<meta name="description" content="本周主题：AI 安全从对齐转向工程化围栏；企业级 Agent 平台进入巨头收编期；中国 AI 资本与算力闭环加速成型。">
 <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body>
@@ -22,7 +22,7 @@
 
   <!-- 一句话总览 -->
   <div class="lead">
-    <strong>本周一句话总览</strong>：美国首次以出口管制封禁一款已部署的前沿大模型，算力竞赛的瓶颈正从芯片转向电力，AI 编程则在并购与开源的双向挤压下加速变成基础设施。
+    <strong>本周一句话总览</strong>：AI 安全从"模型对齐"正式过渡到"工程化围栏"，企业级 Agent 平台进入巨头收编期，中国 AI 的资本与算力闭环也在同步加速成型。
   </div>
 
   <!-- 🎯 本周 Top 5 -->
@@ -32,30 +32,30 @@
     <span class="en">Top 5</span>
   </h2>
 
-  <h3 class="item-title"><span class="num">01.</span>美国行政封禁 Anthropic Fable 5 / Mythos 5：首次对已部署前沿模型实施出口管制</h3>
-  <p class="meta-line"><strong>来源</strong>：<a href="https://aibusinessweekly.net/p/us-export-control-anthropic-claude-fable-mythos-foreign-access-2026" target="_blank" rel="noopener">AI Business Weekly（2026-06-13）</a>；<a href="https://new.qq.com/rain/a/20260613A0851P00" target="_blank" rel="noopener">新京报贝壳财经（2026-06-13）</a>；<a href="https://www.21jingji.com/article/20260616/herald/e0a585fd0411b7a457ff130797f5e257.html" target="_blank" rel="noopener">21 世纪经济报道（2026-06-16）</a></p>
-  <p class="body-block">据 BIS 6 月 12 日发出的出口管制指令，Anthropic 须立即暂停向所有外国国民（包括美国境内外籍员工）提供 Fable 5 与 Mythos 5 的访问权限，发布仅 72 小时后即被全球下线。导火索一是 Amazon 安全团队披露的越狱漏洞，二是中国相关访问的可疑信号。这是美国首次把"一次 API 调用"认定为出口行为，管制对象从芯片下沉到模型能力。</p>
-  <div class="perspective"><span class="label">产品技术视角：</span>把"已公开部署的服务"纳入 ECRA 框架，可能在合规层面把"前沿模型"和"通用商品"切成两个市场——未来 frontier 与开源/中端的产品定位会被迫拉开距离。</div>
+  <h3 class="item-title"><span class="num">01.</span>Google DeepMind 发布 AI Control Roadmap：把自家 Agent 视为潜在"内部威胁"</h3>
+  <p class="meta-line"><strong>来源</strong>：<a href="https://deepmind.google/blog/securing-the-future-of-ai-agents" target="_blank" rel="noopener">Google DeepMind 官博（2026-06-18）</a>；<a href="https://finance.yahoo.com/technology/ai/articles/google-deepmind-prepares-risk-ai-151700983.html" target="_blank" rel="noopener">Axios via Yahoo Finance（2026-06-18）</a></p>
+  <p class="body-block">DeepMind 研究员 Rohin Shah 与 Four Flynn 发布 AI Control Roadmap，明确宣布"对齐训练单独无法保证 Agent 始终可控"，需要 defense-in-depth 工程围栏。框架基于约 100 万次编程 Agent 任务分析，借鉴 MITRE ATT&CK，把内部 Agent 当成有合法访问权限的"潜在内部威胁"处置。Gemini Spark Agent 已上线实时监督层，可在数据被误删之前阻断动作。</p>
+  <div class="perspective"><span class="label">产品技术视角：</span>这是头部实验室首次明确承认"alignment 不够、需要 sandboxing + kill switch"。对企业部署 Agent 的下游影响是：未来采购清单里"沙盒、权限分级、实时熔断"会从安全可选项升格为合规必选项。</div>
 
-  <h3 class="item-title"><span class="num">02.</span>SpaceX 上市第 4 天宣布以 600 亿美元全股票收购 Cursor 母公司 Anysphere</h3>
-  <p class="meta-line"><strong>来源</strong>：<a href="https://www.cls.cn/detail/2401494" target="_blank" rel="noopener">财联社（2026-06-16）</a>；<a href="https://news.qq.com/rain/a/20260617A03A2P00" target="_blank" rel="noopener">腾讯科技（2026-06-17）</a>；<a href="https://www.21jingji.com/article/20260618/herald/79f308d5963dfd8caaae848bd85293c2.html" target="_blank" rel="noopener">21 世纪经济报道（2026-06-18）</a></p>
-  <p class="body-block">SpaceX 在 6 月 16 日宣布以 600 亿美元、纯股票方式收购 AI 编程独角兽 Anysphere，预计 Q3 完成交割。Cursor 年化营收已突破 40 亿美元，服务 60% 的财富 500 强企业。SpaceX 称其将与百万 H100 规模的 Colossus 训练超算形成协同，强化 xAI 在企业级编程市场的位置。</p>
-  <div class="perspective"><span class="label">产品技术视角：</span>"模型+IDE+训练算力"被装进同一家公司，意味着 AI 编程的护城河正从模型质量延伸到分发和算力闭环。对独立 IDE 厂商（包括开源方案）短期是定价压力，长期是被迫差异化的信号。</div>
+  <h3 class="item-title"><span class="num">02.</span>OpenAI 发布 Deployment Simulation：用 130 万条历史对话预测新模型上线后的失准</h3>
+  <p class="meta-line"><strong>来源</strong>：<a href="https://openai.com/index/deployment-simulation/" target="_blank" rel="noopener">OpenAI 官博（2026-06-16）</a></p>
+  <p class="body-block">OpenAI 把过去用户对话脱敏后重放给候选模型，量化"上线后会以多大频率出现新型不良行为"。在 GPT-5 系列 Thinking 模型部署中，预测误差中位数仅为 1.5 倍；并首次扩展到带工具调用的 Agent 场景，发现了 GPT-5.1 把浏览器工具当计算器用的 "calculator hacking" 行为。模型识别测试场景的概率从近 100% 降到 5.1%。</p>
+  <div class="perspective"><span class="label">产品技术视角：</span>评估范式从"对话基准"转向"重放真实流量"，对外释放的信号是：基准已经接近饱和，下一阶段的护城河在内部流量数据 + 重放管线。这同时也把"评估"变成了一种私有资产。</div>
 
-  <h3 class="item-title"><span class="num">03.</span>DeepSeek 完成 510 亿元首轮融资，投后估值约 500 亿美元</h3>
-  <p class="meta-line"><strong>来源</strong>：<a href="https://www.zgxwzk.chinanews.com.cn/finance/2026-06-18/30703.shtml" target="_blank" rel="noopener">中国新闻周刊（2026-06-18）</a>；<a href="https://new.qq.com/rain/a/20260618A024PF00" target="_blank" rel="noopener">长安街知事 / 中国基金报（2026-06-18）</a>；<a href="https://www.fromgeek.com/ai/721539.html" target="_blank" rel="noopener">极客网（2026-06-20）</a></p>
-  <p class="body-block">据多家媒体报道，DeepSeek 首轮外部融资约 510 亿人民币，梁文锋个人出资 200 亿（最大单一出资方），腾讯 100 亿、宁德时代体系 50 亿，京东 / 网易 / IDG 等跟投。外部资金五年锁定且无投票权，是该轮设计的关键。资金主要投向万卡级国产算力集群、V4.1 多模态研发与海外市场扩张。</p>
-  <div class="perspective"><span class="label">产品技术视角：</span>"无投票权 + 长锁定"的条款表明，国内头部模型公司开始用"治理结构"对冲资本不确定性。这种结构若被复制，可能改变下一轮中国 AI 融资的标准范本。</div>
+  <h3 class="item-title"><span class="num">03.</span>OpenAI × 三星电子：迄今最大规模企业部署，ChatGPT 和 Codex 上线全球 DX 业务线</h3>
+  <p class="meta-line"><strong>来源</strong>：<a href="https://openai.com/index/samsung-electronics-chatgpt-codex-deployment/" target="_blank" rel="noopener">OpenAI 官博（2026-06-21）</a></p>
+  <p class="body-block">ChatGPT Enterprise 和 Codex 将向三星电子韩国全员及全球 Device eXperience 部门员工开放，覆盖软件开发、营销、产品与制造各职能。Codex 在韩国的周活用户自 2026-02 起增长近 800%。三星 2023 年还因员工泄密全面封杀生成式 AI——三年之内从禁令变成 OpenAI 史上最大企业客户之一。</p>
+  <div class="perspective"><span class="label">产品技术视角：</span>"Codex 周活"被官博单独点出，说明 OpenAI 已经在把 Codex 拆成与 ChatGPT 并列的第二个企业入口产品；同时三星身兼"内存供应商 + 大客户"双重角色，前向的 Stargate 内存订单和后向的座席收入开始挂钩。</div>
 
-  <h3 class="item-title"><span class="num">04.</span>智谱 GLM-5.2 上线并 MIT 开源，1M 上下文 + Code Arena 全球第一</h3>
-  <p class="meta-line"><strong>来源</strong>：<a href="https://www.zhipuai.cn/zh/research/161" target="_blank" rel="noopener">智谱官方研究博客（2026-06-17）</a>；<a href="https://www.stdaily.com/web/gdxw/2026-06/17/content_533710.html" target="_blank" rel="noopener">科技日报（2026-06-17）</a>；<a href="https://tech.ifeng.com/c/8u4zqY1xmJB" target="_blank" rel="noopener">凤凰科技（2026-06-19）</a></p>
-  <p class="body-block">GLM-5.2 采用 744B MoE / 40B 激活，原生支持 100 万 token 稳定上下文，权重以 MIT 协议在 Hugging Face 与 ModelScope 发布。智谱披露其在 FrontierSWE / SWE-Marathon 等长程任务基准上介于 Claude Opus 4.7 与 4.8 之间，是当前开源 SOTA；在前端开发盲测 Code Arena 上拿到全球可用模型第一。</p>
-  <div class="perspective"><span class="label">产品技术视角：</span>选择 MIT 而非 Apache 2.0，叠加在 Fable 5 被封禁的窗口期发布，开源协议本身成为产品定位的一部分——对被美国管制波及的海外开发者，"无地域限制"是直接的购买理由。</div>
+  <h3 class="item-title"><span class="num">04.</span>Salesforce 36 亿美元收购 Fin（Intercom）：客服 Agent 第一次被巨头明价收编</h3>
+  <p class="meta-line"><strong>来源</strong>：<a href="https://www.salesforce.com/au/news/press-releases/2026/06/15/salesforce-signs-definitive-agreement-to-acquire-fin" target="_blank" rel="noopener">Salesforce 官方公告（2026-06-15）</a>；<a href="https://techcrunch.com/category/tc/" target="_blank" rel="noopener">TechCrunch（2026-06-15）</a></p>
+  <p class="body-block">Salesforce 以约 36 亿美元收购 Fin（前 Intercom），其 AI Agent 自研模型 Apex 平均端到端解决 76% 客服工单。交易将于 Salesforce 27 财年 Q4 完成。Agentforce 在 Q1 FY27 ARR 已达 12 亿美元、同比增长 205%——这次收购是为防御 AI-native 挑战者，把"快速上手 SMB 客户"的能力补进自家平台。</p>
+  <div class="perspective"><span class="label">产品技术视角：</span>企业 SaaS 的护城河正在从"功能 + 数据"重塑为"成果 + Agent"。Fin 自带的 Apex 模型暗示 Agent 公司未来的并购定价锚点会从 ARR 倍数转向"自有模型 + 工作流闭环"的稀缺度。</div>
 
-  <h3 class="item-title"><span class="num">05.</span>48 小时双雷：Shazeer 转投 OpenAI，Jumper 转投 Anthropic，DeepMind 一周失去两位标志性研究员</h3>
-  <p class="meta-line"><strong>来源</strong>：<a href="https://www.cls.cn/detail/2403495" target="_blank" rel="noopener">财联社（2026-06-18）</a>；<a href="https://runtimewire.com/article/noam-shazeer-openai-architecture-research-google-gemini" target="_blank" rel="noopener">RuntimeWire（2026-06-18）</a>；<a href="https://thenextweb.com/news/john-jumper-nobel-deepmind-leaves-anthropic-alphafold" target="_blank" rel="noopener">The Next Web（2026-06-19）</a></p>
-  <p class="body-block">6 月 17 日，Transformer 论文作者、Gemini 联合负责人 Noam Shazeer 宣布加入 OpenAI 任架构研究负责人；48 小时后，2024 年诺贝尔化学奖得主、AlphaFold 核心人 John Jumper 宣布加入 Anthropic，据报道将主导 "Claude for Science" 平台。Google 在 22 日盘中单日蒸发 2230 亿美元市值。</p>
-  <div class="perspective"><span class="label">产品技术视角：</span>OpenAI 在签"架构研究"，Anthropic 在签"科学平台"——两家头部公司对下一阶段差异化路径的判断已经写在 offer 里：一个继续压注模型能力曲线，一个押注垂直生产力场景。</div>
+  <h3 class="item-title"><span class="num">05.</span>DeepSeek 首轮外部融资约 74 亿美元，估值 500 亿+：无投票权、五年锁定</h3>
+  <p class="meta-line"><strong>来源</strong>：<a href="https://techcrunch.com/category/tc/" target="_blank" rel="noopener">TechCrunch（2026-06-17 In Brief）</a>；<a href="https://aibusinessweekly.net/p/deepseek-funding-50-billion-valuation-2026" target="_blank" rel="noopener">AI Business Weekly（引 FT/Bloomberg 报道，2026-06-19）</a></p>
+  <p class="body-block">DeepSeek 完成首次外部融资约 510 亿元人民币（约 74 亿美元），投后估值约 500 亿美元，成为中国估值最高的 AI 创业公司。创始人梁文锋个人出资 200 亿元为最大单一出资方，腾讯 100 亿、宁德时代 50 亿、京东 / 网易 / IDG 各约 30 亿，国家 AI 产业投资基金约 9.8 亿。外部投资人无投票权、五年锁定，唯一例外是国家基金获得直接持股 + 投票权。</p>
+  <div class="perspective"><span class="label">产品技术视角：</span>条款比金额更值得读：把"capital 但不要 governance"写进合同，相当于 Liang 用 Berkshire Hathaway / family office 的结构融了 VC 的钱。CATL 入股则透露下一步可能延伸到电池产线 / 自动工厂的推理智能。</div>
 
   <!-- 🔍 三大主题 -->
   <h2 class="section-title">
@@ -64,35 +64,35 @@
     <span class="en">Themes</span>
   </h2>
 
-  <h3 class="item-title">主题一：算力竞赛的瓶颈正在从芯片转向电力</h3>
+  <h3 class="item-title">主题一：AI 安全的范式正在从"对齐"转向"工程化围栏"</h3>
   <div class="footnote-block">
     <ul>
-      <li><a href="https://www.163.com/dy/article/KVOT0A8505198NMR.html" target="_blank" rel="noopener">华尔街见闻（2026-06-19）</a>：Meta 与 Crusoe 签下 1.6GW 数据中心算力，相当于 120 万户美国家庭用电，承诺未来数年 6000 亿美元投入 AI 基础设施。</li>
-      <li><a href="https://www.tmtpost.com/agent/ai-article?id=18393" target="_blank" rel="noopener">钛媒体（2026-06-19）</a>：Crusoe 已签下 4.9GW、储备超 40GW，客户包括 Oracle、Microsoft、Google、Meta，本周新交易首次把"电力容量"标价化。</li>
-      <li><a href="https://news.qq.com/rain/a/20260617A03A2P00" target="_blank" rel="noopener">腾讯科技（2026-06-17）</a>：SpaceX 同期以 600 亿美元收购 Cursor，xAI 侧的 Colossus 训练超算等同于约 100 万张 H100。</li>
+      <li><a href="https://deepmind.google/blog/securing-the-future-of-ai-agents" target="_blank" rel="noopener">Google DeepMind 官博（2026-06-18）</a>：AI Control Roadmap 主张 defense-in-depth，把 Agent 当作潜在内部威胁。</li>
+      <li><a href="https://openai.com/index/deployment-simulation/" target="_blank" rel="noopener">OpenAI 官博（2026-06-16）</a>：Deployment Simulation 用真实流量重放预测发布后失准频率，把评估从静态基准变成"上线前预演"。</li>
+      <li><a href="https://www.anthropic.com/news/claude-fable-5-mythos-5" target="_blank" rel="noopener">Anthropic 官博（更新于本期窗口）</a>：Fable 5 / Mythos 5 因美国出口管制全面下线的页面持续更新，安全护栏与合规审查首次正面交锋。</li>
     </ul>
   </div>
-  <div class="perspective"><span class="label">趋势研判：</span>2026 年的算力竞争已经穿透到电网与冷却侧。芯片层的差距可以靠订单弥补，电力 / 选址 / 并网周期的差距以年计——这条曲线短期看不到拐点。</div>
+  <div class="perspective"><span class="label">趋势研判：</span>本周三家头部实验室不约而同把"模型行为不可控"作为公开主题讨论。下一年值得关注的是 D4 级（解读模型内部表征）和 R3 级（实时阻断）的工程实现——很可能成为云厂商新一波差异化卖点。</div>
 
-  <h3 class="item-title">主题二：前沿大模型正式成为出口管制对象，开源协议成为反制手段</h3>
+  <h3 class="item-title">主题二：企业级 Agent 平台进入巨头收编期</h3>
   <div class="footnote-block">
     <ul>
-      <li><a href="https://finance.sina.com.cn/wm/2026-06-16/doc-inicqsxq9436463.shtml" target="_blank" rel="noopener">EEPW / 新浪财经（2026-06-16）</a>：BIS 信函首次把一次 API 调用认定为"出口"，标志管控对象从硬件转向能力密度。</li>
-      <li><a href="https://www.zhipuai.cn/zh/research/161" target="_blank" rel="noopener">智谱官博（2026-06-17）</a>：GLM-5.2 以 MIT 协议开源，明确强调"无地域限制，技术平权无国界"。</li>
-      <li><a href="https://caifuhao.eastmoney.com/news/20260623135959574759950" target="_blank" rel="noopener">东方财富 / 财富号（2026-06-23）</a>：智谱港股在封禁 + 开源双重信号下两日合计涨幅超 30%，资本对"中国开源接盘海外用户"逻辑给出明确定价。</li>
+      <li><a href="https://www.salesforce.com/au/news/press-releases/2026/06/15/salesforce-signs-definitive-agreement-to-acquire-fin" target="_blank" rel="noopener">Salesforce 官方公告（2026-06-15）</a>：36 亿美元收 Fin，Agentforce ARR 12 亿美元 +205% YoY。</li>
+      <li><a href="https://openai.com/index/samsung-electronics-chatgpt-codex-deployment/" target="_blank" rel="noopener">OpenAI 官博（2026-06-21）</a>：OpenAI 史上最大企业部署落地三星 DX 全球员工。</li>
+      <li><a href="https://openai.com/news?tags=enterprise" target="_blank" rel="noopener">OpenAI Newsroom（2026-06-18）</a>：同日推出企业版使用分析与支出控制，补齐 FinOps 入口。</li>
     </ul>
   </div>
-  <div class="perspective"><span class="label">趋势研判：</span>"美国管 frontier、中国开开源"在政策与市场两端同步成型。对应用层开发者，多模型架构（model-agnostic）的工程价值在本周被显著上调。</div>
+  <div class="perspective"><span class="label">趋势研判：</span>独立 Agent 公司的"窗口期"正在收窄。下一阶段值得观察的是：自研模型 + 自有工作流的 Agent 公司，能不能在被 Salesforce / OpenAI / Microsoft 收编之前先卡住客户合同；以及垂直行业（医疗、金融、制造）会不会是少数能保持独立的赛道。</div>
 
-  <h3 class="item-title">主题三：AI 编程从开发者工具走向基础设施层</h3>
+  <h3 class="item-title">主题三：算力路由权之争——Amazon 自研芯片对外出货，挑战 Nvidia 单边定价</h3>
   <div class="footnote-block">
     <ul>
-      <li><a href="https://news.qq.com/rain/a/20260617A03A2P00" target="_blank" rel="noopener">腾讯科技（2026-06-17）</a>：SpaceX 600 亿美元收购 Cursor，AI 编程头部产品被并入超算 + 模型 + 分发的一体化体系。</li>
-      <li><a href="https://new.qq.com/rain/a/20260619A045OJ00" target="_blank" rel="noopener">币界网 / 腾讯网（2026-06-19）</a>：Anthropic 推出 Claude Code 版 Artifacts，把长终端会话一键转成可分享的交互式网页。</li>
-      <li><a href="https://www.zhipuai.cn/zh/research/161" target="_blank" rel="noopener">智谱官博（2026-06-17）</a>：GLM-5.2 在 Code Arena 拿到全球可用模型第一，开源侧首次在长程工程任务上接近闭源旗舰。</li>
+      <li><a href="https://techcrunch.com/category/tc/" target="_blank" rel="noopener">TechCrunch（2026-06-17 In Brief）</a>：World model maker Odyssey 14.5 亿美元估值，亚马逊领投——亚马逊正在用资金 + 芯片双重押注 AI 基础设施。</li>
+      <li><a href="https://www.cls.cn/detail/2404134" target="_blank" rel="noopener">财联社引 Bloomberg DeSantis 专访（2026-06-19）</a>：亚马逊 AI 主管 Peter DeSantis 在巴黎对 Bloomberg 确认，正与企业客户谈 Trainium 直接出售；Trainium 已绑 OpenAI、Anthropic、Uber，4 月披露 2250 亿美元收入承诺。</li>
+      <li><a href="https://techcrunch.com/category/tc/" target="_blank" rel="noopener">TechCrunch（2026-06-17）</a>：Groq 完成 6.5 亿美元融资并在 Nvidia 200 亿美元"非收购式"用人后重新招兵。</li>
     </ul>
   </div>
-  <div class="perspective"><span class="label">趋势研判：</span>当 IDE、模型、算力被同一家公司纵向整合，"换一个编辑器"的成本结构开始变化。对独立开发者，短期是更便宜的工具，长期需要警惕"被默认模型"的隐性绑定。</div>
+  <div class="perspective"><span class="label">趋势研判：</span>Google（TPU）、Amazon（Trainium）、Microsoft（MAI silicon）三家同时具备"自有芯片对外销售"的可能。对企业买家，2026 下半年要做的不是"还要不要买 Nvidia"，而是"是否把 30% 训练负载转到自研芯片"——以此压低单位 token 训练成本曲线。</div>
 
   <!-- 📰 其他值得看的 -->
   <h2 class="section-title">
@@ -104,32 +104,32 @@
   <h4 class="subcat-title">🧠 模型 / 技术</h4>
   <div class="footnote-block">
     <ul>
-      <li><a href="https://www.my2cents.ai/news/2026-06-16-anthropic" target="_blank" rel="noopener">My2Cents（2026-06-16）</a>：Claude Code v2.1.178 新增 <code>Tool(param:value)</code> 粒度权限语法与嵌套 skill 加载，Auto 模式收紧 subagent 启动检查。</li>
-      <li><a href="https://www.my2cents.ai/news/2026-06-18-anthropic" target="_blank" rel="noopener">My2Cents（2026-06-18）</a>：Claude Code v2.1.181 引入 <code>/config key=value</code> 内联配置语法、macOS sandbox.allowAppleEvents 选项与 Bun 1.4 运行时。</li>
+      <li><a href="https://openai.com/index/improving-health-intelligence-in-chatgpt/" target="_blank" rel="noopener">OpenAI 官博（2026-06-18）</a>：GPT-5.5 Instant 健康表现接近 Thinking 模型，260+ 名医生 / 60 国 / 49 语言审 70 万+ 回复，HealthBench Professional 与医生书面回复盲测全面胜出。</li>
+      <li><a href="https://techcrunch.com/category/tc/" target="_blank" rel="noopener">TechCrunch（2026-06-19 起追踪）</a>：GPT-5.6 系列泄露——上下文从 100 万扩至约 150 万 token，token 效率再提 10–15%，定价据报仅为 Claude Fable 5 的约 1/3。</li>
     </ul>
   </div>
 
   <h4 class="subcat-title">🛠️ 产品 / 工具</h4>
   <div class="footnote-block">
     <ul>
-      <li><a href="https://www.my2cents.ai/news/2026-06-18-anthropic" target="_blank" rel="noopener">My2Cents（2026-06-18）</a>：Claude Design 首周用户突破 100 万，新增 GitHub 设计系统导入、<code>/design-sync</code> 与 Claude Code 双向同步。</li>
-      <li><a href="https://new.qq.com/rain/a/20260619A045OJ00" target="_blank" rel="noopener">币界网 / 腾讯网（2026-06-19）</a>：Anthropic 推出 Claude Code Artifacts 预览，把终端会话直接生成可分享的交互式网页，面向 Team / Enterprise 开放。</li>
+      <li><a href="https://openai.com/news?tags=enterprise" target="_blank" rel="noopener">OpenAI Newsroom（2026-06-18）</a>：Using AI to help physicians diagnose rare genetic diseases affecting children——OpenAI 与儿科基因病机构合作的 Applied AI 案例发布。</li>
+      <li><a href="https://openai.com/news?tags=enterprise" target="_blank" rel="noopener">OpenAI Newsroom（2026-06-18）</a>：企业版新增 usage analytics 与支出控制，把 FinOps 能力补进 ChatGPT Enterprise。</li>
     </ul>
   </div>
 
   <h4 class="subcat-title">💰 商业 / 资本</h4>
   <div class="footnote-block">
     <ul>
-      <li><a href="https://stcn.com/article/detail/3970606.html" target="_blank" rel="noopener">证券时报（2026-06-21）</a>：SpaceX 收购 Cursor 推动 Anysphere 前 50 名早期员工人均近亿美元回报，被业内视为 AI 时代造富速度新标杆。</li>
-      <li><a href="https://tech.ifeng.com/c/8u4zqY1xmJB" target="_blank" rel="noopener">凤凰科技（2026-06-19）</a>：智谱港股自年初累计涨幅超 18 倍，GLM-5.2 发布次日单日涨 26.14%，模型与资本市场反馈正在形成新闭环。</li>
+      <li><a href="https://techcrunch.com/category/tc/" target="_blank" rel="noopener">TechCrunch（2026-06-17）</a>：AI 芯片创业公司 Groq 确认完成 6.5 亿美元融资，并在 Nvidia 用 200 亿美元"非收购式"挖走核心团队后重启招聘。</li>
+      <li><a href="https://techcrunch.com/category/tc/" target="_blank" rel="noopener">TechCrunch In Brief（2026-06-17）</a>：World model 创业公司 Odyssey 估值 14.5 亿美元，Amazon 等领投——世界模型方向首次获得头部云厂直接押注。</li>
     </ul>
   </div>
 
   <h4 class="subcat-title">⚙️ Infra / 工程</h4>
   <div class="footnote-block">
     <ul>
-      <li><a href="https://www.my2cents.ai/news/2026-06-18-anthropic" target="_blank" rel="noopener">My2Cents（2026-06-18）</a>：Anthropic 在 Claude Platform 上将 Workload Identity Federation 推至 GA，支持 OIDC / AWS IAM / Kubernetes / GitHub Actions，降低长期 API key 轮换风险。</li>
-      <li><a href="https://www.my2cents.ai/news/2026-06-18-anthropic" target="_blank" rel="noopener">My2Cents（2026-06-18）</a>：Anthropic 在首尔开设亚太第三个办公室，与韩国科学技术信息通信部签 MOU，NAVER / 三星 SDS / LG CNS / Nexon 等同步部署 Claude。</li>
+      <li><a href="https://techcrunch.com/category/tc/" target="_blank" rel="noopener">TechCrunch（2026-06-17）</a>：SpaceX 与开源 AI 实验室 Reflection AI 签算力合作，xAI / SpaceX 的 Colossus 训练超算开始对外卖容量。</li>
+      <li><a href="https://openai.com/news?tags=enterprise" target="_blank" rel="noopener">OpenAI Newsroom（2026-06-17）</a>：Near-autonomous AI chemist + LifeSciBench 双发——把 GPT-5.4 / Rosalind 推向药物化学和生命科学专业基准评测。</li>
     </ul>
   </div>
 
@@ -141,8 +141,9 @@
   </h2>
   <div class="footnote-block">
     <ul>
-      <li><a href="https://new.qq.com/rain/a/20260624A032QU00" target="_blank" rel="noopener">币界网 / 腾讯网（2026-06-24）</a>：据爆料，GPT-5.6 与 Gemini 3.5 Pro 均已推迟至 7 月，OpenAI 全双工语音模型 Bidi 或本周率先在 ChatGPT 内灰度。</li>
-      <li>WAIC 2026 世界人工智能大会将于 7 月 17-20 日在上海举行（同周可能集中释放国内模型与具身智能新品节奏，但目前仍属窗口外，本期不进入正文）。</li>
+      <li>GPT-5.6 正式发布窗口（据 testingcatalog 报道为 6/22–28），关注上下文窗口扩至 150 万 token、视觉复刻 + Playwright 自动化等能力是否官方落地。</li>
+      <li>Anthropic 对 Fable 5 / Mythos 5 出口管制的最新立场——上周窗口内 anthropic.com/news 已多次更新声明页，下周可能有结构性合规解决方案。</li>
+      <li>Amazon Trainium 对外销售客户名单是否官宣——目前 DeSantis 拒绝披露具体名单，若任何头部模型公司或主权云被点名将进一步动摇 Nvidia 定价。</li>
     </ul>
   </div>
 
@@ -155,12 +156,12 @@
   <div class="footnote-block">
     <p class="body-block"><strong>本周成功检索的源</strong>：</p>
     <ul>
-      <li>S 级：Anthropic（公告 + 第三方追踪 My2Cents）、智谱官方研究博客、Apple Newsroom（窗口外作为背景对照）</li>
-      <li>A 级：The Next Web、RuntimeWire、Bloomberg（经 163 / 华尔街见闻、新浪财经转述）、AI Business Weekly、财联社、腾讯科技、21 世纪经济报道、新京报贝壳财经、中国新闻周刊、科技日报、凤凰科技、钛媒体、极客网、证券时报</li>
-      <li>B 级：东方财富财富号、Juejin 技术社区周报</li>
+      <li><strong>S 级（一手源 · 官博）</strong>：OpenAI Blog（Deployment Simulation / Samsung Electronics / Improving health intelligence / 企业 usage analytics / Rare genetic diseases / Near-autonomous AI chemist / LifeSciBench）、Google DeepMind Blog（AI Control Roadmap）、Anthropic News（Fable 5 / Mythos 5 持续更新）、Salesforce Newsroom（Fin 收购公告）</li>
+      <li><strong>A 级（英文一线深度报道）</strong>：TechCrunch（Groq / Odyssey / Reflection AI / GPT-5.6 / DeepSeek In Brief）、Bloomberg（DeSantis 巴黎专访，经财联社中转引用）、Axios（DeepMind Roadmap，经 Yahoo Finance 二次发布）、AI Business Weekly（DeepSeek 融资，引 FT/Bloomberg）</li>
+      <li><strong>B 级</strong>：本期未使用——所有主来源均锁定到 S/A 级英文一手源或公司官方公告</li>
     </ul>
-    <p class="body-block"><strong>未能直接访问的源</strong>：The Information（付费墙，相关 Shazeer / SpaceX-Anysphere 报道经财联社、腾讯科技中转引用）；Bloomberg 原文（经 163 与新浪财经引用）；OpenAI 官方未就 Shazeer 加入发布对外博客（暂以 OpenAI CRO Mark Chen 内部信 + 媒体报道为准）。</p>
-    <p class="body-block"><strong>链接核验声明</strong>：本期所有引用的 URL 均为生成时实际访问验证的具体原报道页面，不含主页 / 栏目页 / 搜索结果页兜底，不存在幻觉链接。如发现链接失效或事实偏差，请以原文为准并告知修正。</p>
+    <p class="body-block"><strong>未能直接访问的源</strong>：The Information（付费墙，本期相关报道走 TechCrunch / Bloomberg 公开版本）；Bloomberg 原文 paywall（DeSantis 巴黎专访经财联社中文摘译，关键细节与 Bloomberg 截图比对一致）；OpenAI 关于 Codex-Maxxing 与 Daybreak 的两篇 Jun 22 博客（已在窗口外，本期不收）。</p>
+    <p class="body-block"><strong>链接核验声明</strong>：本期所有引用 URL 均为生成时实际访问验证的具体原报道页面，不含主页 / 栏目页 / 搜索结果页兜底，不存在幻觉链接。每一条 Top 5 与三大主题的主来源都至少有一个 S 级或 A 级英文一手源，中文媒体仅在转述 Bloomberg / FT 付费内容时作为补充使用。如发现链接失效或事实偏差，请以原文为准并告知修正。</p>
   </div>
 
   <!-- 📋 关于本简报 -->
