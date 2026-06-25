@@ -1,4 +1,4 @@
-# Kiara Weekly · AI
+# Kiara Weekly · AI news speedrun
 
 > A curated weekly digest of the AI industry — model launches, product moves, capital signals, and infra shifts — written from a product marketing perspective.
 
@@ -81,7 +81,22 @@ git push
 
 ---
 
+## ⚠️ Disclaimer · 免责声明
+
+**请以一手原文为准。** 本简报是个人对公开信息的二次整理与解读，目的是帮助读者快速识别值得深入阅读的原始材料。每条新闻都标注了原文链接，**请务必点击原文阅读**，不要把这份简报当作事实本身。
+
+- 📌 **不构成投资、商业或法律建议**。涉及上市公司、融资、股价、产品定价、监管动向等内容仅供参考，不构成任何形式的投资建议或商业决策依据。
+- 📌 **观点 = 个人观点**。每期中的"💡 视角"等评论性段落仅代表作者个人在写作时的理解，不代表任职机构立场，也可能随后续信息更新而失效。
+- 📌 **可能存在事实误差**。AI 行业变化极快，简报内容基于发布时点公开报道，可能在事后被官方更正或推翻。如发现错误，欢迎开 Issue 指出。
+- 📌 **不要曲解或断章取义**。引用本简报内容时，请同时附上对应的原文链接，并清楚标注哪些是原文事实、哪些是作者观点。
+- 📌 **商标与版权归原所有方**。文中提及的公司、产品、模型名称均为各自所有方的商标或注册商标，简报仅作非商业性引用与评论。
+- 📌 **如有侵权请联系**。本简报遵循合理使用原则进行引用与摘录，如内容所有方认为存在不当使用，请开 Issue 或联系作者，将在合理时间内处理。
+
+---
+
 ## 📄 License
 
-内容（`posts/` 目录下的所有简报文本）：CC BY 4.0 — 允许转载，请注明出处链接。
-代码（HTML / CSS / GitHub Actions 脚本）：MIT。
+- **内容**（`posts/` 目录下的所有简报文本与 `index.html` 的展示文案）：[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) — 允许转载与改编，请注明出处链接。
+- **代码**（HTML 结构 / CSS / GitHub Actions 脚本）：[MIT](./LICENSE) — 随便用，保留版权声明即可。
+
+简报内容的版权归作者 Kiara Zhang 所有。转载或引用请注明 "Source: Kiara Weekly · AI news speedrun" 并附本站链接。
