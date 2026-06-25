@@ -36,7 +36,9 @@ kiara-weekly-ai/
 
 ## 🧪 Want to start your own newsletter?
 
-整个仓库可以当作脚手架直接 Fork：
+> 👉 **想做自己的周报？用更干净的模板**：[`ai-weekly-template`](https://github.com/kiarazhang-spec/ai-weekly-template) — 同样的架构，但内容是 placeholder，不绑定任何 AI 工具，5 步上线。本 repo 是"成品橱窗"，那个 repo 是"工具脚手架"。
+
+或者直接从本 repo Fork：
 
 ```bash
 # 1. Fork or "Use this template" on GitHub
