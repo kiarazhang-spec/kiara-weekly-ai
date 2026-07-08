@@ -15,6 +15,15 @@
       "summary": "本周一句话总览：AI 评估战场从通用 benchmark 转向科研 / 生物 / 工程专业赛道，Meta 关停 Llama API 让开源阵营退出托管生意聚焦「权重 + 硬件」，OpenAI 提议向美政府让渡 5% 股权则把「主权 AI」从叙事推进到公司治理层。"
     },
     {
+      "slug": "2026-06-22",
+      "file": "posts/2026-06-22.html",
+      "title": "AI 行业周报 · 6 月第 4 周（2026-06-22 ~ 2026-06-28）",
+      "period_label": "",
+      "date_start": "2026-06-22",
+      "date_end": "2026-06-28",
+      "summary": "谷歌两位顶级研究员（Transformer 作者 Noam Shazeer、诺奖得主 John Jumper）分别流向 OpenAI 与 Anthropic 引爆 AI 人才重定价；美光加入 Samsung / SK hynix 阵营深度绑定 Anthropic，三大内存厂全部押注同一家前沿实验室；Google 把「操"
+    },
+    {
       "slug": "2026-06-15",
       "file": "posts/2026-06-15.html",
       "title": "AI 行业周报 · 6 月第 3 周（2026-06-15 ~ 2026-06-21）",
