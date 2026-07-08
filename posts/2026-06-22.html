@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 行业周报 · 6 月第 4 周（2026-06-22 ~ 2026-06-28）</title>
+<meta name="description" content="本周主题：AI 人才市场重定价、内存半导体巨头绑定前沿实验室、Agent 从「聊天工具」向「操作屏幕」全面进化。">
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+  /* 嵌入模式：隐藏报头（避免与首页 masthead 重复），减小页面容器 padding */
+  html.embed .masthead { display: none; }
+  html.embed .page { padding: 0; box-shadow: none; margin: 0; max-width: 100%; }
+  html.embed { background: transparent; }
+  html.embed body { background: transparent; }
+  /* 嵌入模式：隐藏第一个 section-title（"本周 Top 5"），因为首页「最新一期」已经承担该标题 */
+  html.embed .post-toplevel { display: none; }
+  /* 嵌入模式下第一个内容标题去掉多余的上外边距 */
+  html.embed .post-toplevel + .item-title { margin-top: 0; }
+  /* 嵌入模式：隐藏内页底部的"关于"（首页已统一承担），仅独立打开内页时显示 */
+  html.embed .post-about { display: none; }
+</style>
+<script>
+  // 通过 URL 参数判断是否嵌入模式（在 <head> 里尽早加 class，避免 FOUC）
+  if (new URLSearchParams(location.search).get('embed') === '1') {
+    document.documentElement.classList.add('embed');
+  }
+</script>
+</head>
+<body>
+
+<div class="page">
+
+  <header class="masthead">
+    <div class="masthead-kicker">AI WEEKLY · 6 月第 4 周</div>
+    <h1 class="masthead-title">AI 行业周报</h1>
+    <div class="masthead-meta">
+      监测周期：2026-06-22 ~ 2026-06-28（太平洋时间） · <a href="../index.html" style="color:inherit;text-decoration:underline;">← 返回首页</a>
+    </div>
+  </header>
+
+  <div class="lead">本周一句话总览：谷歌两位顶级研究员（Transformer 作者 Noam Shazeer、诺奖得主 John Jumper）分别流向 OpenAI 与 Anthropic 引爆 AI 人才重定价；美光加入 Samsung / SK hynix 阵营深度绑定 Anthropic，三大内存厂全部押注同一家前沿实验室；Google 把「操作屏幕」原生塞进主力 Flash 模型，Agent 从「会聊天」进入「会点鼠标」阶段。</div>
+
+  <!-- 🎯 本周 Top 5（嵌入模式下由首页「最新一期」标题承载，独立模式下显示） -->
+  <h2 class="section-title post-toplevel">
+    <span class="icon">🎯</span>
+    <span>本周 Top 5</span>
+  </h2>
+
+  <h3 class="item-title"><span class="num">01.</span>谷歌一周痛失两员大将：Transformer 之父 + 诺奖得主同周出走</h3>
+  <p class="meta-line"><strong>来源</strong>：<a href="https://origin.www.bloomberg.com/news/articles/2026-06-19/nobel-winner-john-jumper-to-leave-google-deepmind-for-anthropic" target="_blank" rel="noopener">Bloomberg · Nobel Winner John Jumper to Leave Google DeepMind for Anthropic（2026-06-19）</a>；<a href="https://techcrunch.com/2026/06/20/nobel-laureate-john-jumper-is-leaving-deepmind-for-rival-anthropic/" target="_blank" rel="noopener">TechCrunch（2026-06-20）</a>；<a href="https://www.chinadaily.com.cn/a/202606/19/WS6a34ad46a310986e2b460dc1.html" target="_blank" rel="noopener">China Daily / Xinhua wire（2026-06-19）</a>；<a href="https://www.techtimes.com/articles/318613/20260618/transformer-architect-behind-gemini-jumps-openai-after-google-spent-27b.htm" target="_blank" rel="noopener">TechTimes 深度</a></p>
+  <p class="body-block">Transformer 论文共同作者、MoE 路线奠基人 <strong>Noam Shazeer</strong>（6/17 官宣）与 2024 年诺贝尔化学奖得主、AlphaFold 核心人物 <strong>John Jumper</strong>（6/19 官宣）在同一周分别宣布离开 Google / DeepMind，前者加入 OpenAI 出任「架构研究负责人」（Lead for Architecture Research），后者在休整后加入 Anthropic。Bloomberg 报道 Jumper 也是 Google AI 编程工具团队的关键成员，前员工透露 Google 在向企业销售 AI 编程工具方面进展不顺。SignalFire 2025 State of Talent Report 显示 DeepMind 工程师流向 Anthropic 与反向回流比例接近 <strong>11:1</strong>，Anthropic 两年留存率 80% 领跑所有前沿实验室，DeepMind 78%、OpenAI 67%。</p>
+  <div class="perspective"><span class="label">产品技术视角：</span>Shazeer 2024 年被 Google 用 27 亿美元技术许可费从 Character.AI 请回，不到两年再度离开——说明「靠钱留人」在 AI 顶级人才市场已经失效，真正决定流向的是「谁在做更前沿的东西」。他这次的岗位定位是「架构研究负责人」，OpenAI 挖他不是来优化现有产品，而是来想「Transformer 之后是什么」。同一周 Anthropic 拿下 Jumper（生物 AI）加上此前来自 DeepMind 的 Jonas Adler、Alexander Pritzel（编程方向），本质是在 2026 年两大商业化战场（生物制药 / AI 编程）同时抢占护城河。</div>
+
+  <h3 class="item-title"><span class="num">02.</span>Micron 战略绑定 Anthropic，三大内存厂全部押注同一家实验室</h3>
+  <p class="meta-line"><strong>来源</strong>：<a href="https://investors.micron.com/news-releases/news-release-details/micron-and-anthropic-announce-strategic-agreement-scale-next" target="_blank" rel="noopener">Micron Investor Relations · Strategic Agreement to Scale Next-Generation AI Infrastructure（2026-06-22）</a>；<a href="https://investors.micron.com/" target="_blank" rel="noopener">Micron IR 主页（Q3 FY2026 record results）</a></p>
+  <p class="body-block">美光科技（Micron，Nasdaq: MU）与 Anthropic 签订战略协议：<strong>多年期 HBM / DRAM / SSD 供货、内存 & 存储架构联合设计、参与 Anthropic H 轮融资、Micron 内部全面部署 Claude</strong>。Anthropic H 轮已于 2026-05-28 完成交割，融资总额 650 亿美元，投后估值 9650 亿美元；Samsung、SK hynix、Micron 三家全球 HBM 原厂同步被列入战略投资方名单。<strong>三大内存原厂全部成为同一家 AI 实验室的股东</strong>——这在半导体历史上极为罕见。Micron 执行副总裁兼 CCO Sumit Sadana 在官方声明中表示，AI 革命正把内存与存储的重要性从数据中心扩展到边缘计算。Anthropic 联合创始人 & 首席算力官 Tom Brown 同步表态：「我们的算力战略要求把技术栈每一层都做对，内存与存储是我们高效训练和部署 Claude 的核心」。</p>
+  <div class="perspective"><span class="label">产品技术视角：</span>这不是一份普通供货合同，而是「架构级联合设计」——Anthropic 的模型需求会直接反馈到 Micron 下一代 HBM 产品路线图。放到 IPO 叙事里看更清晰：Anthropic 已保密递交上市申请，把 SpaceX（算力）+ Broadcom（网络）+ Micron（内存）+ CoreWeave（GPU）绑成一张完整基础设施表，S-1 里就有「供应链风险已锁定」的现成故事。半导体行业「用真金白银投票」比财务投资人的意义更大——他们最懂算力需求走势，产能规划以年为单位，愿意押注意味着确定性极高。Micron 同期披露 2026 财年 HBM 产能已售罄、规划投入约 2000 亿美元产能扩张。</div>
+
+  <h3 class="item-title"><span class="num">03.</span>Google 把「操作屏幕」原生塞进 Gemini 3.5 Flash 主力模型</h3>
+  <p class="meta-line"><strong>来源</strong>：<a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-computer-use-gemini-3-5-flash/" target="_blank" rel="noopener">Google 官博 · Introducing computer use in Gemini 3.5 Flash（2026-06-24）</a>；<a href="https://deepmind.google/models/model-cards/gemini-3-5-flash/" target="_blank" rel="noopener">DeepMind · Gemini 3.5 Flash Model Card</a>；<a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5/" target="_blank" rel="noopener">Google 官博 · Gemini 3.5 总览</a></p>
+  <p class="body-block">Google 宣布 <strong>Computer Use 已作为原生内置工具集成进 Gemini 3.5 Flash</strong>，此前该能力仅通过独立的 Gemini 2.5 Computer Use 模型提供。开发者可以通过 Gemini API 和 Gemini Enterprise Agent Platform 直接构建「感知屏幕截图 → 推理操作 → 执行反馈」的循环，覆盖浏览器、移动端和桌面三大环境。Google 同步公开两项可选的企业级安全护栏：<strong>敏感或不可逆操作需用户明确确认；检测到间接指令注入（indirect prompt injection）时自动终止任务</strong>。官博用 "defense-in-depth"（纵深防御）总结整体思路，建议开发者将其与安全沙箱、人机协同验证、严格访问控制组合使用。DeepMind 官方 Model Card 显示 Gemini 3.5 Flash 在 <strong>OSWorld-Verified（UI 控制基准）</strong>拿到 78.4%，与 Claude Opus 4.7（78.0%）、GPT-5.5（78.7%）三家旗舰基本持平。</p>
+  <div class="perspective"><span class="label">产品技术视角：</span>这一步的意义比数字更大——屏幕操作能力从「专用模型」升格为「主力模型标配」，说明 Google 内部已经把它当成通用能力而非实验特性。三巨头节奏对照：Anthropic 2024 年 10 月首发 Computer Use、OpenAI 2025 Q1 跟进 Operator，Google 是最后一个入场但直接放进 Flash，意味着定价将大幅下探。传统 RPA 依赖脆弱脚本或专用 API，Gemini 3.5 Flash 是「以视觉为先」——理解屏幕空间布局、推理任务、执行序列操作，遗留系统 / 大型机终端 / SaaS 应用无需集成工作即可被自动化。RPA 和跨应用重复劳动类工作 12 个月内会迎来实质替代压力，PM 需要重新盘点「哪些手工流程还值得单独做工具化」。</div>
+
+  <h3 class="item-title"><span class="num">04.</span>GPT-5.6 Sol 发布，但仅限「政府白名单」访问</h3>
+  <p class="meta-line"><strong>来源</strong>：<a href="https://openai.com/index/previewing-gpt-5-6-sol/" target="_blank" rel="noopener">OpenAI 官博 · Previewing GPT-5.6 Sol（2026-06-26）</a>；<a href="https://finance.yahoo.com/technology/ai/articles/openai-gets-us-approval-broad-031852675.html" target="_blank" rel="noopener">Reuters via Yahoo Finance · US approval for broad GPT-5.6 rollout（2026-07-07 后续追踪）</a></p>
+  <p class="body-block">OpenAI 正式发布 GPT-5.6 系列（Sol 旗舰 / Terra 均衡 / Luna 轻量）。Sol 版本主打编程、生物、网络安全的深度推理，官博公开 Terminal-Bench 2.1、GeneBench v1、ExploitBench 等基准结果，并首次引入 <strong>max reasoning effort</strong>（最长思考时间）与 <strong>ultra mode</strong>（多子智能体协同）。但受美国政府要求约束，<strong>Sol 仅向少数「经政府共享名单的可信合作伙伴」开放有限预览</strong>，普通订阅用户和海外开发者无法申请内测。OpenAI 在官博里罕见地公开表态：「我们不认为这种政府准入流程应成为长期默认做法。它把最好的工具挡在了用户、开发者、企业、网络防御者和全球合作伙伴之外。」——这是继 6 月初 Anthropic Fable 5 / Mythos 5 被要求下线之后，美国政府对前沿 AI 模型采取的又一次「预审式」访问管控。（后续追踪：Axios/Reuters 7 月 7 日报道美国商务部已批准 GPT-5.6 广泛上线，本周内会分批放开。）</p>
+  <div class="perspective"><span class="label">产品技术视角：</span>连续两起「政府审批才能上线」事件，本质上把「AI 模型发布」从公司自主行为变成了「政府许可制」。OpenAI 用词很克制但立场鲜明：定语用了 "short-term step" 强调这是权宜之计，同时承诺会与政府一起搭建 <em>cyber Executive Order framework and a repeatable process</em>——潜台词是「这次先配合，但不接受把它变成 SOP」。对海外开发者、企业用户和研究界都极不友好，未来「模型主权 / 使用主权」将成为跟「训练主权」并列的新维度。定价参考：Sol 输入 / 输出 $5 / $30 per 1M tokens；Terra $2.5 / $15；Luna $1 / $6。</div>
+
+  <h3 class="item-title"><span class="num">05.</span>Qualcomm 拿下 Microsoft + Meta 数据中心订单，Nvidia 之外正在长出第二块拼图</h3>
+  <p class="meta-line"><strong>来源</strong>：<a href="https://www.qualcomm.com/company/events/investor-day" target="_blank" rel="noopener">Qualcomm · Investor Day 2026（含 Meta CPU 合作 / Dragonfly 路线图等一手 press release）</a>；<a href="https://moorinsightsstrategy.com/field-notes/qualcomms-datacenter-debut-is-a-bet-on-inference-economics" target="_blank" rel="noopener">Moor Insights & Strategy · Qualcomm's Datacenter Debut Is a Bet on Inference Economics</a></p>
+  <p class="body-block">Qualcomm 在纽约 Investor Day 上宣布：<strong>Meta 与 Qualcomm 达成覆盖多个产品世代的战略合作</strong>，将采用 Qualcomm 新一代数据中心 CPU「Dragonfly C1000」（Meta CEO 扎克伯格通过视频背书）；<strong>Microsoft Azure 将部署 Qualcomm 的 High-Bandwidth Compute（HBC）AI 加速器</strong>。Dragonfly C1000 计划于 2028 年年中量产，Meta 是首批部署客户。Qualcomm 同时公开 2029 财年数据中心业务营收目标 <strong>超过 150 亿美元</strong>、非手机业务合计 400 亿美元；FY2027（今年 10 月开始）数据中心业务将贡献 50 亿美元营收，其中 10 亿美元来自新定制芯片客户。Qualcomm 此前在数据中心 AI 芯片市场几乎没有存在感，Nvidia 占据 90%+ 市场份额。</p>
+  <div class="perspective"><span class="label">产品技术视角：</span>这是「Nvidia 之外的第二供应」被系统性构建的关键一步。Meta 已有 MTIA（自研推理芯片）、Microsoft 有 Maia，再叠加 Qualcomm 的独立方案，超大规模厂商意图非常明确——把训练 / 推理 GPU 供应商从「独家」变成「至少三家」。Moor Insights & Strategy 的 Patrick Moorhead 现场评价指出：Qualcomm 这次的核心差异化是 <strong>HBC 架构（把计算堆栈在 LPDDR 内存底下）</strong>，绕过了对 TSMC CoWoS 封装的依赖，在「解码阶段的内存墙」上把 tokens per watt / per dollar 做到更优——这是 Qualcomm 押注「推理经济学」而非训练性能的核心逻辑。对下游模型公司的定价传导会有滞后但持续的影响：如果非 Nvidia 方案在推理侧价格能达到 Nvidia 的 60-70%，Claude / GPT / Gemini 的 API 定价将在 2027 年出现一次显著下降。</div>
+
+  <!-- 🎨 本周主题 -->
+  <h2 class="section-title">
+    <span class="icon">🎨</span>
+    <span>本周主题</span>
+  </h2>
+
+  <h3 class="item-title">主题 1：AI 顶级人才被重新定价，Anthropic 成为最大受益方</h3>
+  <p class="body-block">一周内 Google / DeepMind 失去 <strong>Noam Shazeer（→ OpenAI）</strong>、<strong>John Jumper（→ Anthropic）</strong>、<strong>Jonas Adler（→ Anthropic）</strong>、<strong>Alexander Pritzel（→ Anthropic）</strong>四人。这不只是薪资溢价的问题——Shazeer 上一次回 Google 的价签是 27 亿美元，仍然没留住。真正决定顶级研究员流向的是「你们正在做什么」，Google 的 Gemini 在盲测榜单近期下滑、路线摇摆是导火索。Anthropic 一次性拿下生物 AI 和 AI 编程两块核心，配合刚闭幕的 650 亿 H 轮和已递交的 IPO，2026 下半年会持续从各家挖人。</p>
+
+  <h3 class="item-title">主题 2：内存半导体行业整体押注前沿实验室</h3>
+  <p class="body-block">美光 6/22 加入 Anthropic H 轮后，Samsung / SK hynix / Micron <strong>三大内存原厂全部成为同一家 AI 实验室的股东</strong>。这个信号极其强：内存厂比二级市场投资人更懂算力需求走势，他们的产能规划以年为单位，愿意押注的对象说明确定性极高。同时它也印证了一个业内共识——HBM 已经是训练侧真正的瓶颈，谁锁定 HBM 供应谁就锁定未来 3 年的训练能力。Anthropic 在此之上叠加 SpaceX 算力、Broadcom 网络、CoreWeave GPU，把「上市前把供应链风险打包锁死」这件事做到了极致。</p>
+
+  <h3 class="item-title">主题 3：Agent 全面从「对话」进入「操作」，PM 岗位需要新工具视角</h3>
+  <p class="body-block">Google 6/24 把 Computer Use 塞进 Flash 主力模型，是三巨头（Anthropic 2024 首发 / OpenAI 2025 Q1 Operator / Google 2026 主力集成）在「让 AI 点鼠标」这条路径上正式会师。从 PM 视角看，这一步比 GPT-5.6 Sol 发布重要得多——前者是模型能力提升（对 To C 影响大），后者是<strong>交付形态的根本转变</strong>：能力被封装进「像人一样操作屏幕」的接口后，之前需要 API 集成才能自动化的流程，现在只需要「让 AI 看得懂 UI」。RPA 供应商（UiPath / Automation Anywhere）12 个月内将面临产品重定位压力，企业内部的「手工重复流程盘点表」需要重新做一遍。</p>
+
+  <!-- 📋 关于（简版，仅在独立打开内页时显示；嵌入首页时会隐藏） -->
+  <h2 class="section-title post-about">
+    <span class="icon">📋</span>
+    <span>关于</span>
+  </h2>
+  <div class="footnote-block post-about">
+    <ul>
+      <li><strong>更新频率</strong>：每周一太平洋时间早 8 点，覆盖上周一至周日</li>
+      <li>
+        <strong>信源分级</strong>：
+        <ul>
+          <li>S 级 = 公司官方博客 / 财报 / arXiv 一手论文</li>
+          <li>A 级 = FT / Bloomberg / The Information / Stratechery 等头部媒体</li>
+          <li>B 级 = 可点击核验的行业深度分析</li>
+        </ul>
+      </li>
+      <li><strong>引用原则</strong>：付费墙背后无法核验的内容不引用，二手转载不采信</li>
+      <li><strong>解读边界</strong>：「产品技术视角」「趋势研判」为基于公开信息的整理与推论，<strong>不代表相关公司立场，也不构成投资 / 采购建议</strong></li>
+      <li><strong>反馈</strong>：发现事实错误请以原文为准并告知修正</li>
+    </ul>
+  </div>
+
+</div>
+
+</body>
+</html>

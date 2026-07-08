@@ -3,85 +3,148 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI 行业周报 · Kiara's Weekly AI</title>
-<meta name="description" content="经过筛选的 AI 行业每周精选简报，覆盖模型、产品、商业、Infra 四个维度。极简学术风格。">
+<title>Kiara's AI Weekly · 归档目录</title>
+<meta name="description" content="Kiara 的 AI 行业周报归档。每周从北美 AI 行业筛选一手信源、结构化分析。">
 <link rel="stylesheet" href="assets/style.css">
+<style>
+  /* 首页专用：目录风格，行内极简 */
+  .site-nav {
+    display: flex;
+    gap: 20px;
+    justify-content: flex-end;
+    padding: 8px 0 24px;
+    font-size: var(--fs-small);
+  }
+  .site-nav a {
+    color: var(--text-soft);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    padding-bottom: 2px;
+    transition: color 0.15s, border-color 0.15s;
+  }
+  .site-nav a:hover {
+    color: var(--green);
+    border-bottom-color: var(--green);
+  }
+
+  /* 目录标题区 */
+  .archive-header {
+    margin: 24px 0 8px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--line);
+  }
+  .archive-header-label {
+    color: var(--text-faint);
+    font-size: var(--fs-small);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .archive-header-count {
+    color: var(--text-faint);
+    font-size: var(--fs-small);
+    float: right;
+  }
+
+  /* 目录列表：一行 = 日期 + 期次 + 摘要 */
+  .toc-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .toc-list li {
+    padding: 20px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .toc-list li:last-child { border-bottom: none; }
+  .toc-link {
+    display: block;
+    color: var(--text);
+    text-decoration: none;
+    border-bottom: none;
+  }
+  .toc-meta {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    margin-bottom: 6px;
+    font-size: var(--fs-small);
+    color: var(--text-faint);
+  }
+  .toc-meta .toc-week {
+    color: var(--green);
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+  .toc-meta .toc-date {
+    font-variant-numeric: tabular-nums;
+  }
+  .toc-summary {
+    color: var(--text-soft);
+    font-size: 15px;
+    line-height: 1.75;
+    transition: color 0.15s;
+  }
+  .toc-link:hover .toc-summary {
+    color: var(--text);
+  }
+  .toc-link:hover .toc-week {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .toc-empty {
+    color: var(--text-faint);
+    font-size: var(--fs-small);
+    padding: 24px 0;
+    text-align: center;
+  }
+  @media (max-width: 640px) {
+    .toc-meta { flex-wrap: wrap; gap: 8px; }
+    .archive-header-count { float: none; display: block; margin-top: 4px; }
+  }
+</style>
 </head>
 <body>
 
 <div class="page">
 
+  <!-- 顶部导航 -->
+  <nav class="site-nav">
+    <a href="about.html">关于</a>
+    <a href="https://github.com/kiarazhang-spec/kiara-weekly-ai" target="_blank" rel="noopener">GitHub</a>
+  </nav>
+
   <!-- 报头 -->
   <header class="masthead">
     <div class="masthead-kicker">AI WEEKLY · NORTH AMERICA</div>
-    <h1 class="masthead-title">AI 行业周报 · 北美</h1>
+    <h1 class="masthead-title">Kiara's AI Weekly</h1>
     <div class="masthead-meta">
       每周从 <strong>200+ 条北美 AI 行业资讯</strong> 中，按 <strong>S/A/B 三级信源</strong>分层筛选，每篇附<strong>「产品技术视角」</strong>与<strong>「趋势研判」</strong>。太平洋时间每周一更新。
     </div>
   </header>
 
-  <!-- 本期核心摘要（动态填充最新一期 summary） -->
-  <div class="lead" id="lead-summary">
-    <span class="archive-empty" style="border:0;padding:0;">加载中...</span>
+  <!-- 归档目录 -->
+  <div class="archive-header">
+    <span class="archive-header-label">归档目录 · Archive</span>
+    <span class="archive-header-count" id="toc-count"></span>
   </div>
-
-  <!-- 最新一期摘要区 -->
-  <h2 class="section-title">
-    <span class="icon">📖</span>
-    <span>最新一期 · 本周 Top 5</span>
-  </h2>
-  <div id="latest-issue">
-    <p class="archive-empty">加载中...</p>
-  </div>
-
-  <!-- 历史归档 -->
-  <h2 class="section-title" id="archive">
-    <span class="icon">📚</span>
-    <span>历史归档</span>
-  </h2>
-  <ul class="archive-list" id="archive-list">
-    <li class="archive-empty">加载中...</li>
+  <ul class="toc-list" id="toc-list">
+    <li class="toc-empty">加载中...</li>
   </ul>
-  <div id="archive-more-wrap" style="text-align:center; margin-top:12px; display:none;">
-    <a href="#" id="archive-more-btn" class="view-all-link">更多 →</a>
-  </div>
-
-  <!-- 关于 -->
-  <h2 class="section-title">
-    <span class="icon">📋</span>
-    <span>关于</span>
-  </h2>
-  <div class="footnote-block">
-    <ul>
-      <li><strong>更新频率</strong>：每周一太平洋时间早 8 点，覆盖上周一至周日</li>
-      <li><strong>信源分级</strong>：
-        <ul>
-          <li><strong>S 级</strong> = 公司官方博客 / 财报 / arXiv 一手论文</li>
-          <li><strong>A 级</strong> = FT / Bloomberg / The Information / Stratechery 等头部媒体</li>
-          <li><strong>B 级</strong> = 可点击核验的行业深度分析</li>
-        </ul>
-      </li>
-      <li><strong>引用原则</strong>：付费墙背后无法核验的内容不引用，二手转载不采信</li>
-      <li><strong>解读边界</strong>：「产品技术视角」「趋势研判」为基于公开信息的整理与推论，<strong>不代表相关公司立场，也不构成投资 / 采购建议</strong></li>
-      <li><strong>反馈</strong>：发现事实错误请以原文为准并告知修正</li>
-    </ul>
-  </div>
 
   <footer class="footer">
-    AI Weekly · 自动生成 + 人工走查
+    Kiara's AI Weekly · <a href="about.html" style="color:inherit;">关于本简报</a> · <a href="https://github.com/kiarazhang-spec/kiara-weekly-ai" target="_blank" rel="noopener" style="color:inherit;">GitHub</a>
   </footer>
 
 </div>
 
 <script>
 /**
- * 加载 manifest 并渲染最新一期 + 归档列表
- * 排序：按 date_start 倒序（最新一期在前）
+ * 目录首页：读 manifest.json，按 date_start 倒序渲染成极简一行式列表
+ * 一行 = 期次 · 日期区间 · 一句话摘要
  */
 (async function () {
-  const latestEl = document.getElementById('latest-issue');
-  const archiveEl = document.getElementById('archive-list');
-  const leadEl = document.getElementById('lead-summary');
+  const tocEl = document.getElementById('toc-list');
+  const countEl = document.getElementById('toc-count');
 
   try {
     const res = await fetch('posts/manifest.json?t=' + Date.now());
@@ -90,117 +153,44 @@
 
     let posts = (data.posts || []).slice();
     if (posts.length === 0) {
-      if (leadEl) leadEl.innerHTML = '<span class="archive-empty" style="border:0;padding:0;">还没有任何一期。</span>';
-      latestEl.innerHTML = '<p class="archive-empty">还没有任何一期，请稍后回来。</p>';
-      archiveEl.innerHTML = '<li class="archive-empty">暂无归档</li>';
+      tocEl.innerHTML = '<li class="toc-empty">还没有任何一期，请稍后回来。</li>';
       return;
     }
 
-    // 按 date_start 倒序
+    // 按 date_start 倒序（最新在前）
     posts.sort((a, b) => {
       const da = String(a.date_start || a.slug || '');
       const db = String(b.date_start || b.slug || '');
       return db.localeCompare(da);
     });
 
-    // 最新一期摘要
-    const latest = posts[0];
+    if (countEl) countEl.textContent = `共 ${posts.length} 期`;
 
-    // 顶部核心摘要（.lead）：本期一句话总览
-    if (leadEl) {
-      let summaryText = String(latest.summary || '').trim();
-      // 剥掉 summary 里可能自带的标签前缀（"本周一句话总览："/"本期核心："/"总览："等），避免与前端标签重复
-      summaryText = summaryText.replace(/^(本期核心|本周一句话总览|本周总览|一句话总览|总览|本期一句话|本期摘要)\s*[:：]\s*/, '');
-      if (summaryText) {
-        leadEl.innerHTML = `<strong>本期核心</strong>：${escapeHtml(summaryText)}`;
-      } else {
-        leadEl.innerHTML = '<span class="archive-empty" style="border:0;padding:0;">本期摘要待更新。</span>';
-      }
-    }
-    // 从标题中剥掉括号形式的日期，日期用 date_start/date_end 单独展示（此变量保留给归档列表使用）
-    const cleanTitle = String(latest.title || '').replace(/[（(][^）)]*[）)]\s*$/, '').trim();
-    // 「最新一期」直接 iframe 嵌入当期全文（同源，自动读取内容高度自适应）
-    // 用 ?embed=1 让内页知道自己是嵌入模式，隐藏报头 + 返回首页链接
-    latestEl.innerHTML = `
-      <iframe
-        id="latest-frame"
-        src="${latest.file}?embed=1"
-        title="${escapeHtml(cleanTitle)}"
-        style="width:100%; border:0; display:block; background:transparent;"
-        scrolling="no"
-      ></iframe>
-    `;
-    // 自动高度自适应：iframe 加载完 + resize 时读取 body.scrollHeight
-    const frame = document.getElementById('latest-frame');
-    if (frame) {
-      const resize = () => {
-        try {
-          const doc = frame.contentDocument;
-          if (!doc) return;
-          const h = Math.max(
-            doc.body.scrollHeight,
-            doc.documentElement.scrollHeight
-          );
-          frame.style.height = (h + 8) + 'px';
-        } catch (e) { /* ignore */ }
-      };
-      frame.addEventListener('load', () => {
-        resize();
-        // 内页图片/字体加载后再抓一次；window 尺寸变化时也重算
-        try {
-          const doc = frame.contentDocument;
-          if (doc) {
-            doc.querySelectorAll('img').forEach((img) => {
-              if (!img.complete) img.addEventListener('load', resize);
-            });
-          }
-        } catch (e) { /* ignore */ }
-        setTimeout(resize, 200);
-        setTimeout(resize, 800);
-      });
-      window.addEventListener('resize', resize);
-    }
+    tocEl.innerHTML = posts.map(renderRow).join('');
+  } catch (err) {
+    tocEl.innerHTML = '<li class="toc-empty">加载失败：' + escapeHtml(err.message) + '</li>';
+    console.error(err);
+  }
 
-    // 历史归档：默认显示前 3 期，其余隐藏；有更多则显示"更多"按钮
-    const ARCHIVE_INITIAL = 3;
-    const renderArchiveItem = (p) => {
-      const cleanArchiveTitle = String(p.title || '').replace(/[（(][^）)]*[）)]\s*$/, '').trim();
-      // summary 剥掉与前端标签重复的前缀
-      const cleanSummary = String(p.summary || '').trim()
-        .replace(/^(本期核心|本周一句话总览|本周总览|一句话总览|总览|本期一句话|本期摘要)\s*[:：]\s*/, '');
-      return `
+  function renderRow(p) {
+    // 剥掉 summary 里可能自带的"本期核心："等前缀，保持一行流畅
+    const cleanSummary = String(p.summary || '').trim()
+      .replace(/^(本期核心|本周一句话总览|本周总览|一句话总览|总览|本期一句话|本期摘要)\s*[:：]\s*/, '');
+    const summaryHtml = cleanSummary
+      ? `<div class="toc-summary">${escapeHtml(cleanSummary)}</div>`
+      : `<div class="toc-summary" style="color:var(--text-faint);">本期摘要待更新</div>`;
+
+    return `
       <li>
-        <a class="archive-link" href="${p.file}">
-          <span class="archive-week">${escapeHtml(p.period_label || p.slug)}</span>
-          <span class="archive-date">${escapeHtml(p.date_start)} — ${escapeHtml(p.date_end)}</span>
-          <span class="archive-title">${escapeHtml(cleanArchiveTitle)}</span>
-          ${cleanSummary ? `<span class="archive-summary">${escapeHtml(cleanSummary)}</span>` : ''}
-          <span class="archive-readmore">阅读全文 →</span>
+        <a class="toc-link" href="${escapeAttr(p.file)}">
+          <div class="toc-meta">
+            <span class="toc-week">${escapeHtml(p.period_label || p.slug)}</span>
+            <span class="toc-date">${escapeHtml(p.date_start)} — ${escapeHtml(p.date_end)}</span>
+          </div>
+          ${summaryHtml}
         </a>
       </li>
     `;
-    };
-
-    const initialPosts = posts.slice(0, ARCHIVE_INITIAL);
-    const restPosts = posts.slice(ARCHIVE_INITIAL);
-    archiveEl.innerHTML = initialPosts.map(renderArchiveItem).join('');
-
-    const moreWrap = document.getElementById('archive-more-wrap');
-    const moreBtn = document.getElementById('archive-more-btn');
-    if (restPosts.length > 0 && moreWrap && moreBtn) {
-      moreWrap.style.display = '';
-      moreBtn.textContent = `更多（还有 ${restPosts.length} 期）→`;
-      moreBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        archiveEl.insertAdjacentHTML('beforeend', restPosts.map(renderArchiveItem).join(''));
-        moreWrap.style.display = 'none';
-      });
-    }
-  } catch (err) {
-    if (leadEl) leadEl.innerHTML = '<span class="archive-empty" style="border:0;padding:0;">摘要加载失败</span>';
-    latestEl.innerHTML = '<p class="archive-empty">加载失败：' + escapeHtml(err.message) + '</p>';
-    archiveEl.innerHTML = '<li class="archive-empty">加载失败</li>';
-    console.error(err);
   }
 
   function escapeHtml(s) {
@@ -210,6 +200,9 @@
       .replace(/>/g, '&gt;')
       .replace(/"/g, '&quot;')
       .replace(/'/g, '&#39;');
+  }
+  function escapeAttr(s) {
+    return escapeHtml(s);
   }
 })();
 </script>

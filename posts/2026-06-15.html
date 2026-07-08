@@ -16,6 +16,8 @@
   html.embed .post-toplevel { display: none; }
   /* 嵌入模式下第一个内容标题去掉多余的上外边距 */
   html.embed .post-toplevel + .item-title { margin-top: 0; }
+  /* 嵌入模式：隐藏内页底部的"关于"（首页已统一承担），仅独立打开内页时显示 */
+  html.embed .post-about { display: none; }
 </style>
 <script>
   // 通过 URL 参数判断是否嵌入模式（在 <head> 里尽早加 class，避免 FOUC）
@@ -143,6 +145,28 @@
   </div>
 
   <!-- 内页正文到这里结束。首页已统一承担「关于 / 信息来源」等通用说明；「下周值得关注」不再作为固定模板出现。 -->
+
+  <!-- 📋 关于（简版，仅在独立打开内页时显示；嵌入首页时会隐藏） -->
+  <h2 class="section-title post-about">
+    <span class="icon">📋</span>
+    <span>关于</span>
+  </h2>
+  <div class="footnote-block post-about">
+    <ul>
+      <li><strong>更新频率</strong>：每周一太平洋时间早 8 点，覆盖上周一至周日</li>
+      <li>
+        <strong>信源分级</strong>：
+        <ul>
+          <li>S 级 = 公司官方博客 / 财报 / arXiv 一手论文</li>
+          <li>A 级 = FT / Bloomberg / The Information / Stratechery 等头部媒体</li>
+          <li>B 级 = 可点击核验的行业深度分析</li>
+        </ul>
+      </li>
+      <li><strong>引用原则</strong>：付费墙背后无法核验的内容不引用，二手转载不采信</li>
+      <li><strong>解读边界</strong>：「产品技术视角」「趋势研判」为基于公开信息的整理与推论，<strong>不代表相关公司立场，也不构成投资 / 采购建议</strong></li>
+      <li><strong>反馈</strong>：发现事实错误请以原文为准并告知修正</li>
+    </ul>
+  </div>
 
 </div>
 
