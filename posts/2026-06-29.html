@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 行业周报 · 6 月第 5 周（2026-06-29 ~ 2026-07-05）</title>
+<meta name="description" content="本周主题：Anthropic 与 OpenAI 同一周把评估从对话基准推向科研与生物专业赛道；Meta 关停 Llama API 让开源阵营正式撤出托管市场；OpenAI × 美国政府 5% 股权提案把主权 AI 从叙事推进到公司治理层。">
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+  /* 嵌入模式：隐藏报头（避免与首页 masthead 重复），减小页面容器 padding */
+  html.embed .masthead { display: none; }
+  html.embed .page { padding: 0; box-shadow: none; margin: 0; max-width: 100%; }
+  html.embed { background: transparent; }
+  html.embed body { background: transparent; }
+  /* 嵌入模式：隐藏第一个 section-title（"本周 Top 5"），因为首页「最新一期」已经承担该标题 */
+  html.embed .post-toplevel { display: none; }
+  /* 嵌入模式下第一个内容标题去掉多余的上外边距 */
+  html.embed .post-toplevel + .item-title { margin-top: 0; }
+  /* 嵌入模式：隐藏内页底部的"关于"（首页已统一承担），仅独立打开内页时显示 */
+  html.embed .post-about { display: none; }
+</style>
+<script>
+  // 通过 URL 参数判断是否嵌入模式（在 <head> 里尽早加 class，避免 FOUC）
+  if (new URLSearchParams(location.search).get('embed') === '1') {
+    document.documentElement.classList.add('embed');
+  }
+</script>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- 报头 -->
+  <header class="masthead">
+    <div class="masthead-kicker">AI WEEKLY · 6 月第 5 周</div>
+    <h1 class="masthead-title">AI 行业周报</h1>
+    <div class="masthead-meta">
+      监测周期：2026-06-29 ~ 2026-07-05（太平洋时间） · <a href="../index.html" style="color:inherit;text-decoration:underline;">← 返回首页</a>
+    </div>
+  </header>
+
+  <!-- 🎯 本周 Top 5（嵌入模式下由首页「最新一期」标题承载，独立模式下显示） -->
+  <h2 class="section-title post-toplevel">
+    <span class="icon">🎯</span>
+    <span>本周 Top 5</span>
+  </h2>
+
+  <h3 class="item-title"><span class="num">01.</span>Anthropic 发布 Claude Sonnet 5 与 Claude Science：中端模型塞进 Opus 级推理，同步推出"科研 Agent"</h3>
+  <p class="meta-line"><strong>来源</strong>：<a href="https://www.anthropic.com/news/claude-sonnet-5" target="_blank" rel="noopener">Anthropic 官博 · Sonnet 5（2026-06-30）</a>；<a href="https://www.anthropic.com/news/claude-science" target="_blank" rel="noopener">Anthropic 官博 · Claude Science（2026-06-30）</a></p>
+  <p class="body-block">Anthropic 在同一天发布 Sonnet 5 与配套产品 Claude Science。Sonnet 5 保持 Sonnet 定价的前提下，把 ARC-AGI-2、SWE-bench Verified、GPQA 三项跑分推到接近上一代 Opus 的水平；Claude Science 是面向研究人员的 Agent，能读多篇 PDF、跑 Python 数据分析、并交叉引用文献做假设推演，官博单独强调它已在生物、材料、气候三个领域接入外部实验室试点。</p>
+  <div class="perspective"><span class="label">产品技术视角：</span>Anthropic 这一步的定价策略比模型本身更值得看：Sonnet 5 的目标不是打 GPT-5.6，是打"你为什么还要花 Opus 的钱"。同时 Claude Science 是继 Claude Code 之后第二个"垂直 Agent + 特定 workspace"打包产品——Anthropic 正在把"通用 Chat + 垂直 Agent"确立成自己的产品组合方式。</div>
+
+  <h3 class="item-title"><span class="num">02.</span>OpenAI 发布 GeneBench-Pro：GPT-5.6 Sol 只拿到 31.5%，第一次给"AI 做生物学"划出人类基线</h3>
+  <p class="meta-line"><strong>来源</strong>：<a href="https://openai.com/index/genebench-pro/" target="_blank" rel="noopener">OpenAI 官博（2026-06-30）</a></p>
+  <p class="body-block">GeneBench-Pro 由 OpenAI 联合 42 位分子生物学家出题，覆盖分子机制推理、实验设计、湿实验故障排查等 8 个子任务，明确要求模型给出"可复现的实验流程 + 预期结果 + 排错策略"。GPT-5.6 Sol（Thinking 版）总分 31.5%，人类博士基线约 68%；Claude Sonnet 5 与 Gemini 3 Ultra Reasoning 分别为 27% 与 24%。OpenAI 首次在评估里加入"实验被质疑时能否合理反驳"这一维度。</p>
+  <div class="perspective"><span class="label">产品技术视角：</span>把 31.5% 大方公布，正好卡在"不算强、但不是零"的位置，OpenAI 是主动为下一版模型留下叙事空间。真正的信号是评估内容——从"能答题"变成"能设计实验并复盘"，这暗示 GPT-6 世代要打的是"AI 作为科研合作者"，而不是"AI 作为答题机器"。</div>
+
+  <h3 class="item-title"><span class="num">03.</span>Meta 官宣 Llama API 于 7 月 6 日关停：开源阵营正式退出托管市场</h3>
+  <p class="meta-line"><strong>来源</strong>：<a href="https://ai.meta.com/blog/llama-api-shutdown-2026" target="_blank" rel="noopener">Meta AI 官博（2026-07-06）</a>；<a href="https://techcrunch.com/2026/07/06/meta-shuts-down-llama-api-hosted-service" target="_blank" rel="noopener">TechCrunch（2026-07-06）</a></p>
+  <p class="body-block">Meta 宣布关停 Llama API 托管服务，理由是"生态里的第三方托管商（Groq、Together AI、Fireworks 等）已经覆盖绝大多数场景"。同时确认 Llama 4 Behemoth 系列继续以权重开源方式发布，未来 Meta 自身不再运营对外收费的推理端点。Meta AI 消费级产品（Meta AI app、Ray-Ban Display AI 眼镜内嵌）则继续使用内部 Llama 推理集群。</p>
+  <div class="perspective"><span class="label">产品技术视角：</span>这次撤退是清晰的战略聚焦——Meta 承认自己不做"卖 token"的生意，把这一段让给专攻 inference 的 Together / Groq / Fireworks。真正的资金和精力将集中到硬件（AI 眼镜）+ 消费级 App。对开源生态是好消息：Llama 权重继续开放；对企业买家则要留意——想用 Llama 就必须走第三方托管商，采购路径变了。</div>
+
+  <h3 class="item-title"><span class="num">04.</span>OpenAI 提议向美国政府发行 5% 股权：主权 AI 从叙事推进到公司治理层</h3>
+  <p class="meta-line"><strong>来源</strong>：<a href="https://www.ft.com/content/openai-us-government-5-percent-equity-proposal" target="_blank" rel="noopener">Financial Times（2026-07-03）</a></p>
+  <p class="body-block">FT 引述多位知情人士称，OpenAI 已向美国政府提交一项"5% 股权换战略级基础设施合作"提案，条款包括：政府获得约 5% 无投票权股份、在国家安全事项上有一票否决权、OpenAI 承诺美国境内新建算力份额不低于总量 60%。方案与 Stargate 项目挂钩，但独立于 Stargate 单独定价。白宫暂未表态，OpenAI 官方回应称"我们与政府在多个层面持续沟通，具体条款不予置评"。</p>
+  <div class="perspective"><span class="label">产品技术视角：</span>如果条款落地，这将是自二战 RCA / Bell Labs 以来第一次美国政府用股权方式介入一家私营科技公司。对行业的连锁反应会集中在两点：Anthropic / xAI 是否会跟进类似安排；以及"主权 AI"从此不再是营销话术，而是资本表内的一栏。</div>
+
+  <h3 class="item-title"><span class="num">05.</span>Google DeepMind 发布 Nano Banana 2 Lite + Gemini Omni Flash：多模态"低价 + 全模态"双管齐下</h3>
+  <p class="meta-line"><strong>来源</strong>：<a href="https://deepmind.google/blog/nano-banana-2-lite-and-omni-flash" target="_blank" rel="noopener">Google DeepMind 官博（2026-07-01）</a></p>
+  <p class="body-block">Nano Banana 2 Lite 把图像生成 / 编辑价格压到每张 0.008 美元，官博点名"看齐即梦 4o Mini 的开发者定价"；Gemini Omni Flash 首次把文本、图像、音频、视频、代码执行在一次 API 调用里打通，官博演示"给一段 3 分钟视频，输出配音 + 中英字幕 + 关键帧图片 + JSON 事件日志"。两者共用同一个新模态融合骨干，DeepMind 明确说下一步会把这个骨干下沉到 Gemini 3 Ultra。</p>
+  <div class="perspective"><span class="label">产品技术视角：</span>这是 Google 少见地把"打价格"和"打技术"放在同一天讲。Nano Banana 2 Lite 明显在对齐国内即梦 / 可灵的 API 单价——过去一年国内多模态 API 单价一直低于海外 3-5 倍，这次是 Google 首次贴身近战。Omni Flash 则把"多次调用 + 拼接"这类中间层生意从此挤压出去，Zapier / n8n 里做"视频 → 字幕 → 图片 → JSON"的中间件将首当其冲。</div>
+
+  <!-- 🔍 三大主题 -->
+  <h2 class="section-title">
+    <span class="icon">🔍</span>
+    <span>本周三大主题</span>
+  </h2>
+
+  <h3 class="item-title">主题一：评估战场从"对话基准"转向"科研 / 生物 / 工程"三个专业赛道</h3>
+  <div class="footnote-block">
+    <ul>
+      <li><a href="https://openai.com/index/genebench-pro/" target="_blank" rel="noopener">OpenAI 官博（2026-06-30）</a>：GeneBench-Pro 由 42 位分子生物学家出题，人类基线 68%，GPT-5.6 Sol 31.5%。</li>
+      <li><a href="https://www.anthropic.com/news/claude-science" target="_blank" rel="noopener">Anthropic 官博（2026-06-30）</a>：Claude Science 与生物、材料、气候三个领域外部实验室试点。</li>
+      <li><a href="https://www.anthropic.com/news/claude-sonnet-5" target="_blank" rel="noopener">Anthropic 官博（2026-06-30）</a>：Sonnet 5 在 ARC-AGI-2、SWE-bench Verified、GPQA 三项对齐前代 Opus 水平。</li>
+    </ul>
+  </div>
+  <div class="perspective"><span class="label">趋势研判：</span>MMLU / GPQA 已经饱和，实验室竞争必然向"具备湿实验或工程闭环的领域"迁移。这也解释了为什么 OpenAI 和 Anthropic 都在同一周把生物学抬出来做主推——生物学有清晰的 ground truth（实验能不能复现），比法律、金融更适合作为下一个"能量化的圣杯"。</div>
+
+  <h3 class="item-title">主题二：开源阵营的商业化路径收缩到"权重 + 硬件"，让出"托管服务"</h3>
+  <div class="footnote-block">
+    <ul>
+      <li><a href="https://ai.meta.com/blog/llama-api-shutdown-2026" target="_blank" rel="noopener">Meta AI 官博（2026-07-06）</a>：Llama API 于 7 月 6 日关停，托管让给 Groq / Together / Fireworks。</li>
+      <li><a href="https://www.together.ai/blog/together-ai-800m-series-c" target="_blank" rel="noopener">Together AI 官博（2026-07-01）</a>：完成 8 亿美元 C 轮，估值 83 亿美元，明确定位为"开源模型的 AWS"。</li>
+      <li><a href="https://techcrunch.com/2026/07/06/meta-shuts-down-llama-api-hosted-service" target="_blank" rel="noopener">TechCrunch（2026-07-06）</a>：Meta 内部 Llama 推理集群继续服务 Meta AI app 与 Ray-Ban Display。</li>
+    </ul>
+  </div>
+  <div class="perspective"><span class="label">趋势研判：</span>"开源阵营"不再是单一角色，正在分层——Meta 做权重 + 硬件平台、Together / Groq / Fireworks 做托管、企业用户做微调。未来 12 个月值得关注："谁能拿到 Llama 4 Behemoth 的独家企业级 fine-tune 授权"——这将决定第二梯队谁能坐稳"开源生态里的 Databricks"位置。</div>
+
+  <h3 class="item-title">主题三：主权 AI 从政治叙事进入公司治理，同时中国资本继续用估值抢占叙事高地</h3>
+  <div class="footnote-block">
+    <ul>
+      <li><a href="https://www.ft.com/content/openai-us-government-5-percent-equity-proposal" target="_blank" rel="noopener">Financial Times（2026-07-03）</a>：OpenAI 提议向美国政府发行 5% 无投票权股份 + 国安一票否决。</li>
+      <li><a href="https://openai.com/index/openai-hp-frontier-partnership/" target="_blank" rel="noopener">OpenAI 官博（2026-06-28）</a>：OpenAI × HP Frontier PC 合作，把 ChatGPT Business 内嵌进企业级 Windows 采购链。</li>
+      <li><a href="https://kling.kuaishou.com/blog/kling-ai-series-c-2026" target="_blank" rel="noopener">Kling AI 官博（2026-07-02，引 FT / 36Kr 报道）</a>：Kling AI 完成约 30 亿美元 C 轮，估值 180 亿美元，成为国内视频模型第一名。</li>
+    </ul>
+  </div>
+  <div class="perspective"><span class="label">趋势研判：</span>美国这边"政府股权 + 国产算力承诺"和"OpenAI × HP 的桌面渗透"是同一件事的两面——把 AI 供应链绑进本土采购与国安审查。中国这边则用估值 + 产业资本推 Kling / Kimi / 昆仑心继续占据模态与算力叙事。两条路径的共同点是：AI 已经从纯技术产品，被彻底"资产化 + 主权化"。</div>
+
+  <!-- 📰 其他值得看的 -->
+  <h2 class="section-title">
+    <span class="icon">📰</span>
+    <span>其他值得看的</span>
+  </h2>
+
+  <h4 class="subcat-title">🧠 模型 / 技术</h4>
+  <div class="footnote-block">
+    <ul>
+      <li><a href="https://www.anthropic.com/news/claude-fable-5-mythos-5-return" target="_blank" rel="noopener">Anthropic 官博（2026-06-30）</a>：Fable 5 / Mythos 5 完成合规改造后重新上线，同期 Anthropic 联合 OpenAI、DeepMind 公布"越狱严重度分级"（Sev-0 ~ Sev-3）框架。</li>
+      <li><a href="https://x.ai/blog/voice-agent-builder-beta" target="_blank" rel="noopener">xAI 官博（2026-07-01）</a>：Voice Agent Builder Beta 上线，可视化 + 代码双模式，主打"5 分钟搭一个客服语音 Agent"；7 月 6 日追加 21 种新语音，含粤语、闽南语与阿拉伯语方言。</li>
+    </ul>
+  </div>
+
+  <h4 class="subcat-title">🛠️ 产品 / 工具</h4>
+  <div class="footnote-block">
+    <ul>
+      <li><a href="https://openai.com/index/chatgpt-adoption-report-2026-q2/" target="_blank" rel="noopener">OpenAI 官博（2026-06-30）</a>：Q2 ChatGPT 采纳报告——全球周活突破 12 亿，企业版付费席位 720 万，Codex 周活同比增长 340%。</li>
+      <li><a href="https://openai.com/index/openai-hp-frontier-partnership/" target="_blank" rel="noopener">OpenAI × HP 官博（2026-06-28）</a>：HP Frontier 系列 PC 内嵌 ChatGPT Business，聚焦企业采购渠道，硬件侧首次出现"AI 版专属 SKU"定价方式。</li>
+    </ul>
+  </div>
+
+  <h4 class="subcat-title">💰 商业 / 资本</h4>
+  <div class="footnote-block">
+    <ul>
+      <li><a href="https://www.together.ai/blog/together-ai-800m-series-c" target="_blank" rel="noopener">Together AI 官博（2026-07-01）</a>：8 亿美元 C 轮，估值 83 亿美元，General Catalyst 领投；官博披露过去 12 个月 ARR 增长 6 倍。</li>
+      <li><a href="https://kling.kuaishou.com/blog/kling-ai-series-c-2026" target="_blank" rel="noopener">Kling AI（快手）官博（2026-07-02）</a>：约 30 亿美元 C 轮，估值 180 亿美元，主打企业级视频生成 API 与影视工业化落地。</li>
+    </ul>
+  </div>
+
+  <h4 class="subcat-title">⚙️ Infra / 工程</h4>
+  <div class="footnote-block">
+    <ul>
+      <li><a href="https://deepmind.google/blog/nano-banana-2-lite-and-omni-flash" target="_blank" rel="noopener">Google DeepMind 官博（2026-07-01）</a>：Omni Flash 首次实现文本 / 图像 / 音频 / 视频 / 代码执行的单次 API 融合；Nano Banana 2 Lite 定价 0.008 美元 / 图。</li>
+      <li><a href="https://ai.meta.com/blog/llama-api-shutdown-2026" target="_blank" rel="noopener">Meta AI 官博（2026-07-06）</a>：Llama API 关停节点公示，官博给出迁移到 Together / Groq / Fireworks 的一键脚本与费用对照表。</li>
+    </ul>
+  </div>
+
+  <!-- 内页正文到这里结束。首页已统一承担「关于 / 信息来源」等通用说明；「下周值得关注」不再作为固定模板出现。 -->
+
+  <!-- 📋 关于（简版，仅在独立打开内页时显示；嵌入首页时会隐藏） -->
+  <h2 class="section-title post-about">
+    <span class="icon">📋</span>
+    <span>关于</span>
+  </h2>
+  <div class="footnote-block post-about">
+    <ul>
+      <li><strong>更新频率</strong>：每周一太平洋时间早 8 点，覆盖上周一至周日</li>
+      <li>
+        <strong>信源分级</strong>：
+        <ul>
+          <li>S 级 = 公司官方博客 / 财报 / arXiv 一手论文</li>
+          <li>A 级 = FT / Bloomberg / The Information / Stratechery 等头部媒体</li>
+          <li>B 级 = 可点击核验的行业深度分析</li>
+        </ul>
+      </li>
+      <li><strong>引用原则</strong>：付费墙背后无法核验的内容不引用，二手转载不采信</li>
+      <li><strong>解读边界</strong>：「产品技术视角」「趋势研判」为基于公开信息的整理与推论，<strong>不代表相关公司立场，也不构成投资 / 采购建议</strong></li>
+      <li><strong>反馈</strong>：发现事实错误请以原文为准并告知修正</li>
+    </ul>
+  </div>
+
+</div>
+
+</body>
+</html>
