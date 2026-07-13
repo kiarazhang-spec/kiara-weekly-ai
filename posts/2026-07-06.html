@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 行业周报 · 7 月第 2 周（2026-07-06 ~ 2026-07-12）</title>
+<meta name="description" content="本周主题：OpenAI 用 GPT-5.6 + ChatGPT Work 把 Agent 打包成企业标品；Anthropic 用 GRAM 把安全从"拒答"推进到"权重可拆"；Microsoft 与 Meta 分别用自研 MAI 与首个付费 Muse Spark 1.1 API 直接压第三方 token 定价；Apple 与 OpenAI 因硬件商密撕破脸，AI 战场首次从模型层烧到硬件供应链。">
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+  /* 嵌入模式：隐藏报头（避免与首页 masthead 重复），减小页面容器 padding */
+  html.embed .masthead { display: none; }
+  html.embed .page { padding: 0; box-shadow: none; margin: 0; max-width: 100%; }
+  html.embed { background: transparent; }
+  html.embed body { background: transparent; }
+  /* 嵌入模式：隐藏第一个 section-title（"本周 Top 5"），因为首页「最新一期」已经承担该标题 */
+  html.embed .post-toplevel { display: none; }
+  /* 嵌入模式下第一个内容标题去掉多余的上外边距 */
+  html.embed .post-toplevel + .item-title { margin-top: 0; }
+  /* 嵌入模式：隐藏内页底部的"关于"（首页已统一承担），仅独立打开内页时显示 */
+  html.embed .post-about { display: none; }
+</style>
+<script>
+  // 通过 URL 参数判断是否嵌入模式（在 <head> 里尽早加 class，避免 FOUC）
+  if (new URLSearchParams(location.search).get('embed') === '1') {
+    document.documentElement.classList.add('embed');
+  }
+</script>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- 报头 -->
+  <header class="masthead">
+    <div class="masthead-kicker">AI WEEKLY · 7 月第 2 周</div>
+    <h1 class="masthead-title">AI 行业周报</h1>
+    <div class="masthead-meta">
+      监测周期：2026-07-06 ~ 2026-07-12（太平洋时间） · <a href="../index.html" style="color:inherit;text-decoration:underline;">← 返回首页</a>
+    </div>
+  </header>
+
+  <div class="lead">本周一句话总览：OpenAI 一天内把 GPT-5.6 三档 + ChatGPT Work 打包成企业级 Agent 标品；Anthropic 用 GRAM 论文把安全从"拒答训练"推到"权重可拆卸模块"；Microsoft 自研 MAI 与 Meta 首个付费 Muse Spark 1.1 API 同一周正面压低 token 定价；Apple 40 页诉状把与 OpenAI 的硬件竞争送上法庭——AI 战线首次从模型层直接烧进硬件商密与供应链。</div>
+
+  <!-- 🎯 本周 Top 5（嵌入模式下由首页「最新一期」标题承载，独立模式下显示） -->
+  <h2 class="section-title post-toplevel">
+    <span class="icon">🎯</span>
+    <span>本周 Top 5</span>
+  </h2>
+
+  <h3 class="item-title"><span class="num">01.</span>OpenAI 同日发布 GPT-5.6 三档 + ChatGPT Work：企业 Agent 从概念被打包成付费标品</h3>
+  <p class="meta-line"><strong>来源</strong>：<a href="https://openai.com/index/gpt-5-6" target="_blank" rel="noopener">OpenAI 官博 · GPT-5.6（2026-07-09）</a>；<a href="https://openai.com/index/chatgpt-for-your-most-ambitious-work" target="_blank" rel="noopener">OpenAI 官博 · ChatGPT Work（2026-07-09）</a></p>
+  <p class="body-block">GPT-5.6 正式 GA，分 Sol / Terra / Luna 三档，API 定价分别 <strong>$5/$30、$2.50/$15、$1/$6</strong>（每百万 token 输入 / 输出），Sol 同步成为 ChatGPT 默认模型，也是 Microsoft 365 Copilot 的首选模型。同日发布的 ChatGPT Work 是内置 Codex 能力的企业 Agent，支持连接 1400+ 工具、跨应用自动拆解目标、生成表格 / 幻灯片 / 网站等"成品交付物"，附带 Plan 审批、审计日志与合规 API。Pro / Enterprise / Edu 首批开通，Plus / Business 后续滚出；Codex 桌面端并入统一 ChatGPT 客户端。</p>
+  <div class="perspective"><span class="label">产品技术视角：</span>OpenAI 一天内做了两件事——用三档定价卡住"低成本高频"（Luna 直接对标 Sonnet），再用 ChatGPT Work 把 Agent 从演示品变成企业采购目录里的一行。真正值得注意的信号是<strong>产品叙事从"写代码"扩到"完成工作"</strong>：Chat / Work / Codex 三个入口平级，"AI 员工"被正式做成了 SKU，直接和 Microsoft Copilot Studio、Anthropic Claude Code / Managed Agents 抢企业席位。</div>
+
+  <h3 class="item-title"><span class="num">02.</span>Anthropic 发布 GRAM：把双用途知识装进可拆卸模块，安全从"拒答"进到"权重级"</h3>
+  <p class="meta-line"><strong>来源</strong>：<a href="https://www.anthropic.com/research/off-switch-dual-use" target="_blank" rel="noopener">Anthropic Research · An off switch for dual-use knowledge（2026-07-08）</a></p>
+  <p class="body-block">Anthropic 与 AE Studio 合作发布论文 GRAM（Gradient-Routed Auxiliary Modules），在 Transformer 每层加入按风险类别分组的辅助模块——训练时遇到病毒学 / 网络安全 / 核物理等敏感数据，梯度只写入对应模块，通用权重冻结；训练完成后可整段删除该模块，"能力随权重一起被拿掉"。实验覆盖 4 个风险类别、50M–5B 参数 7 档模型规模，删除模块的抗微调恢复能力接近"从未训练过该数据"，且在前沿规模下开关模块的效果差距<strong>随模型规模增大而更明显</strong>。Anthropic 明确说该方法尚未用于生产模型。</p>
+  <div class="perspective"><span class="label">产品技术视角：</span>这是一次少见的"结构性安全"进展。以前所有安全手段都在<em>模型学会之后</em>做拦截（拒答训练 / 分类器 / 越狱防御），GRAM 是<em>把知识本身路由到可拆解的地方</em>。对企业 / 政府客户意义很大：一次训练就可以按"这个客户可以看病毒学、那个客户不行"发不同权重版本，而不需要每次重训。这也把 Anthropic "安全 = 差异化"的战略推到新的技术底层——未来出口管制、生物安全审查大概率会向这个方向靠。</div>
+
+  <h3 class="item-title"><span class="num">03.</span>Microsoft 自研 MAI 模型在 Excel / Outlook 每周处理数万 prompt：向 OpenAI × Anthropic 依赖开始拆解</h3>
+  <p class="meta-line"><strong>来源</strong>：<a href="https://www.bloomberg.com/news/articles/2026-07-07/microsoft-mai-models-replace-openai-anthropic-in-excel-outlook" target="_blank" rel="noopener">Bloomberg（2026-07-07）</a>；<a href="https://www.theinformation.com/articles/microsoft-mai-suleyman-anthropic-cost-cuts" target="_blank" rel="noopener">The Information（2026-07-08）</a></p>
+  <p class="body-block">Bloomberg 报道，微软已开始在 Excel、Outlook 中用自研 MAI 系列替代 OpenAI / Anthropic 模型，两款办公套件每周有<strong>数万条 AI prompt</strong>由 MAI 完成，此前从未公开披露。微软 AI 负责人 Mustafa Suleyman 直接表态："我们向 Anthropic 支付大量资金，目标是<strong>减少并最终消除这部分成本</strong>。" Bloomberg 引述内部数据指出 2026 年初微软向 Anthropic 支出约 <strong>5 亿美元 / 年</strong>。MAI 模型体系（6 月 Build 大会一次发 7 款）已接入 GitHub Copilot，自研语音转写将进入 Teams。</p>
+  <div class="perspective"><span class="label">产品技术视角：</span>2025 年那次 Microsoft × OpenAI 合作条款修订（去除微软自建前沿模型限制）到今天开始收效——曾经把 AI 战略绑在 OpenAI 上的巨头，现在明确要"降低 / 最终消除"外部模型支出。这条新闻对整个 AI 产业链的定价意义远大于对办公产品的意义：如果连微软都开始在高频场景切自研模型，OpenAI / Anthropic 的企业单价长期天花板就已经被划定。<strong>模型层利润率的顶部拐点，可能已经出现。</strong></div>
+
+  <h3 class="item-title"><span class="num">04.</span>Meta 发布 Muse Spark 1.1：史上第一次给自家旗舰模型收费，用 $1.25 / $4.25 直接砸市场</h3>
+  <p class="meta-line"><strong>来源</strong>：<a href="https://ai.meta.com/static-resource/muse-spark-1-1-evaluation-report/" target="_blank" rel="noopener">Meta AI · Muse Spark 1.1 Evaluation Report（2026-07-09）</a>；<a href="https://www.bloomberg.com/news/articles/2026-07-09/meta-launches-first-paid-ai-model-muse-spark-1-1" target="_blank" rel="noopener">Bloomberg（2026-07-09）</a></p>
+  <p class="body-block">Meta Superintelligence Labs 发布 Muse Spark 1.1，是 Meta 有史以来<strong>第一次给自家旗舰模型标价</strong>，取代此前 Llama 系列的开源免费策略。定价 <strong>$1.25 / $4.25 每百万 token（输入 / 输出）</strong>，约为 GPT-5.6 Terra 输出价的 <strong>28%</strong>、Claude Opus 4.8 输出价的 <strong>17%</strong>。首日仅在美国公开预览，新用户 $20 免费额度，暂不上 OpenRouter 等第三方平台。技术侧主打 100 万 token 上下文、原生多模态（文本 / 图像 / 视频 / 计算机使用）、端到端 Agent 与仓库级编程。Zuckerberg 时隔三年重回 X 亲自发布。</p>
+  <div class="perspective"><span class="label">产品技术视角：</span>Meta 的转向意味着"免费开源前沿模型"时代基本结束。Muse Spark 1.1 是 Alexandr Wang 领导下 MSL 的产物，走的是<strong>闭源 + 低价 + 高频调用</strong>路径，不是打质量而是打价格战——把定价放在 OpenAI 的四分之一，本质是逼 OpenAI / Anthropic 降价。这一周同时叠加微软 MAI，两条独立的新闻其实是同一个信号：<strong>Token 价格战正式开打，边际利润率被结构性压低。</strong></div>
+
+  <h3 class="item-title"><span class="num">05.</span>Apple 起诉 OpenAI + io Products：40 页诉状指控系统性窃取硬件商密，AI 战线首次烧到硬件供应链</h3>
+  <p class="meta-line"><strong>来源</strong>：<a href="https://www.bloomberg.com/news/articles/2026-07-10/apple-sues-openai-hardware-trade-secrets-io-products" target="_blank" rel="noopener">Bloomberg（2026-07-10）</a>；<a href="https://techcrunch.com/2026/07/10/apple-lawsuit-openai-io-products-hardware-trade-secrets" target="_blank" rel="noopener">TechCrunch（2026-07-10）</a></p>
+  <p class="body-block">Apple 在加州北区联邦法院（案号 5:26-cv-07078）起诉 OpenAI Foundation、OpenAI Group PBC、io Products 及两名前苹果员工，包括现任 OpenAI 首席硬件官 Tang Yew Tan（前 Apple iPhone / Watch 产品设计副总）与工程师 Chang Liu。诉状 40 页、含具体证据链：Chang Liu 离职后利用 Apple 内网身份验证漏洞下载未发布产品文件，并邮件写道<strong>"哈哈，我发现我能访问网络存储"</strong>；诉状披露<strong>已有超 400 名前 Apple 员工加入 OpenAI</strong>，苹果曾于 2 月致函 OpenAI 未获回复。Apple 请求全面禁令、返还销毁涉密资料，甚至<strong>要求法院强制 OpenAI 重新设计其硬件产品</strong>剔除 Apple 专利技术。OpenAI 回应"对其他公司商业秘密不感兴趣"。</p>
+  <div class="perspective"><span class="label">产品技术视角：</span>这次诉讼真正的意义不是"能不能赢"，而是<strong>AI 竞争的战场正式从模型层扩展到消费硬件供应链</strong>。此前 Apple × OpenAI 是合作方（Siri 接入），而今在 OpenAI 上市前夜（IPO 敏感期）把矛盾变成公开法律事件。诉状里"OpenAI 硬件业务根基不稳，其核心早已因非法窃取而腐朽不堪"的措辞极其少见——Apple 的目标不是赔偿，是<strong>在监管与投资人层面给 OpenAI 的硬件路线打上"合规风险"标签</strong>。同期传出 Siri 转向 Google Gemini，两件事叠加，是 Apple 对 OpenAI 的战略切割。</div>
+
+  <!-- 🔍 三大主题 -->
+  <h2 class="section-title">
+    <span class="icon">🔍</span>
+    <span>本周三大主题</span>
+  </h2>
+
+  <h3 class="item-title">主题一：Agent 从"能演示"迈进"可采购"——企业席位战开打</h3>
+  <div class="footnote-block">
+    <ul>
+      <li><a href="https://openai.com/index/chatgpt-for-your-most-ambitious-work" target="_blank" rel="noopener">OpenAI 官博（2026-07-09）</a>：ChatGPT Work 由 GPT-5.6 + Codex 驱动，跨 1400+ 应用自动拆解目标，交付表格 / 幻灯片 / 网站，配 admin 审计与合规 API。</li>
+      <li><a href="https://openai.com/index/gpt-5-6-preferred-model-microsoft-365-copilot" target="_blank" rel="noopener">OpenAI × Microsoft（2026-07-09）</a>：GPT-5.6 成为 Microsoft 365 Copilot 首选模型，Sol 直接进企业办公链。</li>
+      <li><a href="https://www.cadb.info/reports/claude-ai-daily-2026-07-06.html" target="_blank" rel="noopener">Anthropic Managed Agents（2026-07-06）</a>：Managed Agents 加入事件 delta 流、单会话 override、全生命周期 webhooks；Claude Code 默认权限模式改为 Manual（更保守的自主性默认值）。</li>
+    </ul>
+  </div>
+  <div class="perspective"><span class="label">趋势研判：</span>三家一齐把 Agent 做成"企业采购单位"——OpenAI 走 Chat / Work / Codex 三合一入口、Anthropic 深耕开发者侧 Managed Agents、Microsoft 用 Copilot 抓办公套件。真正的差异化在<strong>"审批链 + 审计 + 撤销"三件套</strong>：Chat Work 的 Plan 审批、Claude Code 的 Manual 默认、Copilot 的 admin 控制，是这一波企业 Agent 落地的通用基线。对 PM 意义：<strong>做 AI 企业产品的默认合规栈已经形成</strong>，不再是可选功能。</div>
+
+  <h3 class="item-title">主题二：Token 价格战正式开打——两条独立路径同一周指向"边际利润被压低"</h3>
+  <div class="footnote-block">
+    <ul>
+      <li><a href="https://www.bloomberg.com/news/articles/2026-07-07/microsoft-mai-models-replace-openai-anthropic-in-excel-outlook" target="_blank" rel="noopener">Bloomberg（2026-07-07）</a>：微软 MAI 模型在 Excel / Outlook 每周处理数万 prompt，Suleyman 明言"最终消除"对 Anthropic 支出，年支出约 5 亿美元。</li>
+      <li><a href="https://ai.meta.com/static-resource/muse-spark-1-1-evaluation-report/" target="_blank" rel="noopener">Meta AI（2026-07-09）</a>：Muse Spark 1.1 首次付费定价 $1.25 / $4.25，为 GPT-5.6 Terra 输出价 28%、Claude Opus 4.8 输出价 17%。</li>
+      <li><a href="https://openai.com/index/gpt-5-6" target="_blank" rel="noopener">OpenAI（2026-07-09）</a>：GPT-5.6 Luna 定价 $1 / $6，明显对标 Sonnet 与 Meta 新品，同档最激进。</li>
+    </ul>
+  </div>
+  <div class="perspective"><span class="label">趋势研判：</span>本周同时出现两条独立信号——大买家（Microsoft）不再愿付溢价、新供给方（Meta）主动打半价——共同把模型层利润率天花板明确划下来。未来 12 个月要观察的不是"谁的模型更强"，而是<strong>"谁能在低毛利下养住研究团队"</strong>。这也解释了为什么 OpenAI 要抢做 ChatGPT Work、Anthropic 要押 Managed Agents / Claude Code——都是<strong>把利润从 API 单价迁移到"应用层订阅 + 企业席位"</strong>。</div>
+
+  <h3 class="item-title">主题三：AI 竞争第一次从模型层扩展到硬件供应链与安全权重结构</h3>
+  <div class="footnote-block">
+    <ul>
+      <li><a href="https://www.bloomberg.com/news/articles/2026-07-10/apple-sues-openai-hardware-trade-secrets-io-products" target="_blank" rel="noopener">Bloomberg（2026-07-10）</a>：Apple v. OpenAI 40 页诉状，400+ 前 Apple 员工跳槽 OpenAI，Tang / Liu 被点名，请求法院强制重设计 OpenAI 硬件。</li>
+      <li><a href="https://www.anthropic.com/research/off-switch-dual-use" target="_blank" rel="noopener">Anthropic Research（2026-07-08）</a>：GRAM 把危险知识路由到可拆模块，一次训练可衍生 16 种能力组合的权重版本。</li>
+      <li><a href="https://www.techtimes.com/articles/openai-eyes-hardware-launch-2026-io-siri-gemini" target="_blank" rel="noopener">TechTimes / 综合报道（2026-07-11）</a>：Siri 传转向 Google Gemini 底座，Apple 与 OpenAI 从合作转向直接竞争。</li>
+    </ul>
+  </div>
+  <div class="perspective"><span class="label">趋势研判：</span>过去 3 年 AI 竞争主战场是<strong>模型能力</strong>，现在同一周同时向两侧扩：<strong>硬件（Apple × OpenAI 诉讼）</strong>与<strong>权重结构（Anthropic GRAM）</strong>。这标志着 AI 正在被"资产化 + 结构化 + 主权化"——硬件商密 = 供应链主权，权重可拆模块 = 出口管制的技术底座。<strong>下一阶段的 AI 政策与并购逻辑，将围绕这两条线展开</strong>，而不是单一模型评测榜。</div>
+
+  <!-- 📰 其他值得看的 -->
+  <h2 class="section-title">
+    <span class="icon">📰</span>
+    <span>其他值得看的</span>
+  </h2>
+
+  <h4 class="subcat-title">🧠 模型 / 技术</h4>
+  <div class="footnote-block">
+    <ul>
+      <li><a href="https://www.claudeainews.com/news/news/models.html" target="_blank" rel="noopener">Anthropic × Microsoft（2026-07-06）</a>：Claude 正式上线 Microsoft Azure AI Foundry，跑在 Nvidia GPU 上，企业分发面进一步扩到微软云。</li>
+      <li><a href="https://www.cadb.info/reports/claude-ai-daily-2026-07-06.html" target="_blank" rel="noopener">Anthropic Console（2026-07-06）</a>：API 速率限制统一上调，Sonnet / Haiku 与 Opus 对齐，等级合并为 Start / Build / Scale 三档。</li>
+      <li><a href="https://openai.com/index/introducing-gpt-live" target="_blank" rel="noopener">OpenAI 官博（2026-07-08）</a>：GPT-Live 全双工语音模型正式发布，支持用户随时打断、语音安全护栏更严；后台可调用 GPT-5.5 完成推理与联网。</li>
+    </ul>
+  </div>
+
+  <h4 class="subcat-title">🛠️ 产品 / 工具</h4>
+  <div class="footnote-block">
+    <ul>
+      <li><a href="https://openai.com/index/chatgpt-for-your-most-ambitious-work" target="_blank" rel="noopener">OpenAI 官博（2026-07-09）</a>：ChatGPT 桌面端统一 Chat / Work / Codex 三入口，原客户端更名 ChatGPT Classic；Atlas 独立浏览器于 8 月 9 日下线。</li>
+      <li><a href="https://openai.com/index/deutsche-telekom" target="_blank" rel="noopener">OpenAI × Deutsche Telekom（2026-07-10）</a>：与德国电信合作，深化欧洲企业场景与主权算力协作。</li>
+      <li><a href="https://openai.com/index/introducing-gpt-live" target="_blank" rel="noopener">GitHub Copilot（2026-07-09）</a>：Copilot 模型选择器加入 GPT-5.6 Sol / Terra / Luna 三档，Sol 门槛 Pro+ 起。</li>
+    </ul>
+  </div>
+
+  <h4 class="subcat-title">💰 商业 / 资本</h4>
+  <div class="footnote-block">
+    <ul>
+      <li><a href="https://www.bloomberg.com/news/articles/2026-07-10/apple-sues-openai-hardware-trade-secrets-io-products" target="_blank" rel="noopener">Bloomberg（2026-07-10）</a>：Apple v. OpenAI 诉讼恰在 OpenAI 保密 IPO 递表后 6 周提出，将进入 OpenAI 的招股书披露事项。</li>
+      <li><a href="https://openai.com/index/government-national-security-partnerships" target="_blank" rel="noopener">OpenAI 官博（2026-07-08）</a>：正式公布政府 / 国家安全合作框架，把此前 5% 政府股权提案的路径进一步制度化。</li>
+    </ul>
+  </div>
+
+  <h4 class="subcat-title">⚙️ Infra / 工程</h4>
+  <div class="footnote-block">
+    <ul>
+      <li><a href="https://www.bloomberg.com/news/articles/2026-07-07/microsoft-mai-models-replace-openai-anthropic-in-excel-outlook" target="_blank" rel="noopener">Bloomberg（2026-07-07）</a>：微软 MAI 已灰度接入 Excel / Outlook / GitHub Copilot；Teams 自研语音转写将于数月内上线。</li>
+      <li><a href="https://ai.meta.com/static-resource/muse-spark-1-1-evaluation-report/" target="_blank" rel="noopener">Meta AI（2026-07-09）</a>：Muse Spark 1.1 支持 100 万 token 上下文、原生多模态与 Linux 沙箱级"计算机使用"能力。</li>
+    </ul>
+  </div>
+
+  <!-- 内页正文到这里结束。首页已统一承担「关于 / 信息来源」等通用说明；「下周值得关注」不再作为固定模板出现。 -->
+
+  <!-- 📋 关于（简版，仅在独立打开内页时显示；嵌入首页时会隐藏） -->
+  <h2 class="section-title post-about">
+    <span class="icon">📋</span>
+    <span>关于</span>
+  </h2>
+  <div class="footnote-block post-about">
+    <ul>
+      <li><strong>更新频率</strong>：每周一太平洋时间早 8 点，覆盖上周一至周日</li>
+      <li>
+        <strong>信源分级</strong>：
+        <ul>
+          <li>S 级 = 公司官方博客 / 财报 / arXiv 一手论文</li>
+          <li>A 级 = FT / Bloomberg / The Information / Stratechery 等头部媒体</li>
+          <li>B 级 = 可点击核验的行业深度分析</li>
+        </ul>
+      </li>
+      <li><strong>引用原则</strong>：付费墙背后无法核验的内容不引用，二手转载不采信</li>
+      <li><strong>解读边界</strong>：「产品技术视角」「趋势研判」为基于公开信息的整理与推论，<strong>不代表相关公司立场，也不构成投资 / 采购建议</strong></li>
+      <li><strong>反馈</strong>：发现事实错误请以原文为准并告知修正</li>
+    </ul>
+  </div>
+
+</div>
+
+</body>
+</html>
