@@ -6,6 +6,15 @@
   },
   "posts": [
     {
+      "slug": "2026-07-06",
+      "file": "posts/2026-07-06.html",
+      "title": "AI 行业周报 · 7 月第 2 周（2026-07-06 ~ 2026-07-12）",
+      "period_label": "",
+      "date_start": "2026-07-06",
+      "date_end": "2026-07-12",
+      "summary": "OpenAI 一天内把 GPT-5.6 三档 + ChatGPT Work 打包成企业级 Agent 标品；Anthropic 用 GRAM 论文把安全从\"拒答训练\"推到\"权重可拆卸模块\"；Microsoft 自研 MAI 与 Meta 首个付费 Muse Spark 1.1 API 同一周正面压低 token 定价；"
+    },
+    {
       "slug": "2026-06-29",
       "file": "posts/2026-06-29.html",
       "title": "AI 行业周报 · 6 月第 5 周（2026-06-29 ~ 2026-07-05）",
