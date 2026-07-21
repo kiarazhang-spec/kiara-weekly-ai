@@ -6,6 +6,15 @@
   },
   "posts": [
     {
+      "slug": "2026-07-13",
+      "file": "posts/2026-07-13.html",
+      "title": "AI 行业周报 · 7 月第 3 周（2026-07-13 ~ 2026-07-19）",
+      "period_label": "",
+      "date_start": "2026-07-13",
+      "date_end": "2026-07-19",
+      "summary": "Kimi K3 以 2.8 万亿参数拿下全球最大开源模型头衔，中国开源第一次逼近西方前沿闭源；Anthropic 与 Meta 洽谈 100 亿美元、两年期算力租赁，Meta 借此正式跨进云基础设施生意；Thinking Machines 发布首个模型 Inkling，为西方开放权重开出第二战线；GPT-5.6 Sol"
+    },
+    {
       "slug": "2026-07-06",
       "file": "posts/2026-07-06.html",
       "title": "AI 行业周报 · 7 月第 2 周（2026-07-06 ~ 2026-07-12）",
