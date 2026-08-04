@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 行业周报 · 8月第 1 周（2026-07-27 ~ 2026-08-02）</title>
+<meta name="description" content="本周主题：OpenAI 曝光下一代模型 Astra（多智能体长时协作、已向美国政府演示）；DeepSeek V4-Flash 正式版API 公测（后训练重做、Agent 能力暴涨、AII 50分逼近 Luna）；字节 Seedance 2.5 与 MiniMax H3 同日发布（视频生成进入30秒+开源新赛段）；腾讯混元合并 LLM 与多模态团队成立基础模型部（姚顺雨统管）；Kimi K3 权重正式开放（7/27 晚登HuggingFace 热榜首位）。">
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+  html.embed .masthead { display: none; }
+  html.embed .page { padding: 0; box-shadow: none; margin: 0; max-width: 100%; }
+  html.embed { background: transparent; }
+  html.embed body { background: transparent; }
+  html.embed .post-toplevel { display: none; }
+  html.embed .post-toplevel + .item-title { margin-top: 0; }
+  html.embed .post-about { display: none; }
+</style>
+<script>
+  if (new URLSearchParams(location.search).get('embed') === '1') {
+    document.documentElement.classList.add('embed');
+  }
+</script>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- 报头 -->
+  <header class="masthead">
+    <div class="masthead-kicker">AI WEEKLY · 8 月第 1 周</div>
+    <h1 class="masthead-title">AI 行业周报</h1>
+    <div class="masthead-meta">
+      监测周期：2026-07-27 ~ 2026-08-02（太平洋时间） ·<a href="../index.html" style="color:inherit;text-decoration:underline;">← 返回首页</a>
+    </div>
+  </header>
+
+  <div class="lead">本周一句话总览：OpenAI 向美国政府演示下一代多智能体模型 Astra（可能是 GPT-6，强调"长时协作"而非单次推理，$2000 算力解10 道数学未解难题）；DeepSeek V4-Flash 正式版 API 公测（模型骨架不变、仅重做后训练，Agent 基准暴涨 6倍，AII 智能指数50 分距Luna 仅 1 分、单任务成本低60%）；字节 Seedance 2.5 与 MiniMax H3 同日发布掀起视频生成新赛段（30 秒一镜到底 vs 首个商用级开源多模态视频基座）；腾讯混元合并大语言与多模态团队成立基础模型部（28岁姚顺雨统管、探索 AGI 上限）；Kimi K3 完整权重 7/27 晚正式上线 Hugging Face（半小时登顶热榜）。</div>
+
+  <!--🎯 本周 Top 5 -->
+  <h2 class="section-title post-toplevel">
+    <span class="icon">🎯</span>
+    <span>本周 Top 5</span>
+  </h2>
+
+  <h3 class="item-title"><span class="num">01.</span>OpenAI 曝光下一代模型 Astra：多智能体长时协作，向美政府演示</h3>
+  <p class="meta-line">来源：The Information（8/1）· 华尔街见闻 · 机器之心 · 路透社</p>
+  <p class="body-block">8月 1 日，The Information 报道 OpenAI 正筹备暂定名为"Astra"的新模型家族——核心能力是让多个AI Agent 长期分工协作、处理持续数小时的复杂项目。Sam Altman 本周在华盛顿向政策制定者和监管机构演示，展示多Agent 协同解决高阶数学问题的能力。OpenAI 同日发布报告称该模型以约 $2,000 算力成本解决了 10 道此前未被攻克的数学难题（横跨高维几何、编码理论、群论等）。Astra 将与 Sol / Terra / Luna 并列为新模型类别，可能命名为 GPT-6 或 GPT-5.7，发布时间未定，已进入测试阶段，预计成为美国首批须经政府新框架审查的前沿模型（<a href="https://www.163.com/dy/article/L396PKPB05198NMR.html" target="_blank" rel="noopener">华尔街见闻</a>）。</p>
+  <div class="perspective"><span class="label">产品技术视角：</span>从"更强的聊天机器人"到"长时程工作系统"，Astra 代表范式迁移——AI 不再只回答问题，而是承担完整工作流。GPT-5.6 API 已有多Agent 测试功能（主Agent 创建子Agent 并行执行），Astra 是其正式产品化。安全层面，OpenAI 7/20 已披露一款面向长时任务的内部模型出现"现有评估未捕捉到的行为"并一度暂停使用——长周期自主运行的可控性是核心悬念。</div>
+
+  <h3 class="item-title"><span class="num">02.</span>DeepSeek V4-Flash 正式版 API 公测：后训练重做，Agent 暴涨 6 倍</h3>
+  <p class="meta-line">来源：DeepSeek 官方 API 文档（7/31）· 每日经济新闻 · IT之家 · Artificial Analysis</p>
+  <p class="body-block">7 月 31 日，DeepSeek 上线 V4-Flash 正式版 API。模型结构（2840亿参数 MoE、激活 130 亿、100 万 token 上下文）与预览版完全一致，仅重做后训练——结果 DeepSWE 从 7.3分飙至 54.4 分（暴涨 6 倍），Terminal Bench 2.1 达82.7 分（逼近 Opus 4.8 的 85.0）。Artificial Analysis 智能指数 50 分，距 GPT-5.6 Luna 仅 1 分；得益于 98% 缓存命中折扣，单任务成本仍比降价80% 后的 Luna 低约 60%。同日旧版 API 端点deepseek-chat / deepseek-reasoner 正式下线，全面迁移至 V4 系列（<a href="https://www.toutiao.com/article/7669059753973006857/" target="_blank" rel="noopener">每日经济新闻</a>）。</p>
+  <div class="perspective"><span class="label">产品技术视角：</span>"同一骨架、后训练翻天"是本周最让行业细思极恐的信号——意味着后训练阶段的优化空间被严重低估，堆参数不再是唯一出路。DeepSeek 同步开源 Agent 测试框架 DeepSeek Harness，正在定义"如何评估长流程 Agent"这件事本身。V4-Pro 正式版尚未发布，Flash 已经在 Pareto 前沿把成本-性能曲线拉到新位置。</div>
+
+  <h3 class="item-title"><span class="num">03.</span>字节 Seedance 2.5 + MiniMax H3 同日上线：视频生成进入新赛段</h3>
+  <p class="meta-line">来源：蓝鲸新闻（8/3）· 科技狐 · 搜狐一周未来商业</p>
+  <p class="body-block">7 月 31 日，字节跳动发布 Seedance 2.5（单次30 秒一镜到底、多轮延长、多模态参考扩容至 30 图+ 10 视频 + 10 音频）；同日 MiniMax 发布 H3（首个商用级开源多模态视频基座模型、最长 15 秒 2K 带双声道声音、V2V Motion Transfer、近期开放权重）。H3 定价 0.8 元/秒（同类旗舰 1/3），Seedance 2.5 API 价格涨 50% 但时长翻倍。视频模型竞争从"能不能生成"转向"能不能交付"——连贯叙事、多素材协同、剪辑级精度成为新门槛（<a href="https://www.163.com/dy/article/L3DG9AJI05198R91.html" target="_blank" rel="noopener">蓝鲸新闻</a>）。</p>
+  <div class="perspective"><span class="label">产品技术视角：</span>Seedance 拉长镜头做闭源平台（豆包/ 即梦 / 小云雀集成），MiniMax 放开权重做生态——两条路径的碰撞决定 AI 视频的商业模型是"平台税"还是"基础设施"。H3 若第三方能复现商用级能力，将成为产业事件而非仅社区事件。</div>
+
+  <h3 class="item-title"><span class="num">04.</span>腾讯混元合并 LLM 与多模态团队，成立基础模型部</h3>
+  <p class="meta-line">来源：腾讯 TEG 内部通知（7/23）· 21 世纪经济报道 · 南方日报</p>
+  <p class="body-block">7 月 23 日，腾讯正式撤销大语言模型部和多模态模型部，合并成立基础模型部，由 28 岁首席 AI 科学家姚顺雨统一负责（向TEG 总裁卢山汇报）。这是 2025 年 4 月"双轨制"运行 15 个月后的终结——语言、视觉、语音、3D 研发全部纳入统一架构。姚顺雨此前已主导 AI Lab撤销（3 月）、混元基础设施全面重建（2 月）、Hy3 开源及上线（7 月），Hy3 上线一周调用量较上代增长 68 倍（<a href="https://cloud.tencent.com/developer/news/4314055" target="_blank" rel="noopener">腾讯云开发者社区</a>）。</p>
+  <div class="perspective"><span class="label">商业战略视角：</span>腾讯 AI 从"分散探索"全面转向"集中统筹"，姚顺雨入职 8 个月内三次重大架构调整（撤 AI Lab → 重建基础设施 → 合并团队），速度堪称激进。核心逻辑：追赶前沿需要统一算力资源分配和技术路线，多模态不能与 LLM 割裂。下一个验证点是全模态模型能否真正在游戏 / 视频 / 办公场景拉开差异化。</div>
+
+  <h3 class="item-title"><span class="num">05.</span>Kimi K3 权重正式开放，半小时登顶 Hugging Face 热榜</h3>
+  <p class="meta-line">来源：Hugging Face moonshotai/Kimi-K3（7/27）· 潮新闻 · AI 大模型周报</p>
+  <p class="body-block">7 月 27 日晚，月之暗面在 Hugging Face 正式发布 Kimi K3 完整模型权重（2.8T 参数 / 896路由专家/ 激活 16/ 原生视觉 / 100 万 token），同步公开技术报告及 MoonEP、FlashKDA、AgentEnv 三项训练基础设施。MXFP4 格式下仅需约 1.4TB 存储（FP16 的 1/4），8-16 节点 8×H100 即可自托管。发布半小时冲上HF 热门榜首，硅谷科技公司联署呼吁美政府不要封禁中国 AI 模型。K3 已推动月之暗面年化收入达 3亿美元，支撑 500亿美元港股IPO 估值（<a href="https://so.html5.qq.com/page/real/search_news?docid=70000021_0646a68655600652" target="_blank" rel="noopener">潮新闻</a>）。</p>
+  <div class="perspective"><span class="label">商业战略视角：</span>K3 是全球首个真正逼近闭源前沿的开源权重模型，且附带完整训练栈——这不仅是模型开源，而是方法论开源。AWS / Azure / GCP 可直接托管（消除中国数据驻留顾虑），$3/M 等效API 成本使其成为最具性价比的自托管选项。对Anthropic / OpenAI 的定价权构成结构性压力。</div>
+
+
+  <!--🔍 本周三大主题 -->
+  <h2 class="section-title">
+    <span class="icon">🔍</span>
+    <span>本周三大主题</span>
+  </h2>
+
+  <h3 class="item-title">主题一：AI Agent 从"工具调用"走向"长时程自主工作"</h3>
+  <p class="body-block">三条线索在本周交汇：① OpenAI Astra 明确以"多Agent 长期协作"为卖点，目标是处理数小时甚至更长的工作流；② DeepSeek V4-Flash 正式版把Agent 能力作为核心升级维度（DeepSWE 暴涨 6 倍），同步开源 Agent 评测框架；③ OpenAI 此前已确认覆盖超10亿活跃用户，Codex Agent 工作占每周输出 token 的 99.8%。Agent 不再是实验室demo，而是真实生产力工具——但"长时程自主运行"的安全边界仍未形成行业共识。</p>
+  <div class="perspective"><span class="label">趋势研判：</span>2026 下半年的模型竞争主轴将从"单次回答质量"转向"持续可靠执行"。评价标准不再是 benchmark 分数，而是"能否稳定推进一个项目、识别中途错误、协调多个子任务"。Gartner 预计到 2026 年底 40% 企业应用将集成任务型 AI Agent（2025 年不到 5%），到 2030 年约 2340 亿美元 SaaS 支出将被Agentic AI 重塑。</div>
+
+  <h3 class="item-title">主题二：视频生成模型从"demo 级"进入"交付级"</h3>
+  <p class="body-block">Seedance 2.5 把单次可控时长拉到 30 秒（足以组织完整叙事），MiniMax H3 首次在商用级水平放开权重（2K / 多模态输入 / 带声道）。过去一年视频模型的痛点是"每个镜头单独惊艳、剪到一起就崩"，原因是模型没有跨镜头状态记忆。Seedance 2.5 的多轮延长和H3 的 12 素材并行输入，都在试图从架构层面解决叙事连贯性。定价差异（H3 低至 0.8 元/秒 vs Seedance 涨价 50%）也暗示两种商业策略的分化。</p>
+  <div class="perspective"><span class="label">趋势研判：</span>AI 视频的下一轮竞争不再比"谁的镜头更长"，而是比"谁能进入真实制作流程"——带货短视频、企业培训、广告成片、短剧。H3 开源若能被第三方复现，将打破闭源平台垄断分发的规则。预计 Q3 还会有更多视频模型公布开放权重（可灵、Pika 均有暗示）。</div>
+
+  <h3 class="item-title">主题三：中国开源 AI 进入"方法论开放"阶段</h3>
+  <p class="body-block">Kimi K3 不仅开源权重，还一并公开训练栈（MoonEP 通信库/ FlashKDA 注意力内核 / AgentEnv 环境基础设施）；DeepSeek 同步开源 Agent 评测框架 DeepSeek Harness；MiniMax 承诺数日内开放 H3 视频模型权重。加上此前 DeepSeek V4 的 MIT 协议、腾讯 Hy3 的 Apache 2.0，中国 AI 厂商在 2026 年下半年集体从"给你权重"升级到"给你整套工具链"。NVIDIA CEO 上周首帖力挺开放权重，硅谷科技公司联署反对封禁——开源正在成为地缘博弈中的战略筹码。</p>
+  <div class="perspective"><span class="label">趋势研判：</span>方法论开源的核心逻辑是"生态锁定"：当开发者围绕你的训练栈、评测框架、推理引擎构建工作流，即使模型本身可替换，迁移成本也已足够高。这是中国 AI 实验室从"性价比追赶者"向"标准制定者"角色转换的信号。EU AI Act 透明度要求也在客观上为开源模型创造政策红利。</div>
+
+
+  <!-- 📰 其他值得看的 -->
+  <h2 class="section-title">
+    <span class="icon">📰</span>
+    <span>其他值得看的</span>
+  </h2>
+
+  <h4 class="subsection-title">🤖 模型技术</h4>
+  <ul class="misc-list">
+    <li><strong>OpenAI GPT-5.6 Luna降价 80%、Terra 降20%</strong>：Luna 现价 $0.20/$1.20每百万 token（输入/输出），ChatGPT 周活跃用户超 10 亿、企业客户突破 200 万家（<a href="https://www.toutiao.com/article/7668912743142998569/" target="_blank" rel="noopener">TechWeb</a>）。</li>
+    <li><strong>蚂蚁集团发布 Ling-3.0-Flash</strong>：124B 参数 / 5.1B 激活、原生混合推理、256K 上下文可扩至 1M、Agent 交互环境超 1万个。8/3 前OpenRouter 免费 API，之后开源权重（<a href="https://www.businesswirechina.com/hk/news/63611.html" target="_blank" rel="noopener">Business Wire</a>）。</li>
+    <li><strong>Gemini 3.5 Pro 竞技场偷跑</strong>：7月底 Gemini-3.5-Pro 短暂出现在盲测池并自报身份，不足 1 小时下架伴API 异常——Google 或近期正式发布（<a href="https://new.qq.com/rain/a/20260802A0912A00?refer=cp_1009" target="_blank" rel="noopener">腾讯新闻 AI速览</a>）。</li>
+    <li><strong>FLI 2026夏季AI 安全指数</strong>：Anthropic 最高 C+，OpenAI / Google C，Meta D+，xAI / DeepSeek / Mistral 不及格——"没有任何实验室的安全实践与模型能力匹配"（<a href="https://aitoolsrecap.com/Blog/ai-news-july-24-2026" target="_blank" rel="noopener">AIToolsRecap</a>）。</li>
+  </ul>
+
+  <h4 class="subsection-title">🛠️ 产品工具</h4>
+  <ul class="misc-list">
+    <li><strong>OpenAI 10亿用户 + Codex 占每周输出 token 99.8%</strong>：注册 6 个月后用户日消息量增50%，工作种类翻倍。财务团队已将 Agent 工具作为核心方式之一——从"提问"到"执行"的转折点（<a href="https://www.toutiao.com/article/7668912743142998569/" target="_blank" rel="noopener">TechWeb</a>）。</li>
+    <li><strong>Google Earth AI 生图功能上线不到 24 小时下线</strong>：Nano Banana 2 生图被用户恶搞假图引发信任风险，Google 称违反政策、加护栏后重开时间未定（<a href="https://new.qq.com/rain/a/20260802A0912A00?refer=cp_1009" target="_blank" rel="noopener">腾讯新闻</a>）。</li>
+  </ul>
+
+  <h4 class="subsection-title">💰 商业资本</h4>
+  <ul class="misc-list">
+    <li><strong>DeepSeek 首轮融资 510 亿元落地</strong>：投后估值近 4000 亿元，创中国 AI 单轮融资记录。腾讯、宁德时代、京东、IDG、网易参投，国家人工智能产业投资基金战略跟投。创始人梁文锋自投约 30 亿元，持股 84%（<a href="https://new.qq.com/rain/a/20260802A0AJQA00?refer=cp_1009" target="_blank" rel="noopener">腾讯新闻 AI 应用观察</a>）。</li>
+    <li><strong>传华为 2012 实验室新增 AI 软件部</strong>：聚焦基础大模型研发，2025 年 12 月已成立基础大模型部，此次进一步细化组织（<a href="https://so.html5.qq.com/page/real/search_news?docid=70000021_3876a69b5e380052" target="_blank" rel="noopener">AI 大模型周报</a>）。</li>
+    <li><strong>DeepSeek 被曝实习生日薪 5000 元</strong>：侧面印证其人才密度和投入强度（<a href="https://so.html5.qq.com/page/real/search_news?docid=70000021_3876a69b5e380052" target="_blank" rel="noopener">AI 大模型周报</a>）。</li>
+  </ul>
+
+  <h4 class="subsection-title">⚙️ Infra 工程</h4>
+  <ul class="misc-list">
+    <li><strong>上海交大 ManuDrive 工业时序大模型</strong>：落地制造场景助企业提产能稳工况降波动（<a href="https://new.qq.com/rain/a/20260802A0912A00?refer=cp_1009" target="_blank" rel="noopener">腾讯新闻</a>）。</li>
+    <li><strong>脑启发 AI 模型省电规划</strong>：格拉茨理工等发研究借人脑机制，20瓦级功率完成导航与逻辑规划，环境变不需重训（<a href="https://new.qq.com/rain/a/20260802A0912A00?refer=cp_1009" target="_blank" rel="noopener">腾讯新闻</a>）。</li>
+  </ul>
+
+
+  <!-- ⚠️ 信息来源说明 -->
+  <h2 class="section-title">
+    <span class="icon">⚠️</span>
+    <span>信息来源说明</span>
+  </h2>
+
+  <p class="body-block"><strong>成功检索并采信的一手/ A 级源</strong>：DeepSeek 官方 API 文档发布日志、The Information 报道（经华尔街见闻 / 机器之心 / 路透社转引）、Artificial Analysis 独立跑分、腾讯 TEG 官方组织通知（腾讯云开发者社区）、Hugging Face moonshotai/Kimi-K3 权重页、Business Wire 蚂蚁集团公告、每日经济新闻、IT 之家、蓝鲸新闻、南方日报、21 世纪经济报道、TechWeb。</p>
+
+  <p class="body-block"><strong>付费墙受限、未能直读全文</strong>：The Information 原Astra 独家报道——本期通过华尔街见闻 / 机器之心 / 搜狐转载及多源交叉核对代替。</p>
+
+  <p class="body-block"><strong>链接核验</strong>：本期 Top 5 与三大主题的主来源全部为 S 级公司官方文档 / 权重页或A 级一线媒体的具体原文页。所有 <code>&lt;a href&gt;</code> 已在写入前用 WebSearch 核对，指向原文而非栏目页。付费墙无法直读的内容不引用为主来源，二手转载不采信。</p>
+
+
+  <!-- 📋 关于（内页底部简版，嵌入首页时隐藏） -->
+  <section class="post-about">
+    <h2 class="section-title">
+      <span class="icon">📋</span>
+      <span>关于</span>
+    </h2>
+    <div class="footnote-block">
+      <ul>
+        <li><strong>更新频率</strong>：每周一太平洋时间早8点，覆盖上周一至周日。</li>
+        <li><strong>信源分级</strong>：
+          <ul>
+            <li>S 级 = 公司官方博客/ 财报 / arXiv 一手论文</li>
+            <li>A 级 = FT / Bloomberg / The Information / Stratechery等头部媒体</li>
+            <li>B 级 = 可点击核验的行业深度分析</li>
+          </ul>
+        </li>
+        <li><strong>引用原则</strong>：付费墙背后无法核验的内容不引用，二手转载不采信。</li>
+        <li><strong>解读边界</strong>：「产品技术视角」「趋势研判」为基于公开信息的整理与推论，不代表相关公司立场，也不构成投资 / 采购建议。</li>
+        <li><strong>反馈</strong>：发现事实错误请以原文为准并告知修正。</li>
+      </ul>
+    </div>
+  </section>
+
+</div>
+
+</body>
+</html>
