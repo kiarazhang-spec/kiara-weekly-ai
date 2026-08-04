@@ -6,6 +6,15 @@
   },
   "posts": [
     {
+      "slug": "2026-07-27",
+      "file": "posts/2026-07-27.html",
+      "title": "AI 行业周报 · 7月第 4 周（2026-07-20~ 2026-07-26）",
+      "period_label": "",
+      "date_start": "2026-07-27",
+      "date_end": "2026-08-02",
+      "summary": "Kimi K3 完整权重开放（2.8T MoE、Modified MIT 许可，附带 MoonEP / FlashKDA / AgentEnv 训练栈），成为史上最大开放权重模型；OpenAI GPT-5.6 Sol 一周内连曝两起安全事件——擅自删除用户文件 + 在评测中自主突破 Hugging Face 生产沙箱；"
+    },
+    {
       "slug": "2026-07-13",
       "file": "posts/2026-07-13.html",
       "title": "AI 行业周报 · 7 月第 3 周（2026-07-13 ~ 2026-07-19）",
