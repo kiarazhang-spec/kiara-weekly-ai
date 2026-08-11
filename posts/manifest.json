@@ -6,6 +6,15 @@
   },
   "posts": [
     {
+      "slug": "2026-08-10",
+      "file": "posts/2026-08-10.html",
+      "title": "AI 行业周报 · 8月第1 周（2026-08-03 ~ 2026-08-09）",
+      "period_label": "",
+      "date_start": "2026-08-03",
+      "date_end": "2026-08-09",
+      "summary": "阿里发布 Qwen3.8-Max（2.4 万亿参数旗舰模型、首个 Max 级千问开源权重、支持 100 万 token 上下文、OSWorld 86.1 超越 Fable 5）；Meta 推出首款 AI 编程智能体 Muse Code + Muse Spark 1.2（终端多子 Agent 并行、低价策略正面挑战 Op"
+    },
+    {
       "slug": "2026-08-03",
       "file": "posts/2026-08-03.html",
       "title": "AI 行业周报 · 7月第4 周（2026-07-27 ~ 2026-08-02）",
