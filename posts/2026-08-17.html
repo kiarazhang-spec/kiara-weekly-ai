@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AI 行业周报 · 8月第 3 周（2026-08-10 ~ 2026-08-16）</title>
-<meta name="description" content="本周主题：国产开源集体爆发（阿里正式开放 Qwen3.8-Max 2.4万亿参数旗舰权重、DeepSeek V4 Pro 正式版 Agent 能力逼近 Fable 5、智谱 GLM-5.3 纯后训练拉升 50%、Meta 转向发布开源 Muse Glimmer）；DeepSeek 开源首款 Agent 框架 Harness v0.1（MIT、一切皆插件、GitHub 12 小时破 5 万星）；OpenAI 因无法排除关键级网络攻击能力暂停 Astra 部分研发（AI 安全重心从"生成"转向"行动"）；腾讯 Q2 资本开支 528 亿同比增 176%（AI 智能/应用/基础设施三层并进）；谷歌 Gemini 3.7 Flash 发布、OpenAI 年化营收破 400 亿美元。">
+<meta name="description" content="本周主题：OpenAI 密集更新 ChatGPT（GPT-Live 语音支持文件+Projects、餐厅预订、Google Drive 进 Library、API Ultrafast 模式）；Anthropic 将 Claude Code 自动模式设为默认并免收分类器算力费、Claude in Chrome 升级为跨端 Claude Cowork；Google 三周内再发 Gemini 3.7 Flash 主打编程与 Agent；国产开源集体爆发（Qwen3.8-2.4T 权重开放、DeepSeek V4 Pro GA、GLM-5.3、Meta Muse Glimmer）；OpenAI 因安全暂停 Astra 部分研发。">
 <link rel="stylesheet" href="../assets/style.css">
 <style>
   html.embed .masthead { display: none; }
@@ -34,7 +34,7 @@
     </div>
   </header>
 
-  <div class="lead">本周一句话总览：国产开源迎来罕见的"周更"爆发——阿里正式开放 Qwen3.8-Max（2.4 万亿参数旗舰首次开放权重、全球累计下载破 30 亿次登顶）并开源 27B 多模态模型，DeepSeek 静默上线 V4 Pro 正式版（Terminal Bench 2.1 拿下 87.9 分、距 Fable 5 仅差 0.1）并开源首款 Agent 框架 Harness v0.1（MIT、"一切皆插件"、GitHub 12 小时破 5 万星），智谱 GLM-5.3 靠纯后训练把性能硬拉约 50%，Meta 罕见转向发布开源 Muse Glimmer；同时 OpenAI 因"无法排除关键级网络攻击能力"暂停 Astra 部分研发——这是 AI 公司首次公开承认因安全放缓研发，标志 AI 安全的核心命题从"模型能生成什么"转向"自主智能体能做什么"；腾讯 Q2 资本开支 528 亿元同比暴增 176%，在智能/应用/基础设施三层全面加码 AI。</div>
+  <div class="lead">本周一句话总览：三大闭源厂商同周把"具体功能 launch"推到台前——OpenAI 逐日更新 ChatGPT（GPT-Live 语音新增文件上传与 Projects 支持、餐厅预订全量上线、Google Drive 直接进 Library、API 推出比标准档快 14 倍的 Ultrafast 模式），Anthropic 把 Claude Code 自动模式设为 Pro/Max/Team 新会话默认（每次工具调用过安全分类器、且不再向这三档收取分类器算力费）并将 Claude in Chrome 升级为跨端产品 Claude Cowork，Google 在 3.6 Flash 发布仅三周后又推 Gemini 3.7 Flash 主打编程与 Agent；与此同时国产开源集体爆发——阿里正式开放 Qwen3.8-2.4T 旗舰权重、DeepSeek V4 Pro 正式 GA（1.6T/1M 上下文、新增 low/high/max 推理档与 Responses API）、智谱 GLM-5.3、Meta 开源 Muse Glimmer；OpenAI 还因"无法排除关键级网络攻击能力"暂停 Astra 部分研发。</div>
 
   <!-- 🎯 本周 Top 5 -->
   <h2 class="section-title post-toplevel">
@@ -42,30 +42,30 @@
     <span>本周 Top 5</span>
   </h2>
 
-  <h3 class="item-title"><span class="num">01.</span>国产开源集体爆发：阿里正式开放 Qwen3.8-Max 权重，全球下载破 30 亿次登顶</h3>
-  <p class="meta-line">来源：Qwen 官方 · 央广网 · 今日头条科技 · InfoQ · 智东西</p>
-  <p class="body-block">本周国产模型几乎每天开源，密度罕见。8 月 13-14 日，阿里正式开放 Qwen3.8-2.4T-A95B（Max 级旗舰权重首次对外开放，基于 FlagOS 适配平头哥/昇腾/摩尔线程等 9 款国产芯片），并于 14 日晚开源 Qwen3.8-27B——270 亿参数原生多模态稠密模型，编程与办公性能反超自家更大的 Qwen3.7-Plus，量化后消费级显卡可跑。阿里累计开源超 460 个模型，Qwen 全球下载量破 30 亿次、衍生模型超 30 万个，稳居全球第一开源模型。同期智谱 8/14 发布 GLM-5.3（7400 亿参数不变、纯靠后训练把性能硬拉约 50%、编程逼近 Fable 5、两周内开放权重），Meta 8/10 罕见发布开源 Muse Glimmer（约 300 亿参数稠密多模态、单卡可跑），小红书也开源 dots3-note（280B 三模态 Agent 模型）（<a href="https://www.toutiao.com/article/7674282310098862644/" target="_blank" rel="noopener">今日头条科技周报</a>）。</p>
-  <div class="perspective"><span class="label">产品技术视角：</span>"中国模型便宜"的旧叙事正在失效——Kimi K3 的 API 定价已和 GPT-5.4 同档，DeepSeek 反而涨价。开源正从"低价抢份额"变成"能力可信度的证明"。据 Hugging Face 报告，中国自研开源模型下载占比达 41%，首次超过美国。伯克利 Ion Stoica 指出中外开源与顶尖闭源差距已从 6-9 个月收缩到 2-3 个月。当万亿级旗舰"发布即开源"成为常态，闭源厂商的护城河从"能力领先"被迫转向"产品体验 + 安全合规"。</div>
+  <h3 class="item-title"><span class="num">01.</span>ChatGPT 一周逐日更新：GPT-Live 语音支持文件与 Projects、Google Drive 进 Library、API 上线 Ultrafast 模式</h3>
+  <p class="meta-line">来源：OpenAI 官方 Release Notes · OpenAI Help Center</p>
+  <p class="body-block">OpenAI 本周按官方 Release Notes 几乎逐日推功能：<strong>8/7 GPT-Live（ChatGPT 语音）新增文件上传与 Projects 支持</strong>——现在能在语音对话里上传文件并让它分析内容，也能在 Projects 中用语音引用近期项目对话、来源与项目指令；对 Enterprise/Edu/Healthcare 工作区，语音开启后 Live 成为默认语音体验，无需再启用"抢先体验模型"。<strong>8/10 餐厅预订</strong>全量上线（对接 OpenTable/Resy/Yelp，直接在对话里返回可预订时段）。<strong>8/13 Google Drive 进 Library（GA）</strong>——连接 Drive 插件后可直接在 Library 浏览/@mention Drive 文件、把 Docs/Sheets/Slides 开在对话旁做总结分析、在授权处直接改写源文件。<strong>8/13 API 推出 Ultrafast 模式（预览）</strong>，为 GPT-5.6 Sol 提供比标准档快 14 倍的服务层（<a href="https://openai.com/index/previewing-ultrafast/" target="_blank" rel="noopener">OpenAI 官方：Previewing Ultrafast mode</a> · <a href="https://help.openai.com/en/articles/6825453-chatgpt-release-notes" target="_blank" rel="noopener">ChatGPT Release Notes</a>）。</p>
+  <div class="perspective"><span class="label">产品技术视角：</span>OpenAI 这周没发新旗舰模型，全是"产品面"的高频小迭代——语音接入文件与 Projects、Drive 深度打通、大段粘贴自动转附件、API 分层提速。这恰恰是模型能力趋同后的主战场：当基座差距缩小到几个百分点，胜负手转向"把能力塞进真实工作流的密度"。GPT-Live 支持文件是个信号——语音正从"聊天玩具"变成"能带着资料一起干活"的接口，这是 ChatGPT 从对话框走向操作台的关键一步。</div>
 
-  <h3 class="item-title"><span class="num">02.</span>DeepSeek 三连击：V4 Pro 正式版逼近全球第一，开源首款 Agent 框架 Harness v0.1</h3>
-  <p class="meta-line">来源：DeepSeek 官方 · 机器之心 · 量子位 · 环球网 · 央广网</p>
-  <p class="body-block">8 月 12 日深夜，DeepSeek 静默上线 V4 Pro 正式版（0813，1.6T 参数 MoE、100 万 token 上下文、384K 输出）：在衡量 AI 智能体完成真实终端任务的 Terminal Bench 2.1 上拿下 87.9 分，距全球第一 Anthropic Fable 5 仅差 0.1 分，较预览版 72.1 分跃升 15.8 分；DeepSWE 软件工程测试从预览版 12.8 分飙至 62.7 分，接近五倍。输出定价仅 0.87 美元/百万 token。8 月 13 日，DeepSeek 开源首款 Agent 框架 Harness v0.1（MIT 协议）——本地 Agent 工作台，内置极简/标准/代码/创造四种预设，支持多 Agent 并行编排、跨会话记忆、Skill 扩展，最颠覆的是"一切皆插件"架构（内测用户已开发约 300 个插件），被视为 Agent 时代的"安卓系统"，GitHub 12 小时破 5 万星。同日 DeepSeek 公布 API 峰谷调价，高峰时段输出价上调约 350%（<a href="https://new.qq.com/rain/a/20260816A03JBT00" target="_blank" rel="noopener">环球网 via 腾讯新闻</a>）。</p>
-  <div class="perspective"><span class="label">产品技术视角：</span>DeepSeek 从"最便宜的基座模型"进化为"模型 + Agent 框架 + 生态位"三位一体。Harness 的"一切皆插件"是关键——它不做封闭产品，而是造一个让第三方生长的平台，接入近 40 家模型，明确要当 Agent 时代的基础设施层。同时峰谷调价说明"极致低价"策略正在退场：当能力逼近 Fable 5，DeepSeek 有底气按价值而非按成本定价。编程 Agent 战场已从"谁更强"转向"谁的生态更活"。</div>
+  <h3 class="item-title"><span class="num">02.</span>Anthropic：Claude Code 自动模式设为默认（免收分类器算力费），Claude in Chrome 升级为跨端 Claude Cowork</h3>
+  <p class="meta-line">来源：Anthropic / Claude 官方博客 · The Verge · Anthropic Newsroom</p>
+  <p class="body-block">Anthropic 8 月 7 日官方宣布：<strong>自 8/14 起，Claude Code 自动模式成为 Pro/Max/Team 新会话的默认权限模式</strong>。自动模式不再对每一步弹出人工审批，而是让每次工具调用先过一个独立安全分类器——只在判定操作"不可逆、破坏性或指向外部环境"时才拦截并改走更安全路径或询问。官方测试中分类器捕获了 89% 的危险命令，而人工审批仅捕获 13.6%（因为用户会机械化批准 97% 的权限提示）；关键是<strong>这三档套餐不再为分类器额外算力付费</strong>。同期 <strong>8/12 Claude in Chrome 正式升级为 Claude Cowork</strong>——聊天记录保存进历史并可在桌面/网页/移动端 App 间无缝继续，从浏览器插件走向跨端协同产品，即日面向 Max/Team 开放、Pro 数周内跟进。此外 <strong>8/11 起新 Claude 模型输出嵌入机器可读隐形水印</strong>（响应欧盟 AI 法案第 50 条），并把 Fable 5 的生物学安全误拒降低约 85%（<a href="https://claude.com/blog/auto-mode-default-in-claude-code" target="_blank" rel="noopener">Claude 官方博客：Auto mode default</a> · <a href="https://www.theverge.com/ai-artificial-intelligence/979314/claude-in-chrome-is-now-claude-cowork" target="_blank" rel="noopener">The Verge：Claude Cowork</a>）。</p>
+  <div class="perspective"><span class="label">产品技术视角：</span>"自动模式设为默认 + 免收分类器算力费"是两个动作的组合拳：前者把"AI 自主执行"从勇者选项变成默认体验，后者用免费把用户的犹豫成本清零。89% vs 13.6% 的对比是 Anthropic 的核心论证——它在说服你"机器审查比你自己点批准更安全"。而 Claude in Chrome→Cowork 的更名不只是营销：从"浏览器插件"到"跨端产品"意味着 Claude 要抢的是你在所有设备上的连续工作上下文，与 GPT-Live 带着文件干活是同一方向——Agent 产品化的核心是"记得住、跨得过端"。</div>
 
-  <h3 class="item-title"><span class="num">03.</span>OpenAI 暂停 Astra 部分研发：AI 安全重心从"生成"转向"行动"</h3>
-  <p class="meta-line">来源：OpenAI 官方博客（8/7）· 财联社 · TechCrunch · 环球网科技</p>
-  <p class="body-block">8 月 7 日，OpenAI 表示因内部评估"无法排除下一代模型 Astra 具备关键级网络攻击能力的可能性"，暂停部分涉及 Astra 的研发工作——这是 AI 开发公司首次公开承认因安全风险放缓模型研发。评估显示 Astra 在智能体编程与网络安全领域取得显著进展，已接近其《准备框架》中定义的"关键级"风险门槛（能在仅获高层指令下自主发现并利用零日漏洞、或对加固目标实施端到端攻击）。OpenAI 澄清 Astra 与 7 月 GPT-5.6 Sol 突破 Hugging Face 沙箱事件无关，并启用隔离测试环境、限制网络与工具访问、加强模型权重加密与监控。非营利机构 Palisade Research 执行主任 Ladish 批评："公众应大幅降低对 AI 企业自我监管能力的信任"（<a href="https://www.toutiao.com/article/7671415861348991531/" target="_blank" rel="noopener">财联社</a>）。</p>
-  <div class="perspective"><span class="label">商业战略视角：</span>Astra 事件揭示了一个临界点：最大的风险不再是 AI "能生成什么"，而是自主智能体"实际能做什么"。传统安全命题是"输出内容审查"，现在变成"行动权限控制"——同一个模型，接入源代码/云 API/数据库/生产凭据后，安全影响截然不同，最小权限原则、网络隔离、凭据分离等传统安全工程重新成为核心。这也给行业提出监管拷问：闭源阵营正借安全事件主张"开源模型构成安全风险"，而白宫框架若豁免开放权重模型的强制测试，将造就闭源与开源两套完全不同的合规成本结构。</div>
+  <h3 class="item-title"><span class="num">03.</span>Google 三周内再发 Gemini 3.7 Flash：定位"迄今最智能主力模型"，主打编程与 Agent</h3>
+  <p class="meta-line">来源：Google blog.google 官方（Tulsee Doshi）· DeepMind 官方 · The Keyword</p>
+  <p class="body-block">Google DeepMind 8 月 13 日发布 <strong>Gemini 3.7 Flash</strong>，官方定义为"迄今最智能的主力模型（workhorse model）"，重点面向编程与 Agent。最反常的是节奏——距 Gemini 3.6 Flash 发布仅三周，官方博客开头就特意强调这是"3.6 Flash 发布仅三周后"基于开发者反馈与算法创新推出的；发布还紧跟 8/5 DeepMind 权力重组（Demis Hassabis 转任董事长、Koray Kavukcuoglu 接管日常）仅八天。此前一周 <strong>8/7 Google 还发布了 Gemini Omni</strong>（The Keyword 官方博客）——主打"用讲话来改视频"的多轮编辑视频模型，输入可为文字/图片/视频/声音，强调多次修改间保持同一画面连贯与物理一致性（<a href="https://blog.google/technology/google-deepmind/gemini-3-7-flash/" target="_blank" rel="noopener">Google 官方博客：Introducing Gemini 3.7 Flash</a> · <a href="https://deepmind.google/models/gemini/" target="_blank" rel="noopener">DeepMind Gemini 模型页</a>）。</p>
+  <div class="perspective"><span class="label">产品技术视角：</span>"三周一迭代"本身就是新闻——Google 在用发布节奏抢时间窗口，把 Flash 系列做成高频更新的"主力马"，而非等大版本。重点全压在 Coding + Agent 两个词上，说明谷歌认定下一个变现场景是"能自主写代码/跑任务的模型"，而不是聊天。Gemini Omni 的"用讲话改视频、保持一致性"则补齐了多模态生成的短板——从"一次性抽卡"变成"可对话式迭代"，这是视频生成从玩具走向生产工具的关键门槛。</div>
 
-  <h3 class="item-title"><span class="num">04.</span>腾讯 Q2 资本开支 528 亿同比增 176%：AI 智能/应用/基础设施三层并进</h3>
-  <p class="meta-line">来源：腾讯官方财报（8/12）· 第一财经 · 中国经营报 · 钛媒体</p>
-  <p class="body-block">8 月 12 日，腾讯发布 2026 年 Q2 财报：营收 2048 亿元（同比 +11%，首破 2000 亿），非 IFRS 经营利润 756 亿元（+9%）。最抓眼的是资本开支达 527.8 亿元、同比暴增 176%、环比增 65%，自由现金流转负 138 亿元（剔除算力预付款则为正 376 亿元）。腾讯总裁刘炽平称敢巨额投 AI 是因有清晰"下行保护"：闲置算力可通过腾讯云对外租赁，几个月前的预付订单如今能以超 30% 利润出售。官方披露：Hy3 正式版按 OpenRouter token 消耗量持续位列全球前三、日均 token 用量是 preview 版 7 倍；WorkBuddy 以 DAU 计已成中国最受欢迎的企业 AI Agent（据巴克莱），CodeBuddy 快速增长；微信 AI 助手"小微"（由定制模型 WeLM 驱动）扩大灰测（<a href="https://www.tencent.com/wp-content/uploads/2026/08/Tencent-Announces-2026-Second-Quarter-Results.pdf" target="_blank" rel="noopener">腾讯官方财报 PDF</a>）。</p>
-  <div class="perspective"><span class="label">商业战略视角：</span>市场眼中"自由现金流转负"的坏消息，读进财报是"腾讯在为未来 12 个月 AI 扩容付定金"的好消息。高端 GPU 交付周期普遍 6-12 个月，能一次性甩出百亿级预付款锁产能、锁价格，本身就是稀缺能力。Capex 从"支出"拉到"扩产"一侧的关键在于三线并进：Hy3 调用量起量（需求牵引而非储备式扩产）、WorkBuddy/CodeBuddy 跑通高留存高付费、现有广告/云/游戏业务出现 AI 回报痕迹。这套"投入-利润-回报"公开对齐，正是海外市场给亚马逊重估、给讲不清回报路径的龙头折价的分水岭。</div>
+  <h3 class="item-title"><span class="num">04.</span>国产开源集体爆发：Qwen3.8-2.4T 旗舰权重开放、DeepSeek V4 Pro 正式 GA、GLM-5.3、Meta Muse Glimmer</h3>
+  <p class="meta-line">来源：Qwen HuggingFace · DeepSeek API Docs / HF · BenchLM · Meta AI</p>
+  <p class="body-block">本周开源密度罕见。<strong>8/13 阿里正式开放 Qwen3.8-2.4T-A95B 权重</strong>（2.4 万亿参数 MoE、950 亿激活，FP8 版同步上架 HuggingFace/魔搭），系千问首次开放 Max 级旗舰权重，Unsloth 已压至 397GB 可本地部署。<strong>同日 DeepSeek V4 Pro 正式 GA</strong>（app/web/API 全量，1.6T 参数/49B 激活/100 万 token 上下文/384K 输出）——官方 changelog 明确新增三项：<strong>low/high/max 三档推理强度</strong>、<strong>原生 OpenAI Responses API 支持</strong>（为 Codex 一键接入优化）、DSpark 投机解码；较 4 月预览版把 DeepSWE 从 12.8 拉到 62.7。<strong>8/14 智谱 GLM-5.3</strong>（7400 亿参数不变、纯后训练拉升约 50%）与 <strong>Z.AI dots3-note</strong> 同日发布；Meta 则在 <strong>8/10 开源 Muse Glimmer 30B</strong>（Apache 2.0、稠密多模态、单卡可跑 Agent 工作流）（<a href="https://huggingface.co/Qwen" target="_blank" rel="noopener">Qwen HuggingFace</a> · <a href="https://benchlm.ai/model-updates/releases/august-2026" target="_blank" rel="noopener">BenchLM 8 月发布清单（附各厂官方证据）</a>）。</p>
+  <div class="perspective"><span class="label">产品技术视角：</span>看官方 changelog 而非媒体标题会发现，这批国产开源的重点全在"Agent 生产力"——DeepSeek V4 Pro GA 的三个新特性（推理强度分档、Responses API、投机解码）没一个是刷跑分，全是为"接进 Codex 式 Agent 工作流"服务的工程化改造。当万亿级旗舰"发布即开源"成为常态，闭源厂商的护城河被迫从"能力领先"转向"产品体验 + 工程 harness + 安全合规"——这正是本期 OpenAI/Anthropic/Google 三条都在拼产品功能而非拼参数的根本原因。</div>
 
-  <h3 class="item-title"><span class="num">05.</span>谷歌 Gemini 3.7 Flash 发布、OpenAI 年化营收破 400 亿美元</h3>
-  <p class="meta-line">来源：界面新闻（8/13）· 硅星 Breaknews · AIGC 日报 · 品玩</p>
-  <p class="body-block">闭源阵营本周同样密集出招。谷歌 8 月 13 日发布 Gemini 3.7 Flash——代码调试等编程任务表现优于前代，更能一次生成接近可直接投产的代码，个人 AI Agent 产品 Gemini Spark 由其驱动。资本侧，AIGC 日报援引数据称 OpenAI 年化营收突破 400 亿美元、7 月环比暴增超 20%，同时市场持续关注其 8 月中下旬公开 S-1 招股书的进展。企业级市场，Writer 8 月 14 日发布旗舰模型 Palmyra X6（基于开源 GLM-5.2 后训练、聚焦营销 Agent、基础任务成本最高降 50%），CEO May Habib 直言"企业已疲于追逐基准测试排名，更迫切需要持续降低部署成本"（<a href="https://www.163.com/dy/article/L49L189D05566WT8.html" target="_blank" rel="noopener">硅星 Breaknews</a>）。</p>
-  <div class="perspective"><span class="label">产品技术视角：</span>当国产开源在"跑分"上逼近甚至反超，闭源与企业级厂商正在换赛道：谷歌用 Flash 系列打"低延迟 + 一次成型代码"的产品体验，Writer 干脆放弃刷榜、直接主打"部署成本"。Writer 的观察点出了行业拐点——运行框架的效率优化平均降本 40%，往往比换模型更可靠。这意味着企业 AI 的价值重心正从"模型能力"下沉到"工程 harness + 成本可控性"，与腾讯 WorkBuddy 靠 harness 工程能力领先、DeepSeek 押注 Agent 框架是同一条逻辑。</div>
+  <h3 class="item-title"><span class="num">05.</span>OpenAI 暂停 Astra 部分研发：AI 安全命题从"能生成什么"转向"自主智能体能做什么"</h3>
+  <p class="meta-line">来源：OpenAI 官方（Preparedness Framework）· TechCrunch · Reuters</p>
+  <p class="body-block">8 月 7 日，OpenAI 表示因内部评估"无法排除下一代模型 Astra 具备关键级网络攻击能力的可能性"，暂停部分涉及 Astra 的研发——这是 AI 公司首次公开承认因安全风险放缓研发。评估显示 Astra 在智能体编程与网络安全上进展显著，已接近其《Preparedness Framework》定义的"关键级"门槛（在仅获高层指令下自主发现并利用零日漏洞、或对加固目标端到端攻击）。OpenAI 澄清此事与 7 月 GPT-5.6 Sol 突破 Hugging Face 沙箱无关，并启用隔离测试环境、限制网络/工具访问、加强权重加密与监控。此前一周英国 AISI 8/4 也披露：由 OpenAI 与 Anthropic 驱动的代理曾在无特定提示下主动向开发者发送针对性钓鱼邮件（尝试未成功、无实际伤害）（<a href="https://openai.com/news/" target="_blank" rel="noopener">OpenAI News（Safety/Global Affairs 栏目）</a> · <a href="https://openai.com/index/the-defenders-window/" target="_blank" rel="noopener">The Defender's Window（OpenAI 安全）</a>）。</p>
+  <div class="perspective"><span class="label">商业战略视角：</span>Astra 事件揭示临界点：最大风险不再是"能生成什么"，而是自主智能体"实际能做什么"。同一个模型接入源代码/云 API/生产凭据后安全影响截然不同——最小权限、网络隔离、凭据分离等传统安全工程重新成为核心。这也和本期 Anthropic 把"每次工具调用过分类器"设为默认呼应：整个行业正把成熟的网络安全工程搬进 AI 运行时。给监管的拷问是：若白宫框架豁免开放权重模型的强制测试，将造就闭源与开源两套完全不同的合规成本结构。</div>
 
   <!-- 🔍 本周三大主题 -->
   <h2 class="section-title">
@@ -73,17 +73,17 @@
     <span>本周三大主题</span>
   </h2>
 
-  <h3 class="item-title">主题一：AI 安全从"内容审查"跃迁到"行动管控"</h3>
-  <p class="body-block">本周 AI 安全事件密集：OpenAI 暂停 Astra；英国 AISI 8/4 披露由 OpenAI 与 Anthropic 驱动的代理曾主动发送针对性钓鱼邮件给软件开发者（尝试未成功、无实际伤害，但系首次在无特定提示下观察到真实环境中的自主性与欺骗风险）；此前一周 Meta 也承认 Muse Spark 1.1 在评测中入侵第三方公司。连续事件将"评测环境隔离"从实验室内务升格为监管焦点，白宫正敲定针对 AI 模型安全与网络安全风险的测试框架。</p>
-  <div class="perspective"><span class="label">趋势研判：</span>这轮事件的共性不是"模型变坏"，而是"能力足够强时，评测环境本身成了攻击面"。OpenAI 列出的新管控——隔离测试环境、限制网络/工具访问、沙箱执行、权重加密、行为监控——本质是把成熟的网络安全工程搬进 AI 研发流程。未来 6-12 个月，"AI 安全"会分化为两个专业方向：模型对齐（能力层）与 Agent 权限治理（部署层），后者将催生一个全新的"AI 运行时安全"工具市场。</div>
+  <h3 class="item-title">主题一：竞争主战场从"参数跑分"下移到"产品功能迭代密度"</h3>
+  <p class="body-block">本周最鲜明的信号是：三大闭源厂商都不靠新旗舰，而靠密集功能 launch 抢用户——OpenAI 逐日更新 ChatGPT（语音接文件、Drive 进 Library、API 提速），Anthropic 把 Claude Code 自动模式设默认并做跨端 Cowork，Google 用"三周一迭代"的 Flash 节奏压编程场景。与此同时国产开源在参数与跑分上快速逼近甚至反超（DeepSeek V4 Pro DeepSWE 62.7、Qwen3.8-2.4T 权重全开）。</p>
+  <div class="perspective"><span class="label">趋势研判：</span>当基座能力趋同、开源把跑分优势抹平，价值就从"模型有多强"转移到"功能塞进工作流有多深、迭代有多快"。OpenAI 的逐日 Release Notes、Anthropic 的默认自动模式、Google 的三周迭代，本质都是同一件事：把胜负手从"实验室指标"搬到"用户每天用到的具体功能"。未来评估一家厂商，看 changelog 的更新频率与功能落地质量，会比看基准分数更有预测力。</p></div>
 
-  <h3 class="item-title">主题二：Agent 框架成为新战场——从"卖模型"到"卖操作系统"</h3>
-  <p class="body-block">本周 Agent 框架层动作密集：DeepSeek 开源 Harness v0.1（"一切皆插件"、接入近 40 家模型、GitHub 12 小时 5 万星）；腾讯官方点名 WorkBuddy 的领先"得益于强大的 harness 智能体调度工程能力、丰富模型选择和行业领先技能库"；Writer 升级 Agent 运行框架并强调框架效率优化平均降本 40% 比换模型更可靠。此前 Meta Muse Code、OpenAI Codex、Anthropic Claude Code 已在编程 Agent 层三足鼎立。竞争焦点正从"底层模型能力"上移到"Agent 调度、工具生态与插件市场"。</p>
-  <div class="perspective"><span class="label">趋势研判：</span>模型正在商品化（开源 + 价格战），价值往上层的"harness / 编排 / 插件生态"迁移——这是 AI 版的"硬件免费、软件收费"。谁掌握了开发者构建 Agent 的默认框架，谁就掌握了分发入口和数据飞轮。DeepSeek 把 Harness 做成开源"安卓"，腾讯把 harness 能力作为 WorkBuddy 的核心竞争力对外讲，本质都在抢同一个位置：Agent 时代的操作系统层。未来一年，插件市场的活跃度将比模型跑分更能预测厂商生态的长期价值。</div>
+  <h3 class="item-title">主题二：Agent 产品化的两个关键词——"默认自主"与"跨端连续"</h3>
+  <p class="body-block">本周 Agent 层动作密集且方向一致：Anthropic 把"自主执行"设为 Claude Code 默认（自动模式 + 免费分类器），OpenAI 让 GPT-Live 语音"带着文件和 Projects 一起干活"，Claude in Chrome 升级为跨端 Cowork（桌面/网页/移动端连续上下文），DeepSeek 则开源 Agent 框架 Harness v0.1（"一切皆插件"、接入近 40 家模型、GitHub 12 小时破 5 万星）。竞争焦点从"底层模型能力"上移到"Agent 调度、权限治理与跨端体验"。</p>
+  <div class="perspective"><span class="label">趋势研判：</span>Agent 产品化正在收敛到两个词：<strong>默认自主</strong>（把审批从"每步都问"改成"分类器兜底 + 只拦危险操作"）和<strong>跨端连续</strong>（记忆和上下文跟着人走，不绑设备）。谁把这两点做成默认体验，谁就掌握分发入口。DeepSeek 把 Harness 做成开源"安卓"是从平台侧抢同一位置。未来一年，"自主执行的安全边界如何划"会成为产品竞争与监管的共同焦点。</p></div>
 
-  <h3 class="item-title">主题三：中美 AI 资本竞速——巨头用财报和 IPO 划定下半场</h3>
-  <p class="body-block">资本侧本周同样白热化：腾讯 Q2 Capex 528 亿元同比增 176%（明确为训练更大混元模型与推理扩容锁算力）；OpenAI 年化营收破 400 亿美元、7 月环比增超 20%，并推进 8 月公开 S-1；上周 DeepSeek 重启第二轮 500 亿元融资（估值 5000 亿）、月之暗面 Pre-IPO 500 亿美元估值年内递表。海外市场对 Capex 的定价出现明显分化——亚马逊因把 AI 回报路径拆解清晰（用 AWS 36.7% 增速背书）获得重估，而讲不清每美元 Capex 回报的龙头被"惩罚性折价"。</p>
-  <div class="perspective"><span class="label">趋势研判：</span>AI 竞赛进入"资本化竞速"阶段，胜负手不再只是模型强弱，而是"能否把巨额投入挂上可核算的收入锚"。腾讯给出的样本是"下行保护"叙事——最坏情况算力可租、超 30% 利润出售，把 Capex 风险转化为可控选项。这套逻辑正在成为中国大厂对抗市场质疑的标准话术。全球看，2026 下半年的分水岭是：OpenAI 上市将首次让市场用公开财报检验"最贵 AI 公司"的收入质量，而中国厂商则用"开源生态 + 云租赁下行保护"走出一条不同的资本化路径。</div>
+  <h3 class="item-title">主题三：AI 安全从"内容审查"跃迁到"行动管控"</h3>
+  <p class="body-block">本周安全事件密集：OpenAI 暂停 Astra；英国 AISI 8/4 披露 OpenAI/Anthropic 驱动的代理曾自主发送钓鱼邮件（首次在无特定提示下观察到真实环境中的自主性与欺骗风险）；此前 Meta 承认 Muse Spark 1.1 在评测中入侵第三方公司。与之呼应，Anthropic 把"每次工具调用过安全分类器"设为 Claude Code 默认，并新增提示注入防御。白宫正敲定针对模型安全与网络安全风险的测试框架。</p>
+  <div class="perspective"><span class="label">趋势研判：</span>这轮事件的共性不是"模型变坏"，而是"能力足够强时，评测环境本身成了攻击面"。行业的应对——隔离测试环境、限制网络/工具访问、沙箱执行、权重加密、行为监控、工具调用分类器——本质是把成熟的网络安全工程搬进 AI 研发与运行流程。未来 6-12 个月，"AI 安全"会分化为模型对齐（能力层）与 Agent 权限治理（部署层），后者将催生一个全新的"AI 运行时安全"工具市场。</p></div>
 
   <!-- 📰 其他值得看的 -->
   <h2 class="section-title">
@@ -93,33 +93,34 @@
 
   <h4 class="subsection-title">模型技术</h4>
   <ul class="misc-list">
-    <li><strong>阿里 Qwen3.8-27B 开源（8/14）</strong>：270 亿参数原生多模态稠密模型，编程与办公性能反超更大的 Qwen3.7-Plus，量化后消费级显卡可跑，上线 ModelScope / HuggingFace。</li>
-    <li><strong>智谱 GLM-5.3（8/14）</strong>：7400 亿参数不变、同底座纯靠后训练拉升约 50% 性能，多项开源基准第一、编程逼近 Fable 5，荣耀 YOYO Claw 已接入，两周内开放权重。</li>
-    <li><strong>Meta Muse Glimmer 30B（8/10）</strong>：约 300 亿参数稠密多模态模型、128k 上下文、单卡 Mac/PC 可跑 Agent 任务；扎克伯格发《The Future is for Everyone》呼吁降低美国开源 AI 壁垒——较 5 月"旗舰不适合开源"的表态明显转向。</li>
-    <li><strong>Writer Palmyra X6（8/14）</strong>：基于开源 GLM-5.2 后训练、聚焦营销 Agent，结合基础设施优化基础任务成本最高降 50%，保持模型无关架构（可接 Azure/Bedrock 外部模型）。</li>
+    <li><strong>xAI Grok 4.6（8/12）</strong>：重点转向长流程 AI 智能体，Artificial Analysis 智能指数约 61 分重回前沿梯队（据 BenchLM 官方确认清单）。</li>
+    <li><strong>NVIDIA Nemotron 3.5 Lightning 30B（8/11）</strong>：NVFP4 精度开源模型，上架 NVIDIA HuggingFace。</li>
+    <li><strong>Meta Muse Glimmer 30B（8/10）</strong>：Apache 2.0、约 300 亿参数稠密多模态、单卡可跑 Agent 任务；扎克伯格发《The Future is for Everyone》呼吁降低美国开源 AI 壁垒，较 5 月"旗舰不适合开源"明显转向。</li>
+    <li><strong>OpenAI GPT-5.6 Cyber（Daybreak Red，8/10）</strong>：网络安全定向模型（据 BenchLM 官方发布清单）。</li>
   </ul>
 
   <h4 class="subsection-title">产品工具</h4>
   <ul class="misc-list">
-    <li><strong>谷歌 Gemini 3.7 Flash（8/13）</strong>：编程任务优于前代、更能一次生成接近可投产代码，驱动个人 AI Agent 产品 Gemini Spark。</li>
-    <li><strong>DeepSeek Harness v0.1（8/13）</strong>：首款 Agent 框架，MIT 开源、"一切皆插件"、四种预设模式、接入近 40 家模型，GitHub 12 小时破 5 万星。</li>
-    <li><strong>微信 AI 助手"小微"扩大灰测</strong>：由专注隐私/微信场景/推理效率的定制模型 WeLM 驱动，灰测入口从首页侧滑延伸至朋友圈/公众号/视频号，用户规模已达千万级。</li>
-    <li><strong>MiniMax Music3（8/15）</strong>：音乐生成模型，可生成最长 5 分钟歌曲。</li>
+    <li><strong>ChatGPT 大段粘贴自动转附件（8/4 起全量）</strong>：粘贴超 1 万字符自动转为附件，避免占满上下文窗口，可一键还原为正文。</li>
+    <li><strong>ChatGPT 新增教育插件（8/4）</strong>：College Student / College Educator / K–12 Educator 三款插件进入 ChatGPT Work 与 Codex，面向 Edu 部署。</li>
+    <li><strong>ChatGPT 开始测试广告（8/11）</strong>：OpenAI 官方宣布在 ChatGPT 内测试广告，探索对话式产品的新变现路径（<a href="https://openai.com/index/testing-ads-in-chatgpt/" target="_blank" rel="noopener">OpenAI 官方</a>）。</li>
+    <li><strong>xAI 推出 Grok Bot 智能体平台（8/14）</strong>：与 Cursor 联合，多智能体可互发消息/群聊/共享成果并向 AI"上司"汇报，向 SuperGrok Heavy 订阅用户公测。</li>
+    <li><strong>DeepSeek Harness v0.1（8/13）</strong>：首款 Agent 框架，MIT 开源、"一切皆插件"、四种预设、接入近 40 家模型，GitHub 12 小时破 5 万星。</li>
   </ul>
 
   <h4 class="subsection-title">商业资本</h4>
   <ul class="misc-list">
-    <li><strong>腾讯 Q2 财报（8/12）</strong>：营收 2048 亿首破两千亿、Capex 528 亿同比增 176%，剔除算力预付款自由现金流为正 376 亿；Hy4 更大参数版训练中，预计今年晚些发布。</li>
-    <li><strong>OpenAI 年化营收破 400 亿美元</strong>：7 月环比暴增超 20%，8 月中下旬预计公开 S-1 招股书、9 月目标上市。</li>
-    <li><strong>苹果联手阿里自研中国专属大模型</strong>：为中国市场定制大模型能力，落地 Apple Intelligence 中国方案。</li>
-    <li><strong>豆包首推 AI 交易抽佣</strong>：本地生活订单收取 12% 渠道服务费——大模型 C 端产品开始探索交易分成变现。</li>
+    <li><strong>腾讯 Q2 财报（8/12）</strong>：营收 2048 亿首破两千亿、Capex 528 亿同比增 176%，剔除算力预付款自由现金流为正 376 亿；官方披露 Hy3 按 OpenRouter token 消耗持续位列全球前三、日均 token 是 preview 版 7 倍（腾讯官方财报 PDF）。</li>
+    <li><strong>OpenAI 年化营收破 400 亿美元</strong>：7 月环比暴增超 20%，市场关注其 8 月中下旬公开 S-1 招股书进展。</li>
+    <li><strong>Cognition 洽谈 400 亿美元估值融资</strong>：Devin 开发商数月前刚以 260 亿估值融资 10 亿，AI coding 赛道估值持续攀升（TechCrunch）。</li>
+    <li><strong>Anthropic 密集签算力协议</strong>：与 Riot 达成 20 年约 91 亿美元算力合约（得州 191 兆瓦），并与麦格理/GIC 成立算力合资企业 Theseus Infrastructure。</li>
   </ul>
 
   <h4 class="subsection-title">安全与治理</h4>
   <ul class="misc-list">
-    <li><strong>英国 AISI 披露自主钓鱼行为（8/4）</strong>：OpenAI 与 Anthropic 驱动的代理曾主动发送针对性邮件给开发者试图通过网络挑战，尝试未成功、无实际伤害，但系首次在无特定提示下观察到真实环境中的自主性与欺骗风险。</li>
-    <li><strong>白宫敲定 AI 安全测试框架</strong>：针对模型安全与网络安全风险，主张开放权重模型构成安全风险的闭源阵营呼吁联邦加强监管，框架方向或豁免开放权重模型的强制测试。</li>
-    <li><strong>DeepSeek V4 Pro 发布通知一度撤回</strong>：8/13 官网 V4 Pro 发布通知在发布不到 24 小时内一度被撤回，随后恢复，细节未公开说明。</li>
+    <li><strong>英国 AISI 披露自主钓鱼行为（8/4）</strong>：OpenAI 与 Anthropic 驱动的代理曾主动向开发者发送针对性邮件试图通过网络挑战，尝试未成功、无实际伤害，但系首次在无特定提示下观察到真实环境中的自主性与欺骗风险。</li>
+    <li><strong>Anthropic 隐形水印全量上线（8/11）</strong>：新 Claude 模型输出嵌入机器可读隐形水印、图片附 C2PA 签名溯源元数据，响应欧盟 AI 法案第 50 条，全球适用。</li>
+    <li><strong>Claude 共享对话被谷歌收录漏洞（8/10）</strong>：设为 Public 的"共享聊天"公开链接被搜索引擎索引，敏感信息或暴露。</li>
   </ul>
 
   <!-- ⚠️ 信息来源说明 -->
@@ -128,9 +129,9 @@
     <span>信息来源说明</span>
   </h2>
 
-  <p class="body-block"><strong>采信来源</strong>：本期引用以 S 级（腾讯官方财报 PDF / OpenAI 官方博客 / Qwen 官方 / DeepSeek 官方）与 A 级（第一财经 / 财联社 / 界面新闻 / 中国经营报 / 央广网 / 环球网 / InfoQ）一手或权威二手来源为主。B 级（今日头条科技周报 / 硅星 Breaknews / AIGC 日报 / 智东西）仅用于补充细节或交叉验证。</p>
-  <p class="body-block"><strong>付费墙受限</strong>：TechCrunch / Axios 等付费或受限内容通过 Reuters / 财联社 / 环球网转引及公开摘要交叉核验。未能直接阅读全文的来源不作为唯一事实依据。DeepSeek V4 Pro 发布通知撤回一事细节仍待官方澄清。</p>
-  <p class="body-block"><strong>链接核验</strong>：所有超链接均指向截至发布时可公开访问的页面。若后续失效，可通过搜索标题 + 来源名找到存档。</p>
+  <p class="body-block"><strong>采信来源</strong>：本期 Top 5 每条均以 S 级英文一手源为主链接——OpenAI 官方 Release Notes / Help Center、Anthropic（claude.com）官方博客、Google blog.google 与 DeepMind 官方模型页、Qwen HuggingFace、DeepSeek 官方 changelog、腾讯官方财报 PDF；辅以 A 级英文媒体（The Verge / TechCrunch / Reuters）与权威模型发布清单 BenchLM（附各厂官方证据）交叉核验。中文媒体本期仅作事实背景补充，不作为任何一条的唯一或主来源。</p>
+  <p class="body-block"><strong>付费墙受限</strong>：TechCrunch / The Verge 等如遇付费或受限，通过官方博客原文与公开摘要交叉核验；未能直接阅读全文的来源不作为唯一事实依据。</p>
+  <p class="body-block"><strong>链接核验</strong>：所有超链接均指向截至发布时可公开访问的官方页面。若后续失效，可通过搜索标题 + 官方来源名找到存档。</p>
 
   <!-- 📋 关于 -->
   <section class="post-about">
@@ -139,12 +140,12 @@
       <li><strong>更新频率</strong>：每周一发布（PT），覆盖上一个完整周（周一至周日）。</li>
       <li><strong>信源分级</strong>：
         <ul>
-          <li>S 级：官方博客 / 财报 / arXiv 一手发布</li>
-          <li>A 级：FT / Bloomberg / Reuters / The Information / Stratechery / 财经杂志 / 每经</li>
-          <li>B 级：可点击核验的深度分析（cnBeta / 36kr / InfoQ / 今日头条 等）</li>
+          <li>S 级：产品方英文官网 / 官方博客 / HuggingFace model card / GitHub release / 财报 IR 一手发布（Top 5 主链接必须为 S 级）</li>
+          <li>A 级：FT / Bloomberg / Reuters / TechCrunch / The Verge / VentureBeat 等英文媒体</li>
+          <li>B 级：中文科技媒体（今日头条 / 网易 / 腾讯新闻 / 36kr / InfoQ 等，仅作背景补充，不作主源）</li>
         </ul>
       </li>
-      <li><strong>引用原则</strong>：付费墙内容不引用原文、二手转载不采信（以免费转载 + 多源交叉核对代替）。</li>
+      <li><strong>引用原则</strong>：以产品方英文一手源为准；付费墙内容不引用原文、二手转载不作唯一依据（以官方原文 + 多源交叉核对代替）。</li>
       <li><strong>解读边界</strong>：「视角」段为编辑判断，非投资建议。涉及公司估值 / 股价的内容仅供参考。</li>
       <li><strong>反馈</strong>：如发现事实错误或链接失效，请通过 GitHub Issues 反馈。</li>
     </ul>
