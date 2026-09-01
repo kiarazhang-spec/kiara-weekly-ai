@@ -6,6 +6,15 @@
   },
   "posts": [
     {
+      "slug": "2026-08-31",
+      "file": "posts/2026-08-31.html",
+      "title": "AI 行业周报 · 8月第4 周（2026-08-24 ~ 2026-08-30）",
+      "period_label": "",
+      "date_start": "2026-08-24",
+      "date_end": "2026-08-30",
+      "summary": "Anthropic 成为绝对主角——它一周内把 Memory 跨 chat/Cowork 打通、让 Claude in Chrome 正式 GA、给桌面 Cowork 装上内置浏览器，还抛出\"硬件版 MCP（MHS）\"让 Claude 直接操控显微镜与机械臂，与此同时冲刺目标估值高达 2 万亿美元、拟募资超千亿的史上最"
+    },
+    {
       "slug": "2026-08-24",
       "file": "posts/2026-08-24.html",
       "title": "AI 行业周报 · 8月第3 周（2026-08-17 ~ 2026-08-23）",
