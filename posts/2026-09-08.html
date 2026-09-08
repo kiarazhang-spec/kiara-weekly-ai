@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 行业周报 · 8月第 6 周（2026-08-31 ~ 2026-09-06）</title>
+<meta name="description" content="本周是罕见的AI旗舰超级周：三大巨头在同一周内齐发新旗舰——OpenAI 9/3 正式发布 GPT-6 Astra（最强端到端多步工作模型，限量灰度，内建 misalignment 监控可自动暂停跑偏的 agent）、Anthropic 9/1 抢先推出 Fable 5.1 与授权制 Mythos 5.1（8 项基准夺冠、缓存读取降价 75%、反蒸馏机制）、Google 9/2 发布 Gemini 3.8 Flash 及安全专用 Flash Cyber；国产开源同周加码，DeepSeek 开源 V4 首个多模态实验模型、腾讯混元 Hy4 开源、Qwen3.8-Max-0902 上探 1M 上下文；这一切都发生在 OpenAI 与 Anthropic 双双冲刺 IPO 的前夜。">
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+  html.embed .masthead { display: none; }
+  html.embed .page { padding: 0; box-shadow: none; margin: 0; max-width: 100%; }
+  html.embed { background: transparent; }
+  html.embed body { background: transparent; }
+  html.embed .post-toplevel { display: none; }
+  html.embed .post-toplevel + .item-title { margin-top: 0; }
+  html.embed .post-about { display: none; }
+</style>
+<script>
+  if (new URLSearchParams(location.search).get('embed') === '1') {
+    document.documentElement.classList.add('embed');
+  }
+</script>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- 报头 -->
+  <header class="masthead">
+    <div class="masthead-kicker">AI WEEKLY · 8 月第 6 周</div>
+    <h1 class="masthead-title">AI 行业周报</h1>
+    <div class="masthead-meta">
+      监测周期：2026-08-31 ~ 2026-09-06（太平洋时间） · <a href="../index.html" style="color:inherit;text-decoration:underline;">← 返回首页</a>
+    </div>
+  </header>
+
+  <div class="lead">本周一句话总览：这是一个罕见的"旗舰超级周"——OpenAI、Anthropic、Google 三大巨头在同一周内各自甩出新旗舰，而且全部卡在 IPO 前夜。OpenAI 9/3 正式发布 GPT-6 Astra（它此前几周还只是"因安全暂停训练"的传闻主角，现在落地为"最强端到端多步工作模型"，限量灰度、内建 misalignment 监控可在 agent 跑偏时自动暂停对话）；Anthropic 抢在 9/1 先手推出 Fable 5.1 + 授权制 Mythos 5.1，宣称 8 项公开基准全部夺冠、缓存读取降价 75%（agent 工作负载总成本最多降 45%）、并上线反蒸馏机制；Google 9/2 发布主力 Gemini 3.8 Flash 及网络安全专用 Flash Cyber，延续"六周三连 Flash"的周更节奏。国产开源同周继续加码：DeepSeek 开源 V4 首个多模态实验模型（MIT、DeepSWE 59.3% 反超 Opus 4.8）、腾讯混元 Hy4 开源、Qwen3.8-Max-0902 上探 1M 上下文。竞争焦点本周清晰地从"参数跑分"转向"长任务稳定性 + 企业级降本 + IPO 收入叙事"。</div>
+
+  <!-- 🎯 本周 Top 5 -->
+  <h2 class="section-title post-toplevel">
+    <span class="icon">🎯</span>
+    <span>本周 Top 5</span>
+  </h2>
+
+  <h3 class="item-title"><span class="num">01.</span>OpenAI 正式发布 GPT-6 Astra：最强端到端多步工作模型，内建 misalignment 监控</h3>
+  <p class="meta-line">来源：OpenAI 官方 Release Notes / Help Center</p>
+  <p class="body-block">悬了几周的靴子终于落地。<strong>9 月 3 日，OpenAI 正式发布 GPT-6 Astra</strong>——就是此前"因触及关键级网络能力而放缓训练"传闻里的那个模型。官方定位为"最强大的模型，为最难的端到端工作打造"，在<strong>编程、研究、computer use、以及复杂多步工作</strong>上全面提升，并能<strong>按你的模板与指令生成文档、电子表格、演示文稿，且在你追加需求或改变方向时自动适配</strong>。安全上它内建 <strong>misalignment 监控</strong>：在 agent 执行过程中异步检查"是否可能误解了你的指令"，一旦检测到潜在问题会<strong>暂停或停止对话</strong>让你复核。API 侧（Responses API）新增三项长任务控制：<strong>异步工具调用、对话中途插入指令（mid-turn steering）、以及中途调整 reasoning effort</strong>。目前<strong>仅向有限组织灰度，尚未 GA</strong>，未来数日扩量（<a href="https://help.openai.com/en/articles/6825453-chatgpt-release-notes" target="_blank" rel="noopener">ChatGPT Release Notes</a> · <a href="https://openai.com/products/release-notes/" target="_blank" rel="noopener">OpenAI Release Notes（API）</a>）。</p>
+  <div class="perspective"><span class="label">产品技术视角：</span>Astra 最值得记的不是"更强"，而是它把"安全"直接焊进了模型的运行时——misalignment 监控能在 agent 干活跑偏时自动喊停，这是把上个月那份"沙箱逃逸报告"的教训产品化了。OpenAI 这次的叙事很克制：不吹跑分（官方页确实没放基准数字，中文媒体流传的"ARC-AGI-3 99.9%"未见官方来源，存疑勿信），而是强调"端到端把一个复杂请求做到成品"+"跑偏能自动拦"。这正好回应了本周的行业主线：当模型强到能连续几小时自主操作真实系统，客户真正买单的不再是"聪明多少分"，而是"它会不会在第 40 步悄悄搞砸、以及搞砸时能不能被拦住"。限量灰度也说明 OpenAI 学乖了——先控范围、再谈 GA。</div>
+
+  <h3 class="item-title"><span class="num">02.</span>Anthropic 抢发 Fable 5.1 + Mythos 5.1：8 项基准夺冠、缓存降价 75%，一套 IPO 前的组合拳</h3>
+  <p class="meta-line">来源：Anthropic 官方博客 · Yahoo Finance / 华尔街见闻（交叉核验）</p>
+  <p class="body-block"><strong>9 月 1 日（抢在 GPT-6 前两天），Anthropic 发布 Fable 5.1 与授权制 Mythos 5.1</strong>，称其为"全球最先进的编程与知识工作模型"。二者同基座、不同安全档：Fable 5.1 面向所有用户，Mythos 5.1 仅通过美国 Cyber Verification Program 与 Life Sciences Verification Program 向审核机构开放。官方数据称 Fable 5.1 在 <strong>8 项公开基准全部第一</strong>（Terminal-Bench-Science 从上代 24.7% 跃到 52.6%），且以中低推理强度即可达到上代 Fable 5 高强度的水准。成本是重头：<strong>缓存读取价格从 $1.00 砍到 $0.25/百万 token（降 75%）</strong>，典型负载省约 25%、重度 agent 负载最高省 45%；保持 100 万 token 上下文。同步推出面向受监管机构的 <strong>Enterprise Frontier Safeguards（零数据留存 + 客户自有云存储 + 反蒸馏 CoT 签名验证）</strong>，与高盛/摩根士丹利/Visa 等 100+ 机构共建（<a href="https://www.anthropic.com/news" target="_blank" rel="noopener">Anthropic News</a>）。</p>
+  <div class="perspective"><span class="label">商业战略视角：</span>把这次发布拆开看，它根本不是一次单纯的模型升级，而是一份写给资本市场的 IPO 招股说明书：① 用"缓存降价 75%"把重度 agent 场景的调用门槛打下来，锁定高频 token 消耗（Cognition 当天就把 Opus 5 流量切到 Fable 5.1）；② 用授权制 Mythos 5.1 建一道"开源追不上"的高价值护城河（政府/生科机构专供）；③ 用零留存 + 自有云的 EFS 免费送，把受监管大客户的迁移成本焊死。三招合起来就是"上市前把企业收入飞轮转起来给高估值背书"。抢在 GPT-6 前两天发，也是精准卡位——先把"当前最强"的话语权抓在手里，免得被 OpenAI 抢了 IPO 路演的风头。</div>
+
+  <h3 class="item-title"><span class="num">03.</span>Google 发布 Gemini 3.8 Flash + Flash Cyber：六周三连 Flash，主攻长周期软件工程与安全</h3>
+  <p class="meta-line">来源：Google DeepMind 官方博客</p>
+  <p class="body-block"><strong>9 月 2 日，Google DeepMind 发布 Gemini 3.8 Flash</strong>（内部代号 Skimaki），距上一款 Flash 仅三周、六周内第三款 Flash 模型。官方定位为高性价比主力，核心直指<strong>长周期软件工程、自主 Agent 与复杂企业级工作流</strong>，在内部 Jetski 对比测试中工程师对它的偏好一度超过 Anthropic Opus，显著缩小了 Google 在编程上与 OpenAI/Anthropic 的差距。同场发布网络安全专属版 <strong>Gemini 3.8 Flash Cyber</strong>（共享同一基座，专攻漏洞发现与修复）。本周 Google 还密集补枪：<strong>9/1 agentic 视频理解</strong>（Flash 系列动态导航视频时间轴，长视频 token 最多省 88%、成本降 66%）、<strong>9/3 WeatherNext 3</strong>（5 公里分辨率逐小时气象模型，已进 Search/Maps）、<strong>Lyria 3.5</strong> 整曲生成，并<strong>正式停用近十年的 Google Assistant、由 Gemini 接棒</strong>（<a href="https://deepmind.google/models/gemini/" target="_blank" rel="noopener">Google DeepMind（Gemini 模型页）</a> · <a href="https://blog.google/technology/google-deepmind/" target="_blank" rel="noopener">Google 官方博客（DeepMind）</a>）。</p>
+  <div class="perspective"><span class="label">商业战略视角：</span>Google 这周的打法和 OpenAI/Anthropic 形成鲜明对比——别人发"最强旗舰"，Google 发的是"最快主力 Flash"。这背后是一个被逼出来的战略选择：据报 Google 最强的 Pro/Gemini 4 旗舰延期数月、内部 3.5 Pro 候选因提升不够被砍，于是它索性把资源全压到成本更低、迭代更快的 Flash 路线，用"周更"节奏让 Flash 渗透进搜索、Android 和十亿级用户日常。这其实是一条更聪明的"农村包围城市"：在旗舰跑分上暂时落后，就用分发规模 + 迭代密度 + 全家桶（视频/气象/音乐/助手接棒）把用户锁在生态里。风险是 Flash 被迫扛起"技术代言人"却要同时应付速度与复杂任务的双重考验——在 Gemini 4 真正登场前，这个错位会一直存在。</div>
+
+  <h3 class="item-title"><span class="num">04.</span>国产开源超级周：DeepSeek V4 多模态、腾讯混元 Hy4、Qwen3.8-Max-0902 齐上 HuggingFace</h3>
+  <p class="meta-line">来源：HuggingFace（DeepSeek / 混元 / Qwen 官方 model card）</p>
+  <p class="body-block">海外三旗舰扎堆的同一周，国产开源没歇着。<strong>9/1 DeepSeek 开源 V4 系列首个实验性多模态模型 DeepSeek-V4-Flash-Vision-Exp</strong>（基于 V4-Flash 集成视觉、MIT 许可、约 3050 亿参数、推理成本约 $0.14/百万 token），在真实软件工程测试 DeepSWE 上以 <strong>59.3% 反超 Claude Opus 4.8 登顶</strong>，零样本视觉推理 ZeroBench 亦居首。同日 <strong>腾讯混元 Hy4 开源</strong>（官方 X 发布）、<strong>科大讯飞开源星火 X2.5 端侧双子星</strong>（4B/1.7B，端侧首个原生 100 万 token 上下文、全国产算力）。<strong>9/2 阿里发布 Qwen3.8-Max-0902</strong>，据官方 RSS 为 2.4T 参数、1M token 上下文，针对 Coding 与 Cowork 场景做后训练。加上此前的 Kimi K3（2.8T、104B 激活、开放权重），中国开源阵营在"周更"节奏上持续压缩与闭源的差距（<a href="https://huggingface.co/deepseek-ai" target="_blank" rel="noopener">DeepSeek HuggingFace</a> · <a href="https://huggingface.co/Qwen" target="_blank" rel="noopener">Qwen HuggingFace</a>）。</p>
+  <div class="perspective"><span class="label">产品技术视角：</span>本周最有意思的对照是：海外三家忙着发"授权制/限量灰度/最强旗舰"，国产四家（DeepSeek/腾讯/讯飞/阿里）忙着"开源 + 降价 + 下放端侧"。这不是巧合，而是两种商业模式的正面分野——闭源靠"能力稀缺 + 企业收入"撑 IPO 估值，开源靠"生态繁荣 + 成本碾压"抢开发者。DeepSeek V4 多模态在 DeepSWE 上反超 Opus 4.8 这个点尤其关键：当一个 MIT 许可、$0.14/百万 token 的开源模型在真实软件工程任务上超过最贵的闭源旗舰，"参数/能力领先"作为闭源护城河就基本失效了，这也正是 Anthropic 要靠授权制 Mythos、OpenAI 要靠端到端产品+安全监控来重建壁垒的根本原因。要留意的仍是"实验性"与"许可漂移"：Vision 是 exp 版、各家许可条款各异，企业采用前务必读许可与复现基准。</div>
+
+  <h3 class="item-title"><span class="num">05.</span>双 IPO 前夜：OpenAI 与 Anthropic 齐冲上市，把旗舰发布变成路演弹药</h3>
+  <p class="meta-line">来源：Reuters · Bloomberg / 华尔街见闻（交叉核验）</p>
+  <p class="body-block">本周所有旗舰发布的共同背景，是两家头部实验室的 IPO 倒计时。<strong>Anthropic 据报计划在美国劳动节后公开招股书，最快 9 月底至 10 月初登陆美股，目标估值约 2 万亿美元</strong>（市销率约 30 倍，2028 年目标营收 1900–2000 亿、约 80% 来自 API/企业按量计费）——若成行将刷新 SpaceX 的 IPO 纪录。<strong>OpenAI 则已于 6 月秘密向 SEC 提交 S-1</strong>，但 CFO Sarah Friar 本周在全员会上把预期<strong>下调为"计划 2027 年成为上市公司"</strong>，淡化 Anthropic 抢跑影响，称 IPO"只是里程碑、又一次融资机会"。两家都在用发布节奏为估值服务：Anthropic 用 Fable 5.1 的降本 + EFS 抢企业收入，OpenAI 用 GPT-6 Astra 的能力 + 安全叙事巩固领先。资本侧也在同步加码，前沿模型算力军备竞赛的巨额合同本周继续成为常态（<a href="https://www.reuters.com/technology/" target="_blank" rel="noopener">Reuters Technology</a>）。</p>
+  <div class="perspective"><span class="label">商业战略视角：</span>把 Top 1–4 全部放到"双 IPO 前夜"这个背景下，本周的逻辑就通了：三大旗舰不是技术日历的巧合，而是资本日历的产物。Anthropic 抢发、OpenAI 紧跟、Google 周更，本质都是在给各自的估值叙事供弹药——Anthropic 讲"企业渗透 + 收入飞轮"、OpenAI 讲"能力代差 + 安全可控"、Google 讲"分发规模 + 全家桶"。而 CFO 把 OpenAI IPO 从"年内"改口"2027"，是一个值得注意的信号：它要么是真觉得没准备好，要么是不想在 Anthropic 的 2 万亿估值旁边被直接比较。对旁观者的启示是：未来半年评估这些公司，"每单位智能的成本 + 企业续费率 + 长任务成功率"会比"发布了什么新模型"更能决定它们在公开市场值多少钱——模型是弹药，收入才是靶心。</div>
+
+  <!-- 🔍 本周三大主题 -->
+  <h2 class="section-title">
+    <span class="icon">🔍</span>
+    <span>本周三大主题</span>
+  </h2>
+
+  <h3 class="item-title">主题一：三大旗舰同周齐发——"旗舰超级周"背后是资本日历，不是技术日历</h3>
+  <p class="body-block">一周内 OpenAI（GPT-6 Astra 9/3）、Anthropic（Fable 5.1 9/1）、Google（Gemini 3.8 Flash 9/2）各发新旗舰，加上国产四家开源密集出货，是 AI 史上罕见的发布密度。而这一切都压在 OpenAI 与 Anthropic 的 IPO 前夜。</p>
+  <div class="perspective"><span class="label">趋势研判：</span>发布节奏正在被资本节奏绑架。当两家头部实验室同时冲刺上市，"发布即路演"成为默认打法——谁先发、发什么、强调什么，都服务于估值叙事而非单纯技术就绪。这带来两个后果：其一，旗舰发布会越来越密、越来越"卡点"（抢在对手前两天、卡在招股书前一周）；其二，官方叙事会从"跑分炫技"转向"企业能用、能省钱、能合规"，因为公开市场投资人看的是收入飞轮而非基准分。对读者的实用提醒：在 IPO 窗口期，厂商自报的"8 项基准第一""代际飞跃"要打折看，交叉核验官方一手页 + 独立第三方评测，别被路演话术带节奏（本周"ARC-AGI-3 99.9%"这类未见官方来源的数字就是典型）。</p></div>
+
+  <h3 class="item-title">主题二：竞争焦点从"参数跑分"转向"长任务稳定性"与"每单位智能成本"</h3>
+  <p class="body-block">本周三大旗舰不约而同强调同一件事：不是更聪明，而是能连续几小时自主干活不跑偏。GPT-6 Astra 内建 misalignment 监控可自动暂停跑偏 agent；Fable 5.1 主打"多步任务全程稳定输出、遇卡点主动告知"；Gemini 3.8 Flash 直指长周期软件工程。同时成本叙事全面前置——Anthropic 缓存降价 75%、Google Flash 主打性价比、国产开源 $0.14/百万 token。</p>
+  <div class="perspective"><span class="label">趋势研判：</span>这是基座能力趋同后的必然转向。当各家旗舰在标准基准上只剩个位数差距（且开源已追平），"参数/跑分"不再是有效卖点，价值转移到两个更难做假的维度：一是"长任务稳定性"——模型能不能在第 40 步不悄悄搞砸，这直接决定 agent 能不能真正托付真实工作；二是"每单位智能成本"——OpenAI CFO 本周的原话是"企业不再无脑刷 token，而是精细计算每单位智能的成本"。未来评估一个模型，看它的 changelog（长任务能力、稳定性机制、缓存/降本策略）会比看它的基准分更有预测力。谁能同时把"强大自主"和"可控 + 便宜"做成默认，谁才能留在企业账单上。</p></div>
+
+  <h3 class="item-title">主题三：闭源筑"授权制护城河"，开源打"成本碾压战"，两条路线正式分野</h3>
+  <p class="body-block">本周两种模式对照鲜明：闭源方向，Anthropic 用授权制 Mythos 5.1（政府/生科专供）+ 免费 EFS 数据合规建高价值壁垒，OpenAI 用限量灰度 + 端到端 + 安全监控巩固领先；开源方向，DeepSeek V4 多模态（MIT、反超 Opus 4.8）、腾讯混元 Hy4、讯飞端侧、Qwen3.8-Max 齐发，继续用开放权重 + 极致低价抢生态。</p>
+  <div class="perspective"><span class="label">趋势研判：</span>"开源 vs 闭源"已经从口水战变成两条清晰的商业路线分野。闭源方看清了：既然能力护城河被开源填平，就把壁垒迁到"开源拿不到的地方"——授权制的高风险能力（网络安全/生科）、企业级数据合规、以及深度嵌入工作流的产品体验。开源方则押注：用繁荣的生态 + 碾压式成本，让"能力足够好 + 便宜到无脑用"成为多数场景的默认。对企业采用方的启示很实际：选型别再只看榜单名次，要按场景分层——高风险/强合规场景可能只能走闭源授权，而大量常规 agent/编码/多模态场景，开源模型的 TCO 优势会越来越难被闭源追上。同时警惕"许可漂移"（授权制、bespoke license、只开文本不开多模态），采用前务必读许可文件本身。</p></div>
+
+  <!-- 📰 其他值得看的 -->
+  <h2 class="section-title">
+    <span class="icon">📰</span>
+    <span>其他值得看的</span>
+  </h2>
+
+  <h4 class="subsection-title">模型技术</h4>
+  <ul class="misc-list">
+    <li><strong>Google agentic 视频理解（9/1）</strong>：Gemini 3.7/3.6 Flash 与 3.5 Flash-Lite 动态导航视频时间轴（按需取帧/音频/字幕），长视频 token 最多省 88%、成本降 66%、准确率高 7%，API 同价（DeepMind 官方博客）。</li>
+    <li><strong>Google WeatherNext 3（9/3）</strong>：5 公里分辨率、逐小时全球气象模型，较上代精度显著提升，已进 Search/Maps/Earth Engine/Gemini App。</li>
+    <li><strong>DeepSeek-V4-Flash-Vision-Exp（9/1）</strong>：V4 系列首个多模态实验模型，MIT、约 3050 亿参数，DeepSWE 59.3% 反超 Opus 4.8（HuggingFace）。</li>
+    <li><strong>科大讯飞星火 X2.5 端侧双子星（9/1）</strong>：4B/1.7B，端侧首个原生 100 万 token 上下文、全国产算力训练，已上 HF/GitHub。</li>
+  </ul>
+
+  <h4 class="subsection-title">产品工具</h4>
+  <ul class="misc-list">
+    <li><strong>GPT-6 Astra API 长任务控制（9/3）</strong>：Responses API 新增异步工具调用、mid-turn steering（响应中途插指令）、中途调 reasoning effort 并保留缓存前缀（OpenAI Release Notes）。</li>
+    <li><strong>OpenAI 浏览器扩展扩容（8/31）</strong>：ChatGPT 扩展支持 Edge/Brave/Opera/Vivaldi（此前仅 Chrome）；桌面内置浏览器支持 Site tools（WebMCP）。</li>
+    <li><strong>OpenAI 医疗公共数据插件（9/1）</strong>：面向美国临床医生版，接入九个公共医疗数据源（研究/临床试验/药物/Medicare），只读、不触患者病历。</li>
+    <li><strong>Google 停用 Google Assistant（9/4）</strong>：近十年语音助手退场，符合条件 Android 设备自动切换 Gemini；Docs/Gmail/Keep 上线 Gemini 语音交互。</li>
+  </ul>
+
+  <h4 class="subsection-title">商业资本</h4>
+  <ul class="misc-list">
+    <li><strong>Anthropic 冲 2 万亿 IPO（本周）</strong>：劳动节后公开招股书、最快 9 月底至 10 月初上市，市销率约 30 倍，2028 目标营收 1900–2000 亿（Reuters/Bloomberg）。</li>
+    <li><strong>OpenAI IPO 预期下调（本周）</strong>：CFO Sarah Friar 全员会称"计划 2027 年上市"，淡化 Anthropic 抢跑，称 IPO 只是里程碑。</li>
+    <li><strong>可灵获国家队约 14 亿注资（9/1）</strong>：视频生成赛道国家级资本入场（中文媒体报道）。</li>
+    <li><strong>前沿模型算力合同持续放量（本周）</strong>：头部实验室算力军备竞赛延续，巨额算力合同成常态（Bloomberg）。</li>
+  </ul>
+
+  <h4 class="subsection-title">安全与治理</h4>
+  <ul class="misc-list">
+    <li><strong>GPT-6 Astra misalignment 监控（9/3）</strong>：agent 执行中异步检查是否误解指令，检测到潜在问题自动暂停/停止对话待人工复核（OpenAI 官方）。</li>
+    <li><strong>Anthropic 反蒸馏 + 独立审查（9/1）</strong>：Fable 5.1 上线思维链签名验证防蒸馏；就近期两起安全事件计划与 METR 合作独立审查。</li>
+    <li><strong>Google Gemini 3.8 Flash Cyber（9/2）</strong>：面向网络安全机构的专属版本，专攻漏洞发现与修复，与主力共享基座。</li>
+    <li><strong>反垄断：Google 免遭拆分（本周）</strong>：美国反垄断裁决 Google 免于业务拆分，但仍面临韩国抽成索赔等多地监管压力。</li>
+  </ul>
+
+  <!-- ⚠️ 信息来源说明 -->
+  <h2 class="section-title">
+    <span class="icon">⚠️</span>
+    <span>信息来源说明</span>
+  </h2>
+
+  <p class="body-block"><strong>采信来源</strong>：本期 Top 5 每条均以 S 级英文一手源为主链接——OpenAI 官方 Release Notes / Help Center（GPT-6 Astra 能力与安全监控）、Anthropic 官方博客（Fable 5.1/Mythos 5.1/EFS）、Google DeepMind 官方博客（Gemini 3.8 Flash / agentic 视频 / WeatherNext 3）、HuggingFace 官方 model card（DeepSeek / 混元 / Qwen）。资本类事件（双 IPO、估值）以 Reuters / Bloomberg / Yahoo Finance / 华尔街见闻交叉核验。中文媒体本期仅作事实背景补充，不作任何一条的唯一或主来源。</p>
+  <p class="body-block"><strong>付费墙受限与存疑数据</strong>：Reuters / Bloomberg 等如遇付费或受限，通过官方声明原文与多家英文摘要交叉核验。特别提示：中文媒体流传的"GPT-6 Astra ARC-AGI-3 99.9%""8 项基准全部第一"等具体跑分，未在官方一手页核实到，本期不作为事实采信，仅在"视角"中提示存疑。最终以公司正式公告与 model card 为准。</p>
+  <p class="body-block"><strong>链接核验</strong>：所有超链接均指向截至发布时可公开访问的官方页面或权威机构栏目页。若后续失效，可通过搜索标题 + 官方来源名找到存档。</p>
+
+  <!-- 📋 关于 -->
+  <section class="post-about">
+    <h2>📋 关于本周报</h2>
+    <ul>
+      <li><strong>更新频率</strong>：每周一发布（PT），覆盖上一个完整周（周一至周日）。</li>
+      <li><strong>信源分级</strong>：
+        <ul>
+          <li>S 级：产品方英文官网 / 官方博客 / HuggingFace model card / GitHub release / 财报 IR 一手发布（Top 5 主链接必须为 S 级）</li>
+          <li>A 级：FT / Bloomberg / Reuters / TechCrunch / The Verge / VentureBeat 等英文媒体</li>
+          <li>B 级：中文科技媒体（今日头条 / 网易 / 腾讯新闻 / 36kr / InfoQ 等，仅作背景补充，不作主源）</li>
+        </ul>
+      </li>
+      <li><strong>引用原则</strong>：以产品方英文一手源为准；付费墙内容不引用原文、二手转载不作唯一依据（以官方原文 + 多源交叉核对代替）。</li>
+      <li><strong>解读边界</strong>：「视角」段为编辑判断，非投资建议。涉及公司估值 / 股价的内容仅供参考。</li>
+      <li><strong>反馈</strong>：如发现事实错误或链接失效，请通过 GitHub Issues 反馈。</li>
+    </ul>
+  </section>
+
+</div>
+</body>
+</html>
